@@ -351,7 +351,7 @@
 			</div>
 			<div id = "content1-2-2">
 				
-			<a href="/views/Repwd.jsp"><button class="btn" name="mybtn">비밀번호수정</button></a>
+			<a href="/views/member/Repwd.jsp"><button class="btn" name="mybtn">비밀번호수정</button></a>
 			</div>
 			<div id = "content1-2-3">
 		

@@ -41,4 +41,19 @@ public class MemberService {
 		return member;
 		
 	}
+	
+	
+	
+	public int RePwd(String userId, String Pwd) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = new MemberDao().RePwd(conn,userId,Pwd);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		return result;
+	}
 }

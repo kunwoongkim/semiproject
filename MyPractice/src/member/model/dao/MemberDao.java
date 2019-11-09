@@ -117,5 +117,29 @@ public class MemberDao {
 		
 		return member;
 	}
+	
+	
+	public int RePwd(Connection conn,String userId, String Pwd) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query ="update MEMBER SET USER_PW=? WHERE USER_ID=?";
+		
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1, Pwd);
+			pstmt.setString(2, userId);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
+	}
 
 }
