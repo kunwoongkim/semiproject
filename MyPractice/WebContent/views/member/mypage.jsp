@@ -323,14 +323,7 @@
 			</li>
 			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈의집찾기</a></li>
 			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈증기증</a></li>
-						<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지</a>
-			<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">회원정보수정</a>
-			<a class="dropdown-item" href="#">내가쓴 글보기</a>	
-			<a class="dropdown-item" href="#">내가쓴 댓글보기</a>	
-					
-				</div>
-			</li>
+		
 		
 		</ul>
 		
@@ -358,7 +351,7 @@
 			</div>
 			<div id = "content1-2-2">
 				
-			<a href="#"><button class="btn" name="mybtn">비밀번호수정</button></a>
+			<a href="/views/Repwd.jsp"><button class="btn" name="mybtn">비밀번호수정</button></a>
 			</div>
 			<div id = "content1-2-3">
 		
