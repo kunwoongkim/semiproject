@@ -95,6 +95,11 @@ body{
 		width: 300px;
 		height: 40px;
 	}
+	 a:link { color: red; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
+
+
+
 	
 	</style>
 
@@ -104,7 +109,7 @@ body{
 	<div id = "container">
 	<div id = "header">
 		<div id = "header1"></div>
-		<div id = "header2"><center><br><br><br><br><br><br><br><br><span id="title">REDLINE</span></center></div>
+		<div id = "header2"><center><br><br><br><br><br><br><br><br><a href="/index.jsp"><span id="title">REDLINE</span></a></center></div>
 		<div id = "header3"></div>
 		</div>
 	<div id = "content">
