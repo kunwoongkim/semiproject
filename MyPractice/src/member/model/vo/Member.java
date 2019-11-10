@@ -2,20 +2,37 @@ package member.model.vo;
 
 public class Member {
 
-	private String userId ;
+	private String userId;
 	private String userPw;
 	private int usernum1;
-	private int usernum2;
-	private String  userName;
+	private String userName;
 	private String userNickName;
 	private String addr;
 	private String phone;
 	private String email;
 	private String BloodType;
 	private String Gender;
-	
+	private String question;
+	private String answer;
+
 	public Member() {
-		
+
+	}
+
+	public String getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 
 	public String getUserId() {
@@ -40,14 +57,6 @@ public class Member {
 
 	public void setUsernum1(int usernum1) {
 		this.usernum1 = usernum1;
-	}
-
-	public int getUsernum2() {
-		return usernum2;
-	}
-
-	public void setUsernum2(int usernum2) {
-		this.usernum2 = usernum2;
 	}
 
 	public String getUserName() {
@@ -105,6 +114,5 @@ public class Member {
 	public void setGender(String gender) {
 		Gender = gender;
 	}
-	
-	
+
 }
