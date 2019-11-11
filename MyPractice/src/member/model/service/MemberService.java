@@ -67,7 +67,6 @@ public class MemberService {
 	public Member selectNickName(String userNickName) {
 		Connection conn = JDBCTemplate.getConnection();
 		Member member = new MemberDao().selectNickName(conn, userNickName);
-
 		JDBCTemplate.close(conn);
 		return member;
 	}

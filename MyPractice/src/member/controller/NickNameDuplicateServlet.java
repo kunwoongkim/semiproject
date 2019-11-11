@@ -38,7 +38,7 @@ public class NickNameDuplicateServlet extends HttpServlet {
 		String userNickName = request.getParameter("userNickName");
 		Member mOne = new MemberService().selectNickName(userNickName);
 		boolean NickUsable = mOne == null ? true : false;
-
+		
 		request.setAttribute("userNickName", userNickName); //위에 변수로 만들어서 가져온 값을 여기 넣어서 아래 주소로 보내준다
 		request.setAttribute("NickUsable", NickUsable);
 		RequestDispatcher views = request.getRequestDispatcher("/views/member/NickNameDuplicate.jsp");

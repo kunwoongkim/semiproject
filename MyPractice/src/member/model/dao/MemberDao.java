@@ -203,7 +203,16 @@ public class MemberDao {
 
 			if (rset.next()) {
 				member = new Member();
-				member.setUserNickName(rset.getString("USER_NICKNAME"));			
+				member.setUserId(rset.getString("USER_ID"));
+				member.setUserPw(rset.getString("USER_PW"));
+				member.setUsernum1(rset.getInt("USER_NUMBER1"));
+				member.setUserName(rset.getNString("USER_NAME"));
+				member.setUserNickName(rset.getString("USER_NICKNAME"));
+				member.setAddr(rset.getString("ADDR"));
+				member.setPhone(rset.getString("PHONE"));
+				member.setEmail(rset.getString("EMAIL"));
+				member.setBloodType(rset.getString("BLOOD_TYPE"));
+				member.setGender(rset.getString("GENDER"));			
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
