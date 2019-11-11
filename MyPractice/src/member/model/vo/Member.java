@@ -13,7 +13,16 @@ public class Member {
 	private String email;
 	private String BloodType;
 	private String Gender;
-	
+	private String Question;
+	private String Answer;
+	public String getAnswer() {
+		return Answer;
+	}
+
+	public void setAnswer(String answer) {
+		Answer = answer;
+	}
+
 	public Member() {
 		
 	}
@@ -104,6 +113,14 @@ public class Member {
 
 	public void setGender(String gender) {
 		Gender = gender;
+	}
+
+	public String getQuestion() {
+		return Question;
+	}
+
+	public void setQuestion(String question) {
+		Question = question;
 	}
 	
 	

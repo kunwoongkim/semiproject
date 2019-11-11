@@ -41,4 +41,28 @@ public class MemberService {
 		return member;
 		
 	}
+	
+	
+	
+	public int RePwd(String userId, String Pwd) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = new MemberDao().RePwd(conn,userId,Pwd);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		return result;
+	}
+	
+	public Member questionPwd(String question,String answer,String memberId) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		Member member= new MemberDao().questionPwd(conn,question,answer,memberId);
+		
+		JDBCTemplate.close(conn);
+		return member;
+	}
 }
