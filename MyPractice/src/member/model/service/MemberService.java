@@ -56,4 +56,13 @@ public class MemberService {
 		}
 		return result;
 	}
+	
+	public Member questionPwd(String question,String answer,String memberId) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		Member member= new MemberDao().questionPwd(conn,question,answer,memberId);
+		
+		JDBCTemplate.close(conn);
+		return member;
+	}
 }

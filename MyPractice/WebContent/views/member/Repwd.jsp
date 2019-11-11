@@ -2,6 +2,8 @@
     pageEncoding="UTF-8" import= "member.model.vo.Member,java.util.*"%>
  <% 
  	Member member = (Member) session.getAttribute("member");
+ 	
+ 	Member answer = (Member) request.getAttribute("answer");
  %>
 <!DOCTYPE html>
 <html>
@@ -356,7 +358,7 @@
 			<div id="content2-2-2">
 			<center>
 			<br><br><br><br><br><br>
-			<form action="/RePwd" method="post">
+			
 			현재 비밀번호 입력:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
 			<div class="input-group mb-3" id="pwd">
     <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" id="pass" >
@@ -365,29 +367,35 @@
     </div>
   </div> 	
   </center>
-	<center>
+  <form action="/answer?memberId=<%= member.getUserId() %>" method="post">
+  <center>
+	
 			
-			변경할 비밀번호 입력:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
+			비밀번호찾기 질문 : 
+			<select id = "question" name="question">
+			<option>당신의 초등학교 이름은?</option>
+			<option>당신의 보물 1호는?</option>
+			<option>당신의 첫사랑 이름은?</option>
+			<option>유년시절 별명은?</option>
+			<option>가장 기억이 남는 날짜는?</option>
+			</select><br>
+	 </center>
+	 <center>
+  			정답 입력:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
 			<div class="input-group mb-3" id="pwd">
-    <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" name="password" id="REPWD">
-   
-  </div> 	
-  </center>
-				
-	<center>
-			
-			변경할 비밀번호 확인:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
-			<div class="input-group mb-3" id="pwd">
-    <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" id="REPWDCHECK">
-   
-  </div> 	
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-		<input type="submit"  class = "btn btn-success" onclick="return checkPwd()">	
-  </center>
+    <input type="text" class="form-control" placeholder="비밀번호찾기 정답을 입력해주세요" name="answer" id="answer">
+    <div class="input-group-append" >
+      <input type="button" value="확인" id="questionbtn">
+ </center>
+ </form>
+ 
+ 
+   <form action="/RePwd" method="post" id="updatepassword">	
+ 
 			</form>
 			
 			</div>
+		
 			<div id="content2-2-3"></div>
 			<div></div>
 			</div>
@@ -402,30 +410,50 @@
 	<script>
 	$(document).ready(function(){
 		
+		var flag = false;
+		var flagqw = false;
 		$("#gobtn").click(function(){
 			
 			if($("#pass").val() == "<%= member.getUserPw() %>")
 			{
 		   		alert("비밀번호가 일치합니다.");
+		   		flag = true;
 			}else{
 				alert("비밀번호가 틀렸습니다.");
 
 			}
 		})
 		
-		function checkPwd(){
+		
+			$("#questionbtn").click(function(){
 			
-			if($("#REPWD").val() == $("#REPWDCHECK").val()){
-				
-				return true;
-				
+			if($("#question").val() == "<%= member.getQuestion() %>" && $("#answer").val()== "<%= member.getAnswer() %>" )
+			{
+		   		
+				alert("비밀번호 질문과 답이 일치합니다");
+				flagqw = true;
 			}else{
-				
-				alert("변경할 비밀번호가 일치하지 않습니다.");
-				return false;
+				alert("비밀번호 질문과 답을 확인하세요");
+
 			}
 			
-		}
+			
+	if(flag == true && flagqw == true){
+				
+				$.ajax({
+					url : "<%= request.getContextPath() %>/views/member/updatepassword.html",
+					type : "GET",
+					dataType : "html",
+					success : function(data){
+						$("#updatepassword").html(data);
+					}
+				});
+			}
+		})
+		
+		
+		
+		
 		})	
 	
 	
