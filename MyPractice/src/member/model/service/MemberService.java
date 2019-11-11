@@ -17,7 +17,13 @@ public class MemberService {
 			
 			
 	}
-	
+public Member selectId(String userId) {
+		
+		Connection conn = JDBCTemplate.getConnection();
+		Member member = new MemberDao().selectId(conn,userId);
+		JDBCTemplate.close(conn);
+		return member;
+	}
 	
 	public int updateMember(Member member) {
 		Connection conn = JDBCTemplate.getConnection();
@@ -62,6 +68,28 @@ public class MemberService {
 		
 		Member member= new MemberDao().questionPwd(conn,question,answer,memberId);
 		
+		JDBCTemplate.close(conn);
+		return member;
+	}
+	
+	
+	public int insertMember(Member member) { //회원가입
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new MemberDao().insertMember(conn, member);
+
+		if (result > 0) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+	
+	
+	public Member selectNickName(String userNickName) {
+		Connection conn = JDBCTemplate.getConnection();
+		Member member = new MemberDao().selectNickName(conn, userNickName);
 		JDBCTemplate.close(conn);
 		return member;
 	}

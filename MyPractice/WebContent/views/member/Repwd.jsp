@@ -436,22 +436,23 @@
 				alert("비밀번호 질문과 답을 확인하세요");
 
 			}
-			
-			
-	if(flag == true && flagqw == true){
-				
-				$.ajax({
-					url : "<%= request.getContextPath() %>/views/member/updatepassword.html",
-					type : "GET",
-					dataType : "html",
-					success : function(data){
-						$("#updatepassword").html(data);
-					}
-				});
-			}
+	
+	
 		})
 		
-		
+		function(){
+			if(flag == true && flagqw == true){
+						
+						$.ajax({
+							url : "<%= request.getContextPath() %>/updatePassword",
+							type : "GET",
+							dataType : "html",
+							success : function(data){
+								$("#updatepassword").html(data);
+							}
+						});
+					}
+					}
 		
 		
 		})	

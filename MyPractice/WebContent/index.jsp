@@ -296,7 +296,7 @@
 		<a href="/logout"><button class="btn">로그아웃</button></a></div>
 		<% }else{ %>
 		<center><a href="views/member/loginPage.jsp"><button class="btn btn-success" id="searchbtn">로그인</button></a>
-		<button class="btn btn-success" id="searchbtn">회원가입</button></center>
+		<a href="/views/member/EnrollPage.jsp"><button class="btn btn-success" id="searchbtn">회원가입</button></a></center>
 		<%} %>	
 		</div>	
 		</div>
