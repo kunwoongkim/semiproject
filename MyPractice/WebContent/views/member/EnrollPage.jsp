@@ -426,12 +426,12 @@ td {
 
 								<tr>
 									<td name="td">생년월일 :</td>
-									<td><input type="text" name="usernum1"></td>
+									<td><input type="text" name="usernum1" id="usernum1"></td>
 								</tr>
 
 								<tr>
 									<td name="td">이름 :</td>
-									<td><input type="text" name="userName"></td>
+									<td><input type="text" name="userName" id="userName"></td>
 								</tr>
 
 								<tr>
@@ -443,18 +443,18 @@ td {
 
 								<tr>
 									<td name="td">주소 :</td>
-									<td><input type="text" name="addr"></td>
+									<td><input type="text" name="addr" id="addr"></td>
 								</tr>
 
 
 								<tr>
 									<td>핸드폰 번호 :</td>
-									<td><input type="text" name="phone"></td>
+									<td><input type="text" name="phone" id="phone"></td>
 								</tr>
 
 								<tr>
 									<td>이메일 :</td>
-									<td><input type="text" name="email"></td>
+									<td><input type="text" name="email" id="email"></td>
 								</tr>
 
 								<tr>
@@ -579,8 +579,66 @@ td {
 			
 			
 		}
+		
+		$("#usernum1").focusout(function (){
+			var usernum1 = $("#usernum1").val().trim();
+			
+			if(!(/^[0-9]{6}$/.test(usernum1))){
+				alert("생년월일은 숫자로 6글자만 입력가능합니다.");
+				return false;
+			}
+			
+		});
 	
+		$("#userName").focusout(function (){
+			var userName = $("#userName").val().trim();
+			
+			if(!(/[가-힣]+$/.test(userName))){
+				alert("이름은 한글(최소 1글자)만 가능합니다.");
+				return false;
+			}
+			
+		});
 
+		$("#addr").focusout(function (){
+			var addr = $("#addr").val().trim();
+			
+			if((/[a-z]+$/i).test(addr) || addr==""){
+				alert("주소 입력은 영어 사용이 불가합니다. (공백 불가)");
+				return false;
+			}
+			
+		});
+		
+		$("#phone").focusout(function (){
+			var phone = $("#phone").val().trim();
+			
+			if(!(/[0-9]/.test(phone))){
+				alert("전화번호는 숫자만 입력가능합니다.");
+				return false;
+			}
+			
+		});
+		
+		$("#email").focusout(function (){
+			var email = $("#email").val().trim();
+			
+			if(!(/^[a-z0-9]{4,12}@/.test(email))){
+				alert("이메일을 재확인해주세요");
+				return false;
+			}
+			
+		});
+		
+		$("#answer").focusout(function (){
+			var answer = $("#answer").val().trim();
+			
+			if(!answer || answer.length < 1){
+				alert("힌트 답안을 입력해주세요");
+				return false;
+			}
+			
+		});
 </script>
 
 

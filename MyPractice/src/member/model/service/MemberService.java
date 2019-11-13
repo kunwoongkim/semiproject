@@ -5,8 +5,22 @@ import java.sql.Connection;
 import common.JDBCTemplate;
 import member.model.dao.MemberDao;
 import member.model.vo.Member;
+import member.model.vo.PageData;
 
 public class MemberService {
+	
+	public PageData selectList(int currentPage){
+		Connection conn = JDBCTemplate.getConnection();
+		int recordCountPerPage =10;
+		int naviCountPerPage=5;
+		PageData pd = new PageData();
+		
+		pd.setPageList(new MemberDao().selectList(conn,currentPage,recordCountPerPage));
+		pd.setPageNavi(new MemberDao().getPageNavi(conn,currentPage, recordCountPerPage,naviCountPerPage));
+		
+		JDBCTemplate.close(conn);
+		return pd;
+	}
 	
 	public Member selectMember(String userId,String userPwd) {
 		

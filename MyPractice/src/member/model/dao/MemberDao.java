@@ -4,11 +4,133 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import common.JDBCTemplate;
 import member.model.vo.Member;
 
 public class MemberDao {
+
+	public ArrayList<Member> selectList(Connection conn, int currentPage, int recordCountPerPage) {
+
+		ArrayList<Member> memList = new ArrayList<Member>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		int start = currentPage * recordCountPerPage - (recordCountPerPage - 1);
+		int end = currentPage * recordCountPerPage;
+
+		String query = "SELECT * FROM (Select ROW_NUMBER() OVER(ORDER BY USER_ID DESC) AS NUM, MEMBER.* FROM MEMBER) where NUM between ? and ?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			rset = pstmt.executeQuery();
+			memList = new ArrayList<Member>();
+
+			while (rset.next()) {
+				Member mOne = new Member();
+				mOne.setUserId(rset.getString("USER_ID"));
+				mOne.setUserPw(rset.getString("USER_PW"));
+				mOne.setUsernum1(rset.getInt("USER_NUMBER1"));
+				mOne.setUserName(rset.getString("USER_NAME"));
+				mOne.setUserNickName(rset.getString("USER_NICKNAME"));
+				mOne.setAddr(rset.getString("ADDR"));
+				mOne.setPhone(rset.getString("PHONE"));
+				mOne.setEmail(rset.getString("EMAIL"));
+				mOne.setBloodType(rset.getString("BLOOD_TYPE"));
+				mOne.setGender(rset.getString("GENDER"));
+				mOne.setQuestion(rset.getString("QUESTION"));
+				mOne.setAnswer(rset.getString("ANSWER"));
+
+				memList.add(mOne);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return memList;
+	}
+
+	public String getPageNavi(Connection conn, int currentPage, int recordCountPerPage, int naviCountPerPage) {
+		int recordTotalCount = totalCount(conn);
+		int PageTotalCount = 0;// 전체 페이지 개수
+
+		if (recordTotalCount % recordCountPerPage > 0) {
+			PageTotalCount = recordTotalCount / recordCountPerPage + 1;
+		} else {
+			PageTotalCount = recordTotalCount / recordCountPerPage;
+		}
+		if (currentPage < 1) {
+			currentPage = 1;
+		} else if (currentPage > PageTotalCount) {
+			currentPage = PageTotalCount;
+		}
+		int startNavi = ((currentPage - 1) / naviCountPerPage) * naviCountPerPage + 1;
+		int endNavi = startNavi + naviCountPerPage - 1;
+
+		if (endNavi > PageTotalCount) {
+			endNavi = PageTotalCount;
+		}
+		boolean needPrev = true;
+		boolean needNext = true;
+
+		if (startNavi == 1) {
+			needPrev = false;
+		}
+		if (endNavi == PageTotalCount) {
+			needNext = false;
+		}
+
+		StringBuilder sb = new StringBuilder();
+		if (needPrev) {
+			sb.append("<a href='/memberAll?currentPage=" + (startNavi - 1) + "'>< </a>");
+		}
+		for (int i = startNavi; i <= endNavi; i++) {
+			if (i == currentPage) {
+				sb.append("<a href='/memberAll?currentPage=" + i + "'><b>" + i + "</b></a>");
+
+			} else {
+				sb.append("<a href='/memberAll?currentPage=" + i + "'>" + i + "</a>");
+			}
+		}
+		if (needNext) {
+			sb.append("<a href='/memberAll?currentPage=" + (endNavi + 1) + "'> ></a>");
+		}
+		return sb.toString();
+	}
+	
+	
+	public int totalCount(Connection conn) {
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
+		int recordTotalCount =0;
+		
+		String query = "SELECT COUNT(*) AS TOTALCOUNT FROM MEMBER";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			rset = pstmt.executeQuery();
+			rset.next();
+			recordTotalCount = rset.getInt("TOTALCOUNT");
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return recordTotalCount;
+	}
+
+	
+	
 	
 	public Member selectId(Connection conn, String userId) {
 		Member member = null;
@@ -19,9 +141,8 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, userId);
 			rset = pstmt.executeQuery();
-			
-			if(rset.next())
-			{
+
+			if (rset.next()) {
 				member = new Member();
 				member.setUserId(rset.getString("USER_ID"));
 				member.setUserPw(rset.getString("USER_PW"));
@@ -34,22 +155,20 @@ public class MemberDao {
 				member.setBloodType(rset.getString("BLOOD_TYPE"));
 				member.setGender(rset.getString("GENDER"));
 			}
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			
+		} finally {
+
 			JDBCTemplate.close(pstmt);
 			JDBCTemplate.close(rset);
 		}
-		
+
 		return member;
 	}
-	
-	
-	
-	public Member selectMember(Connection conn , String userId, String userPwd) {
+
+	public Member selectMember(Connection conn, String userId, String userPwd) {
 		Member member = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -59,9 +178,8 @@ public class MemberDao {
 			pstmt.setString(1, userId);
 			pstmt.setString(2, userPwd);
 			rset = pstmt.executeQuery();
-			
-			if(rset.next())
-			{
+
+			if (rset.next()) {
 				member = new Member();
 				member.setUserId(rset.getString("USER_ID"));
 				member.setUserPw(rset.getString("USER_PW"));
@@ -74,26 +192,25 @@ public class MemberDao {
 				member.setBloodType(rset.getString("BLOOD_TYPE"));
 				member.setGender(rset.getString("GENDER"));
 			}
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			
+		} finally {
+
 			JDBCTemplate.close(pstmt);
 			JDBCTemplate.close(rset);
 		}
-		
+
 		return member;
 	}
-	
-	
+
 	public int updateMember(Connection conn, Member member) {
-		
+
 		PreparedStatement pstmt = null;
-		int result = 0 ;
+		int result = 0;
 		String query = "UPDATE MEMBER SET USER_NUMBER1=?,USER_NAME=?,USER_NICKNAME=?,ADDR=?,PHONE=?,EMAIL=? WHERE USER_ID=?";
-		
+
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, member.getUsernum1());
@@ -104,21 +221,20 @@ public class MemberDao {
 			pstmt.setString(6, member.getEmail());
 			pstmt.setString(7, member.getUserId());
 			result = pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			
+		} finally {
+
 			JDBCTemplate.close(pstmt);
 		}
-		
+
 		return result;
 	}
-	
-	
+
 	public Member MyPage(Connection conn, String userId) {
-		
+
 		Member member = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -126,11 +242,10 @@ public class MemberDao {
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, userId);
-			
+
 			rset = pstmt.executeQuery();
-			
-			if(rset.next())
-			{
+
+			if (rset.next()) {
 				member = new Member();
 				member.setUserId(rset.getString("USER_ID"));
 				member.setUserPw(rset.getString("USER_PW"));
@@ -143,22 +258,20 @@ public class MemberDao {
 				member.setBloodType(rset.getString("BLOOD_TYPE"));
 				member.setGender(rset.getString("GENDER"));
 			}
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			
+		} finally {
+
 			JDBCTemplate.close(pstmt);
 			JDBCTemplate.close(rset);
 		}
-		
+
 		return member;
 	}
-	
-	
-	
-	public int insertMember(Connection conn, Member member) { //회원가입
+
+	public int insertMember(Connection conn, Member member) { // 회원가입
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String query = "INSERT INTO MEMBER VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -189,7 +302,7 @@ public class MemberDao {
 		}
 		return result;
 	}
-	
+
 	public Member selectNickName(Connection conn, String userNickName) {
 		PreparedStatement pstmt = null;
 		Member member = null;
@@ -212,7 +325,7 @@ public class MemberDao {
 				member.setPhone(rset.getString("PHONE"));
 				member.setEmail(rset.getString("EMAIL"));
 				member.setBloodType(rset.getString("BLOOD_TYPE"));
-				member.setGender(rset.getString("GENDER"));			
+				member.setGender(rset.getString("GENDER"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
