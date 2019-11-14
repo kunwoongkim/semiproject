@@ -6,6 +6,7 @@
    
       
  %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +29,7 @@
 	
 	<style>
 div {
-	/*       border: 1px solid black;*/
+/* 	border: 1px solid black; */
 	box-sizing: border-box;
 }
 
@@ -38,16 +39,19 @@ div {
 }
 
 #header {
+float: left;
 	height: 7%;
 	width: 100%;
 }
 
 #content {
+float: left;
 	height: 80%;
 	width: 100%;
 }
 
 #footer {
+float: left;
 	height: 5%;
 	width: 100%;
 }
@@ -73,6 +77,7 @@ div {
 	float: left;
 	height: 100%;
 	width: 20%;
+	background-color : #fba9a1;
 }
 
 input[id^=search] {
@@ -275,18 +280,18 @@ button[name=mybtn] {
 	font-size: 20px;
 }
 
-table {
-	border: 1px solid #EAEAEA;
-}
+
 
 td {
 	height: 50px;
-	width: 40px
+	width: 40px;
 }
+	#table{
+			
+			width: 70%;
+			height: 100%;
+		}
 </style>
-</head>
-<body>
-
 </head>
 
 <body>
@@ -344,25 +349,14 @@ td {
 				</nav>
 			</div>
 			<div id="header3">
-				<div id="header3-1" style="background-color: #fba9a1">
-					<img src="../../images/login_icon.png" id="loginimg">
-				</div>
-				<div id="header3-2" style="background-color: #fba9a1">
-					<% if(member != null){ %>
-			<div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext"><%=member.getUserName() %>님 환영합니다</span><br>
-		<a href="/views/member/myPwd.jsp"><button class="btn">마이페이지</button></a>
-		<a href="/logout"><button class="btn">로그아웃</button></a></div>
-		<% }else{ %>
-		<center><a href="views/member/loginPage.jsp"><button class="btn btn-success" id="searchbtn">로그인</button></a>
-		<a href="/views/member/EnrollPage.jsp"><button class="btn btn-success" id="searchbtn">회원가입</button></a></center>
-		<%} %>	
-
+				
+		
+	
 		
 
 				</div>
 			</div>
-		</div>
+	
 		<div id="content">
 
 			<div id="content1">
@@ -403,10 +397,10 @@ td {
 					<div id="content2-2-2">
 
 
-						<br> <br>
-
+						
 						<form action="/enroll" method="post">
-							<table style="width: 800px">
+						<center>
+							<table id="table">
 								<tr>
 									<td name="td">아이디 :</td>
 									<td><input type="text" name="userId" id="userId">
@@ -477,7 +471,7 @@ td {
 
 
 								<tr>
-									<td name="td">비밀번호 힌트 :</td>
+									<td name="td">비밀번호 <br>힌트 :</td>
 									<td><select name="question" id="question">
 											<option name="q_elementry" id="q_elementry">당신의 초등학교
 												이름은?</option>
@@ -490,30 +484,35 @@ td {
 								</tr>
 
 								<tr>
-									<td name="td">비밀번호 힌트 답안 :</td>
+									<td name="td">비밀번호 <br>힌트 답안 :</td>
 									<td><input type="text" name="answer" id="answer"></td>
 								</tr>
+							
 
-
-
+								<tr>
+									<td></td>
+									<td>	<input type="submit" value="회원가입" onclick="return send()" />&nbsp;&nbsp;&nbsp;&nbsp;<input
+									type="reset" value="취소"></td>
+								
+								</tr>
+								
 							</table>
-							<br>
-							<center>
-								<input type="submit" value="회원가입" onclick="return send()" />&nbsp;&nbsp;&nbsp;&nbsp;<input
-									type="reset" value="취소">
-
 							</center>
+							<br>
+							
+							
 						</form>
 
 
 					</div>
 					<div id="content2-2-3"></div>
-					<div></div>
+					
 				</div>
 			</div>
 		</div>
 		<div id="footer">
 			<center>
+				<br>
 				<h6 style="color: darkgray">Copyright KH Corp.All rights
 					reserved</h6>
 			</center>
@@ -527,7 +526,7 @@ td {
 	<form name="checkIdDuplicateFrm" method="post">
 		<input type="hidden" name="userId">
 	</form>
-	</div>
+	
 	
 	<script>
 	var flag = false;

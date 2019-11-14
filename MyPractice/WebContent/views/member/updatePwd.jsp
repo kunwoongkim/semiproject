@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import= "member.model.vo.Member,java.util.*"%>
  <% 
- 	Member member = (Member) request.getAttribute("member");
+ 	Member member = (Member) session.getAttribute("member");
+ 	
+ 	Member answer = (Member) request.getAttribute("answer");
  %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<script src="../../jquery-2.0.0.js"></script>
+	<script src="../../js/jquery-2.0.0.js"></script>
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -17,6 +19,7 @@
 	
 <style>
 	div{
+		
 		box-sizing: border-box;
 	}
 	
@@ -110,12 +113,6 @@
 		
 	}
 		#content1-2-3{
-		float: left;
-		height: 10%;
-		width: 100%;
-		
-	}
-	#content1-2-4{
 		float: left;
 		height: 10%;
 		width: 100%;
@@ -286,9 +283,12 @@
 		height:50px;
 		width: 500px;
 	}
-	 a:link { color: red; text-decoration: none;}
- a:visited { color: black; text-decoration: none;}
+	#pwd{
 	
+		width:400px;	
+	}
+		 a:link { color: red; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
 	
 	</style>
 	
@@ -323,7 +323,7 @@
 			</li>
 			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈의집찾기</a></li>
 			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈증기증</a></li>
-		
+				
 		
 		</ul>
 		
@@ -345,75 +345,57 @@
 		
 		<div id = "content1-1"><center><br><h1>마이페이지</h1></center></div>
 		<div id= "content1-2">
-			<div id = "content1-2-1">
-				
-			<a href="/updateReady"><button class="btn" name="mybtn">회원정보수정</button></a>
-			</div>
-			<div id = "content1-2-2">
-				
-			<a href="/views/member/Repwd.jsp"><button class="btn" name="mybtn">비밀번호수정</button></a>
-			</div>
-			<div id = "content1-2-3">
-		
-			<a href="#"><button class="btn" name="mybtn">내가쓴글보기</button></a>
-			
-			
-			</div>
-	
-			
 			</div>
 		</div>
 		<div id = "content2">
 		<div id = "content2-1">&nbsp;
 			<br>
-			<h2>&nbsp;&nbsp;&nbsp;&nbsp;회원정보</h2>
+			<h2>&nbsp;&nbsp;&nbsp;&nbsp;비밀번호변경</h2>
 			<hr>
 			</div>
 		<div id ="content2-2">
 			<div id="content2-2-1"></div>
 			<div id="content2-2-2">
 			<center>
-				<table border="1">
-				<tr>
-					<th>이름</th>
-					<td>&nbsp<%= member.getUserName() %></td>
-					</tr>
-				<tr>
-					<th>닉네임</th>
-					<td>&nbsp<%= member.getUserNickName() %></td>
-					</tr>
-				<tr>
-					<th>생년월일</th>
-					<td>&nbsp<%= member.getUsernum1() %> </td>
-					</tr>
-				<tr>
-					<th>주소</th>
-					<td>&nbsp<%= member.getAddr() %></td>
-					</tr>
-				<tr>
-					<th>전화번호</th>
-					<td>&nbsp<%= member.getPhone() %></td>
-					</tr>
-				<tr>
-					<th>이메일</th>
-					<td>&nbsp<%= member.getEmail() %></td>
-					</tr>
-				<tr>
-					<th>혈액형</th>
-					<td>&nbsp<%= member.getBloodType() %>형</td>
-					</tr>
-				<tr>
-					<th>성별</th>
-					<td>&nbsp<%= member.getGender() %></td>
-					</tr>	
-				
-				</table>
-				
-				</center>
+			<br><br><br><br><br><br>
+		
+ 
+  
+ 
+ 
+   <form action="/RePwd" method="post" id="updatepassword">	
+    변경할 비밀번호 입력:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+         <div class="input-group mb-3" id="pwd">
+    <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" name="password" id="pass" >
+    <div class="input-group-append" >
+     
+    </div>
+  </div>    
+  </center>
+     
+   <center>
+         
+         변경할 비밀번호 확인:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+         <div class="input-group mb-3" id="pwd">
+    <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요"  id="REPWD">
+     <input type="button" value="확인" id="gobtn">
+   
+  </div>    
+  </center>
+            
+   <center>
+         
+      
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+      <input type="submit"  class = "btn btn-success" id="submit">   
+  </center>
+			</form>
 			
 			</div>
+		
 			<div id="content2-2-3"></div>
-			
+			<div></div>
 			</div>
 		</div>
 		</div>
@@ -422,8 +404,68 @@
 		</div>
 	
 	</div>
+		
+		<script>
+	$(document).ready(function(){
+		
+		var	flag = false;
+		$("#gobtn").click(function(){
+			
+			
+			if($("#pass").val() == ""){
+				
+				alert( "비밀번호를 입력해주세요");
+				flag=false;
+				
+			}else if (!(/[a-zA-Z0-9]{8,10}$/.test($("#pass").val()))) 
+			{
+			
+				alert( "비밀번호는 소문자,대문자,숫자 중 8~12글자로 입력 바랍니다.");
+				flag = false;
+			}else if($("#REPWD").val() == ""){
+				
+				alert( "비밀번호확인을 입력해주세요");
+				flag=false;
+				
+			}else if (!($("#pass").val() == $("#REPWD").val())) 
+			{
+			
+				alert( "비밀번호가 일치 하지않습니다");
+				flag = false;
+			
+			}else{
+								 
+				alert( "비밀번호가 일치합니다");
+				flag = true;		 
+								 
+		}
+		})
+		
+	
+			$("#submit").click(function(){
+				
+				if(flag == true)
+					{	
+					return true;					
+					}else{
+					alert( "비밀번호를 확인해주세요");
+					return false;
+					}
+				
+			})
+			
+				
+		
+		
+		})	
 	
 	
+	
+	
+	
+	
+	
+	</script>
 
 	
 	

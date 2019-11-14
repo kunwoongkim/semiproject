@@ -418,10 +418,16 @@
 			{
 		   		alert("비밀번호가 일치합니다.");
 		   		flag = true;
+		   		
 			}else{
 				alert("비밀번호가 틀렸습니다.");
 
 			}
+			
+			if(flag==true && flagqw == true){
+				window.location.href="/views/member/updatePwd.jsp";
+			}	
+		
 		})
 		
 		
@@ -432,27 +438,26 @@
 		   		
 				alert("비밀번호 질문과 답이 일치합니다");
 				flagqw = true;
+				
 			}else{
 				alert("비밀번호 질문과 답을 확인하세요");
 
 			}
-	
-	
-		})
+			
+			if(flag == false){
+				alert("현재비밀번호를 입력해주세요");
+			}
+			
+			
+			if(flag==true && flagqw == true){
+				window.location.href="/views/member/updatePwd.jsp";
+			}	
+			
+		});
 		
-		function(){
-			if(flag == true && flagqw == true){
-						
-						$.ajax({
-							url : "<%= request.getContextPath() %>/updatePassword",
-							type : "GET",
-							dataType : "html",
-							success : function(data){
-								$("#updatepassword").html(data);
-							}
-						});
-					}
-					}
+		
+			
+				
 		
 		
 		})	

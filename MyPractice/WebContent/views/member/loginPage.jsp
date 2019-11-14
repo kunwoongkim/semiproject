@@ -95,7 +95,7 @@ body{
 		width: 300px;
 		height: 40px;
 	}
-	 a:link { color: red; text-decoration: none;}
+	 a:link { color: black; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
 
 
@@ -129,7 +129,7 @@ body{
 </div>
 			<center><input type="submit" class="btn btn-danger" value="로그인" id = "loginbtn"></center>
 				</form><br>
-				<center><input type="submit" class="btn btn-danger" value="회원가입" id = "loginbtn"></center>
+				<center><a href=/views/member/EnrollPage.jsp><button class="btn btn-danger" value="회원가입" id = "loginbtn">회원가입</button></a></center>
 				<center><button class="btn">아이디 찾기</button><button class="btn">비밀번호 찾기</button></center>
 				</div>
 				

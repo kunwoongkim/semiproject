@@ -274,14 +274,13 @@
 			</li>
 			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈의집찾기</a></li>
 			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈증기증</a></li>
-						<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지</a>
-			<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">회원정보수정</a>
-			<a class="dropdown-item" href="#">내가쓴 글보기</a>	
-			<a class="dropdown-item" href="#">내가쓴 댓글보기</a>	
+			<% if (member!= null){ %>			
+			<li class="nav-item dropdown"><a href="/views/member/myPwd.jsp"  class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지</a>
+		
 					
-				</div>
 			</li>
+			<%} %>		
+		
 		
 		</ul>
 		
@@ -316,13 +315,13 @@
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="img/헌혈장려.jpg" name ="carimg" width=1600px; height=480px;>
+      <img src="images/헌혈장려.jpg" name ="carimg" width=1600px; height=480px;>
     </div>
     <div class="carousel-item">
-      <img src="img/헌혈증.png" name ="carimg" width=1600px; height=480px;>
+      <img src="images/헌혈증.png" name ="carimg" width=1600px; height=480px;>
     </div>
     <div class="carousel-item">
-      <img src="img/혈액.png" name ="carimg" width=1600px; height=480px;>
+      <img src="images/혈액.png" name ="carimg" width=1600px; height=480px;>
     </div>
   </div>
   
@@ -452,7 +451,7 @@
 	<div id= "footer">
 		<br><br><br>
 		
-		<h6 style="color: darkgray">Copyright KH Corp.All rights reserved</h6>
+		<center><h6 style="color: darkgray">Copyright KH Corp.All rights reserved</h6></center>
 		</div>
 	
 	</div>
