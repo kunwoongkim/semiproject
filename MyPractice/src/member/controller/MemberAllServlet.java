@@ -48,7 +48,7 @@ public class MemberAllServlet extends HttpServlet {
 		
 		
 		if(!pd.getPageList().isEmpty()) {
-			RequestDispatcher views = request.getRequestDispatcher("/views/member/manager.jsp");
+			RequestDispatcher views = request.getRequestDispatcher("/views/member/memberAll.jsp");
 			request.setAttribute("pageData", pd);
 			if(member!=null) {
 				request.setAttribute("member", member);

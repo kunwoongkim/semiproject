@@ -9,7 +9,136 @@ import java.util.ArrayList;
 import common.JDBCTemplate;
 import member.model.vo.Member;
 
+
 public class MemberDao {
+	
+	public ArrayList<Member> memberSearchList(Connection conn, String search, int recordCountPerPage, int currentPage) {
+		ArrayList<Member> memList = new ArrayList<Member>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		String query = "select * FROM (Select MEMBER.*, ROW_NUMBER() OVER(ORDER BY USER_ID DESC) AS NUM FROM MEMBER WHERE USER_NAME LIKE ?) WHERE NUM BETWEEN ? and ?";
+
+		int start = currentPage * recordCountPerPage - (recordCountPerPage - 1);
+		int end = currentPage * recordCountPerPage;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, "%" + search + "%");
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			rset = pstmt.executeQuery();
+
+			while (rset.next()) {
+				Member member = new Member();
+				member.setUserId(rset.getString("USER_ID"));
+				member.setUsernum1(rset.getInt("USER_NUMBER1"));
+				member.setUserName(rset.getString("USER_NAME"));
+				member.setUserNickName(rset.getString("USER_NICKNAME"));
+				member.setAddr(rset.getString("ADDR"));
+				member.setPhone(rset.getString("PHONE"));
+				member.setEmail(rset.getString("EMAIL"));
+				member.setBloodType(rset.getString("BLOOD_TYPE"));
+				member.setGender(rset.getString("GENDER"));
+				
+				memList.add(member);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+
+		return memList;
+	}
+	
+	
+	public String getSearchPageNavi(Connection conn, int currentPage, int recordCountPerPage, int naviCountPerPage,String search) {
+
+		int recordTotalCount = getSearchTotalCount(conn, search);
+		int pageTotalCount = 0;
+
+	
+		if (recordTotalCount % recordCountPerPage > 0) {
+			pageTotalCount = recordTotalCount / recordCountPerPage + 1;
+		} else {
+			pageTotalCount = recordTotalCount / recordCountPerPage;
+		}
+	
+		if (currentPage < 1) {
+			currentPage = 1;
+		} else if (currentPage > pageTotalCount) {
+			currentPage = pageTotalCount;
+		}
+		
+		int startNavi = ((currentPage - 1) / naviCountPerPage) * naviCountPerPage + 1;
+		int endNavi = startNavi + naviCountPerPage - 1;
+		
+		if (endNavi > pageTotalCount) {
+			endNavi = pageTotalCount;
+		}
+		
+		boolean needPrev = true;
+		boolean needNext = true;
+
+		if (startNavi == 1) {
+			needPrev = false;
+		}
+		if (endNavi == pageTotalCount) {
+			needNext = false;
+		}
+
+		
+		StringBuilder sb = new StringBuilder();
+
+		if (needPrev) {
+			sb.append("<a href='/memberSearch?search=" + search + "&currentPage=" + (startNavi - 1) + "'>< </a>");
+
+		}
+		for (int i = startNavi; i <= endNavi; i++) {
+			if (i == currentPage) {
+				sb.append("<a href='memberSearch?search=" + search + "&currentPage=" + i + "'><b>" + i + "</b></a>");
+			}else {
+				sb.append("<a href='memberSearch?search=" + search + "&currentPage=" + i + "'>" + i + "</a>");
+			}
+		}
+		if(needNext) {
+			sb.append("<a href='/memberSearch?search="+search+"&currentPage="+(endNavi+1)+"'> ></a>");
+		}
+		return sb.toString();
+	}
+
+	
+	
+	public int getSearchTotalCount(Connection conn, String search) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		String query = "SELECT COUNT(*) AS TOTALCOUNT FROM MEMBER WHERE USER_NAME LIKE ?"; 
+		int recordTotalCount = 0;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, "%" + search + "%");
+			rset = pstmt.executeQuery();
+			rset.next();
+			recordTotalCount = rset.getInt("TOTALCOUNT");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return recordTotalCount;
+
+	}
+	
+	
+	
+	
+	
 
 	public ArrayList<Member> selectList(Connection conn, int currentPage, int recordCountPerPage) {
 

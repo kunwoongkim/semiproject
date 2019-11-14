@@ -9,7 +9,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<script src="js/jquery-3.4.1.min.js"></script>
+	<!-- <script src="js/jquery-3.4.1.min.js"></script> -->
+	<script src="../../js/jquery-2.0.0.js"></script>
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -291,17 +292,21 @@
 	<div id="header3">	
 	<% if(member == null){ %>
 		<center><a href="views/member/loginPage.jsp"><button class="btn btn-success" id="searchbtn">로그인</button></a>
-		<a href="views/member/EnrollPage.jsp"><button class="btn btn-success" id="searchbtn">회원가입</button></a></center>
+		<button class="btn btn-success" id="searchbtn">회원가입</button></center>
 		
 		<%}else if(member.getUserId().equals("admin")){ %>
 			<div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
 		<div id= "header3-2"><span id="logintext"><%=member.getUserName() %>님 환영합니다</span><br>
-		<a href="/views/member/adminpage.jsp" class="btn" >관리자페이지</a>
+		
+		<a href="/memberAll" class="btn" >관리자페이지</a>
 		<a href="/logout"><button class="btn">로그아웃</button></a></div>
 		
 			<%}else{%>
 				<div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
 				
+                
+                
+                
 		<div id= "header3-2"><span id="logintext"><%=member.getUserName() %>님 환영합니다</span><br>
 		<a href="/views/member/myPwd.jsp"><button class="btn">마이페이지</button></a>
 		
