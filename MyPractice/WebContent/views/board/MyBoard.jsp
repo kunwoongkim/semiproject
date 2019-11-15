@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import= "member.model.vo.Member,java.util.*"%>
+    pageEncoding="UTF-8" import= "member.model.vo.Member,java.util.*,board.model.vo.Board,board.model.vo.PageData"%>
  <% 
- 	Member member = (Member) request.getAttribute("member");
+ 	Member member = (Member) session.getAttribute("member");
+ 	PageData pd = (PageData) request.getAttribute("pageData");
+ 	ArrayList<Board> blist = pd.getPageList();
+ 	
  %>
 <!DOCTYPE html>
 <html>
@@ -275,10 +278,11 @@
 	}
 	
 	table{
-		
+		border : 1px solid #EAEAEA;
+		text-align : center;
 	}
 	th{
-		width: 90px;
+	
 		text-align: center;
 		background-color : #EAEAEA;
 	}
@@ -291,49 +295,12 @@
 		float: right;
 		margin-right: 120px;
 	}
-	 a:link { color: red; text-decoration: none;}
- a:visited { color: black; text-decoration: none;}
 	
 	</style>
 	
 	
 	<script>
-		$(document).ready(function(){
-			
-			var user_name = $("#user_name");
-			var birth = $("#birth");
-			var addr = $("#addr");
-			var email = $("#email");
-			var phone = $("#phone");
-
-
-
-			$("input:submit").click(function(){
-
-				
-				if(!(/[가-힣]+$/.test(user_name.val()))) //이름 검사
-				{
-					alert( "이름은 한글(최소1글자)만 가능합니다.");
-					return false;
-				}else if(!(/^[0-9]+$/.test(birth.val()))){
-					alert( "생년월일에 숫자만 입력해주세요 ex) 940228");
-					return false;
-				}else if(!(/^[0-9]+$/.test(phone.val()))){
-					alert( "전화번호에 숫자만 입력해주세요 ex) 01065644999");
-					return false;
-				}else if (!(/^[a-z0-9]{4,12}@/.test(email.val()))) //이메일 검사
-				{
-					alert( "이메일을 재확인해주세요");
-					return false;
-				}
-				return true;
-			})
-
 	
-
-
-
-		})
 	</script>
 	
 </head>
@@ -343,7 +310,7 @@
 	
 	<div id="container" >
 	<div id= "header">
-	<div id="header1"><center><a href="/index.jsp"><h1 id ="title">RED LINE</h1></a></center></div>
+	<div id="header1"><center><h1 id ="title">RED LINE</h1></center></div>
 	<div id="header2" >
 		<nav class="navbar navbar-expand-sm" id="nav" >
 	<div class="navbar navbar-default navbar-right" id="navdiv">
@@ -398,7 +365,7 @@
 		<div id= "content1-2">
 			<div id = "content1-2-1">
 				
-			<a href="/updateReady"><button class="btn btn-danger" name="mybtn">회원정보수정</button></a>
+			<a href="/updateReady"><button class="btn" name="mybtn">회원정보수정</button></a>
 			</div>
 			<div id = "content1-2-2">
 				
@@ -406,15 +373,13 @@
 			</div>
 			<div id = "content1-2-3">
 		
-			<a href="/myboard"><button class="btn " name="mybtn">내가쓴글보기</button></a>
+			<a href="/myboard"><button class="btn btn-danger" name="mybtn">내가쓴글보기</button></a>
 			
 			
 			</div>
-				<div id = "content1-2-4">
-		
-			<a href="#"><button class="btn" name="mybtn">내가쓴댓글보기</button></a>
+			<div id = "content1-2-4">
 			
-			
+		<a href="#"><button class="btn" name="mybtn">내가쓴댓글보기</button></a>
 			</div>
 			
 			</div>
@@ -428,43 +393,35 @@
 		<div id ="content2-2">
 			<div id="content2-2-1"></div>
 			<div id="content2-2-2">
-			<form action="/update" method="post">
 			<center>
-				
-				<table>
+				<table border="1">
 				<tr>
-					<th>이름</th>
-					<td><input type="text" class="form-control" name="name" id="user_name" value="<%= member.getUserName() %>"></td>
-					</tr>
-				<tr>
-					<th>닉네임</th>
-					<td><input type="text" class="form-control" name="nickname" id="user_nickname" value="<%= member.getUserNickName() %>"></td>
-					</tr>
-				<tr>
-					<th>생년월일</th>
-					<td><input type="text" class="form-control" name="birth" id="birth" value="<%= member.getUsernum1() %>"></td>
-					</tr>
-				<tr>
-					<th>주소</th>
-					<td><input type="text" class="form-control" name="addr" id="addr" value="<%= member.getAddr() %>"></td>
-					</tr>
-				<tr>
-					<th>전화번호</th>
-					<td><input type="text" class="form-control" name="phone" id="phone" value="<%= member.getPhone() %>"></td>
-					</tr>
-				<tr>
-					<th>이메일</th>
-					<td><input type="text" class="form-control" name="email" id="email" value="<%= member.getEmail() %>"></td>
-					</tr>
-				<tr>
+					<th></th>
+					<th>번호</th>
+					<th style = "width:500px">제목</th>
+					<th>작성날짜</th>
+					<th></th>
 					
+					
+					</tr>
+					
+				<% for(Board board : blist){ %>
+				<tr>
+					<td style="width:100px"><input type="checkbox"></td>
+					<td style="width:100px"><%= board.getBoardNumber() %></td>
+					<td><%= board.getTitle() %></td>
+					<td style="width:300px"><%= board.getMakeDate() %></td>
+					<td style="width:150px"><input type="button" value="삭제"></td>
+				</tr>	
+				<%} %>
 				
+				<tr>
+				
+				<td colspan=5><%= pd.getPageNavi() %></td>
+				</tr>
 				</table>
 				
-				
 				</center>
-				<input type="submit" value="수정" id="updatebtn" class="btn btn-success">
-				</form>
 			</div>
 			<div id="content2-2-3"></div>
 			<div></div>
@@ -476,13 +433,4 @@
 		</div>
 	
 	</div>
-	
-	
-
-	
-	
-	
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body></html>
+	d

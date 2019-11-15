@@ -21,7 +21,7 @@
 		[<span id="duplicated"><%= userId %></span>]는 이미 사용 중 입니다.
 		<br><br>
 		<form action="/checkDuplicate" method="post">
-		<input type="text" placeholder="아이디를 입력해주세요" name="userId">&nbsp;
+		<input type="text" placeholder="아이디를 입력해주세요" name="userId" id="userId">&nbsp;
 		<input type="submit" value="중복검사">
 		</form>
 		<% } %>
@@ -42,13 +42,13 @@
 		}
 		
 		
-		function serUserId(usrId){
+
+		function setUserId(userId){
+			//opener는 팝업창을 연 부모창을 말한다
 			var frm = opener.document.enrollFrm;
-			
-			frm.user.id.value=userId;
-			form.password.focus();
-			
+			frm.userId.value = userId;
 			self.close();
+			//self는 자기자신 checkidDuplicate.jsp
 		}
 		
 	</script>

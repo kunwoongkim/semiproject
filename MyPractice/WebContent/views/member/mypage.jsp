@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import= "member.model.vo.Member,java.util.*"%>
  <% 
  	Member member = (Member) request.getAttribute("member");
+ 	
  %>
 <!DOCTYPE html>
 <html>
@@ -332,7 +333,7 @@
 		</div>
 	<div id="header3">
 				<div id= "header3-1"><img src="../../images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext">관리자님 환영합니다</span><br>
+		<div id= "header3-2"><span id="logintext"><%= member.getUserNickName() %>님 환영합니다</span><br>
 		
 		<center><a href="/logout"><button class="btn">로그아웃</button></a></center>
 		
@@ -355,11 +356,16 @@
 			</div>
 			<div id = "content1-2-3">
 		
-			<a href="#"><button class="btn" name="mybtn">내가쓴글보기</button></a>
+			<a href="/myboard"><button class="btn" name="mybtn">내가쓴글보기</button></a>
 			
 			
 			</div>
-	
+				<div id = "content1-2-4">
+		
+			<a href="#"><button class="btn" name="mybtn">내가쓴댓글보기</button></a>
+			
+			
+			</div>
 			
 			</div>
 		</div>

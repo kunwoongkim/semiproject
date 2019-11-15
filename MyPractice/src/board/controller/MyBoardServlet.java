@@ -1,4 +1,4 @@
-package member.controller;
+package board.controller;
 
 import java.io.IOException;
 
@@ -8,21 +8,26 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import member.model.service.MemberService;
+import board.model.service.BoardService;
+import board.model.vo.PageData;
 import member.model.vo.Member;
 
+
+
+
 /**
- * Servlet implementation class CheckDuplicateServlet
+ * Servlet implementation class MyBoardServlet
  */
-@WebServlet("/checkDuplicate")
-public class CheckDuplicateServlet extends HttpServlet {
+@WebServlet("/myboard")
+public class MyBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckDuplicateServlet() {
+    public MyBoardServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,22 +36,27 @@ public class CheckDuplicateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String userId = request.getParameter("userId");
-		Member mOne = new MemberService().selectId(userId);
-//		boolean isUsable = mOne == null ? true : false;
-		if(mOne != null) {
-			response.getWriter().write("false");
+		int currentPage =0;
+		if (request.getParameter("currentPage")==null) {
+			currentPage=1;
 		}else {
-			response.getWriter().write("true"); 
-		}
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}	
 		
-//		request.setCharacterEncoding("utf-8");
-//		
-//		request.setAttribute("userId", userId); //위에 변수로 만들어서 가져온 값을 여기 넣어서 아래 주소로 보내준다
-//		request.setAttribute("isUsable", isUsable);
-//		RequestDispatcher views = request.getRequestDispatcher("/views/member/checkIdDuplicate.jsp");
-//		views.forward(request, response);
+			HttpSession session = request.getSession();
+			String userId =((Member) session.getAttribute("member")).getUserId();
+			PageData pd = new BoardService().BoardAll(userId,currentPage);
+			
+			if(pd!=null) {
+				
+				RequestDispatcher view = request.getRequestDispatcher("/views/board/MyBoard.jsp");
+				request.setAttribute("pageData", pd);
+				view.forward(request, response);
+				
+			}
+				
+		
+			
 	}
 
 	/**

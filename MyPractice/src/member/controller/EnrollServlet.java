@@ -34,14 +34,14 @@ public class EnrollServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String question = request.getParameter("question");
-		
+		String Addr = request.getParameter("addr1")+request.getParameter("addr2")+request.getParameter("addr3");
 		Member member = new Member();
 		member.setUserId(request.getParameter("userId"));
 		member.setUserPw(request.getParameter("userPw"));
 		member.setUsernum1(Integer.parseInt(request.getParameter("usernum1")));
 		member.setUserName(request.getParameter("userName"));
 		member.setUserNickName(request.getParameter("userNickName"));
-		member.setAddr(request.getParameter("addr"));
+		member.setAddr(Addr);
 		member.setPhone(request.getParameter("phone"));
 		member.setEmail(request.getParameter("email"));
 		member.setBloodType(request.getParameter("BloodType"));

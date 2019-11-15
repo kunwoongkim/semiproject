@@ -330,7 +330,7 @@
 		</div>
 	<div id="header3">
 				<div id= "header3-1"><img src="../../images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext">관리자님 환영합니다</span><br>
+		<div id= "header3-2"><span id="logintext"><%= member.getUserNickName() %>님 환영합니다</span><br>
 		
 		<center><a href="/logout"><button class="btn">로그아웃</button></a></center>
 		
