@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import= "member.model.vo.Member,java.util.*"%>
- <% 
- 	Member member = (Member) request.getAttribute("member");
- %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -434,27 +432,27 @@
 				<table>
 				<tr>
 					<th>이름</th>
-					<td><input type="text" class="form-control" name="name" id="user_name" value="<%= member.getUserName() %>"></td>
+					<td><input type="text" class="form-control" name="name" id="user_name" value=${member.userName }></td>
 					</tr>
 				<tr>
 					<th>닉네임</th>
-					<td><input type="text" class="form-control" name="nickname" id="user_nickname" value="<%= member.getUserNickName() %>"></td>
+					<td><input type="text" class="form-control" name="nickname" id="user_nickname" value=${member.userNickName }></td>
 					</tr>
 				<tr>
 					<th>생년월일</th>
-					<td><input type="text" class="form-control" name="birth" id="birth" value="<%= member.getUsernum1() %>"></td>
+					<td><input type="text" class="form-control" name="birth" id="birth" value=${member.usernum1 }></td>
 					</tr>
 				<tr>
 					<th>주소</th>
-					<td><input type="text" class="form-control" name="addr" id="addr" value="<%= member.getAddr() %>"></td>
+					<td><input type="text" class="form-control" name="addr" id="addr" value=${member.addr }></td>
 					</tr>
 				<tr>
 					<th>전화번호</th>
-					<td><input type="text" class="form-control" name="phone" id="phone" value="<%= member.getPhone() %>"></td>
+					<td><input type="text" class="form-control" name="phone" id="phone" value=${member.phone }></td>
 					</tr>
 				<tr>
 					<th>이메일</th>
-					<td><input type="text" class="form-control" name="email" id="email" value="<%= member.getEmail() %>"></td>
+					<td><input type="text" class="form-control" name="email" id="email" value=${member.email }></td>
 					</tr>
 				<tr>
 					

@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="member.model.vo.Member, java.util.*"%>
  
- <% Member member = (Member) session.getAttribute("member");
-
- %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -274,12 +272,12 @@
 			</li>
 			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈의집찾기</a></li>
 			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈증기증</a></li>
-			<% if (member!= null){ %>			
+			<c:if test="${sessionScope.member != null }">
 			<li class="nav-item dropdown"><a href="/views/member/myPwd.jsp"  class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지</a>
 		
 					
 			</li>
-			<%} %>		
+			</c:if> 	
 		
 		
 		</ul>
@@ -288,15 +286,28 @@
 		</nav>
 		</div>
 	<div id="header3">
-		<% if(member != null){ %>
+	
+	<c:if test="${sessionScope.member.userId == 'admin'}">
+         <div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
+      <div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
+      <a href="/views/member/adminpage.jsp" class="btn" >관리자페이지</a>
+      <a href="/logout"><button class="btn">로그아웃</button></a></div>
+      
+       </c:if>
+	<c:if test="${sessionScope.member != null }">
 			<div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext"><%=member.getUserName() %>님 환영합니다</span><br>
+		<div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
 		<a href="/views/member/myPwd.jsp"><button class="btn">마이페이지</button></a>
 		<a href="/logout"><button class="btn">로그아웃</button></a></div>
-		<% }else{ %>
+		</c:if> 
+		
+		
+		
+			
+	<c:if test="${sessionScope.member == null }">
 		<center><a href="views/member/loginPage.jsp"><button class="btn btn-success" id="searchbtn">로그인</button></a>
 		<a href="/views/member/EnrollPage.jsp"><button class="btn btn-success" id="searchbtn">회원가입</button></a></center>
-		<%} %>	
+		</c:if> 	
 		</div>	
 		</div>
 	

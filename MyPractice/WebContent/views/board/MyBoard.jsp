@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import= "member.model.vo.Member,java.util.*,board.model.vo.Board,board.model.vo.PageData"%>
- <% 
- 	Member member = (Member) session.getAttribute("member");
- 	PageData pd = (PageData) request.getAttribute("pageData");
- 	ArrayList<Board> blist = pd.getPageList();
- 	
- %>
+
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -404,20 +400,20 @@
 					
 					
 					</tr>
-					
-				<% for(Board board : blist){ %>
+				<c:forEach items="${pageData.pageList }" var="board" varStatus="i">	
+				
 				<tr>
 					<td style="width:100px"><input type="checkbox"></td>
-					<td style="width:100px"><%= board.getBoardNumber() %></td>
-					<td><%= board.getTitle() %></td>
-					<td style="width:300px"><%= board.getMakeDate() %></td>
+					<td style="width:100px">${board.boardNumber}</td>
+					<td>${board.title}</td>
+					<td style="width:300px">${board.makeDate}</td>
 					<td style="width:150px"><input type="button" value="삭제"></td>
 				</tr>	
-				<%} %>
+				</c:forEach>
 				
 				<tr>
 				
-				<td colspan=5><%= pd.getPageNavi() %></td>
+				<td colspan=5>${pageData.pageNavi }</td>
 				</tr>
 				</table>
 				

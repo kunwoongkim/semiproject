@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import= "member.model.vo.Member,java.util.*"%>
- <% 
- 	Member member = (Member) request.getAttribute("member");
- 	
- %>
+
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -333,7 +331,7 @@
 		</div>
 	<div id="header3">
 				<div id= "header3-1"><img src="../../images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext"><%= member.getUserNickName() %>님 환영합니다</span><br>
+		<div id= "header3-2"><span id="logintext">${member.userName }님 환영합니다</span><br>
 		
 		<center><a href="/logout"><button class="btn">로그아웃</button></a></center>
 		
@@ -382,35 +380,35 @@
 				<table border="1">
 				<tr>
 					<th>이름</th>
-					<td>&nbsp<%= member.getUserName() %></td>
+					<td>&nbsp ${member.userName }</td>
 					</tr>
 				<tr>
 					<th>닉네임</th>
-					<td>&nbsp<%= member.getUserNickName() %></td>
+					<td>&nbsp ${member.userNickName}</td>
 					</tr>
 				<tr>
 					<th>생년월일</th>
-					<td>&nbsp<%= member.getUsernum1() %> </td>
+					<td>&nbsp ${member.usernum1} </td>
 					</tr>
 				<tr>
 					<th>주소</th>
-					<td>&nbsp<%= member.getAddr() %></td>
+					<td>&nbsp${member.addr}</td>
 					</tr>
 				<tr>
 					<th>전화번호</th>
-					<td>&nbsp<%= member.getPhone() %></td>
+					<td>&nbsp${member.phone}</td>
 					</tr>
 				<tr>
 					<th>이메일</th>
-					<td>&nbsp<%= member.getEmail() %></td>
+					<td>&nbsp${member.email}</td>
 					</tr>
 				<tr>
 					<th>혈액형</th>
-					<td>&nbsp<%= member.getBloodType() %>형</td>
+					<td>&nbsp${member.bloodType }형</td>
 					</tr>
 				<tr>
 					<th>성별</th>
-					<td>&nbsp<%= member.getGender() %></td>
+					<td>&nbsp${member.gender}</td>
 					</tr>	
 				
 				</table>

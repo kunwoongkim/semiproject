@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="member.model.vo.Member, java.util.*"%>
 
-<%
-	Member member = (Member) session.getAttribute("member");
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -202,7 +198,13 @@ input[id^=search] {
 	width: 100%;
 }
 
-input[id*=user] {
+input[type=text] {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+input[type=password] {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;

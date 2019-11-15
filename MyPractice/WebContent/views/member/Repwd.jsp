@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import= "member.model.vo.Member,java.util.*"%>
- <% 
- 	Member member = (Member) session.getAttribute("member");
- 	
- 	Member answer = (Member) request.getAttribute("answer");
- %>
+
+ 
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -367,7 +365,7 @@
     </div>
   </div> 	
   </center>
-  <form action="/answer?memberId=<%= member.getUserId() %>" method="post">
+  <form action="/answer?memberId=${member.userId }" method="post">
   <center>
 	
 			
@@ -414,7 +412,7 @@
 		var flagqw = false;
 		$("#gobtn").click(function(){
 			
-			if($("#pass").val() == "<%= member.getUserPw() %>")
+			if($("#pass").val() == "${member.userPw}")
 			{
 		   		alert("비밀번호가 일치합니다.");
 		   		flag = true;
@@ -433,7 +431,7 @@
 		
 			$("#questionbtn").click(function(){
 			
-			if($("#question").val() == "<%= member.getQuestion() %>" && $("#answer").val()== "<%= member.getAnswer() %>" )
+			if($("#question").val() == "${member.question}" && $("#answer").val()== "${member.answer}" )
 			{
 		   		
 				alert("비밀번호 질문과 답이 일치합니다");

@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import= "member.model.vo.Member,java.util.*"%>
- <% 
- 	Member member = (Member) session.getAttribute("member");
- %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -330,7 +328,7 @@
 		</div>
 	<div id="header3">
 				<div id= "header3-1"><img src="../../images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext"><%= member.getUserNickName() %>님 환영합니다</span><br>
+		<div id= "header3-2"><span id="logintext">${member.userNickName }님 환영합니다</span><br>
 		
 		<center><a href="/logout"><button class="btn">로그아웃</button></a></center>
 		
@@ -384,7 +382,7 @@
 		
 		$("#gobtn").click(function(){
 			
-			if($("#pass").val() == "<%= member.getUserPw() %>")
+			if($("#pass").val() == "${member.userPw}")
 			{
 		    window.location.href="/myPage";
 			}else{
