@@ -487,8 +487,8 @@ td {
 												<option name="q_elementry" id="q_elementry">당신의
 													초등학교 이름은?</option>
 												<option name="q_precious" id="q_precious">당신의 보물
-													1호는 ?</option>
-												<option name="q_love" id="q_love">당신의 첫사랑 이름은 ?</option>
+													1호는?</option>
+												<option name="q_love" id="q_love">당신의 첫사랑 이름은?</option>
 												<option name="q_nickname" id="q_nickname">유년시절 별명은?</option>
 												<option name="q_date" id="q_date">가장 기억이 남는 날짜는?</option>
 										</select></td>

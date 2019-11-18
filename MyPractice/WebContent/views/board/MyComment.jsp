@@ -375,7 +375,7 @@
 			</div>
 			<div id = "content1-2-4">
 			
-		<a href="#"><button class="btn" name="mybtn">내가쓴댓글보기</button></a>
+		<a href="/myComment"><button class="btn" name="mybtn">내가쓴댓글보기</button></a>
 			</div>
 			
 			</div>
@@ -400,13 +400,13 @@
 					
 					
 					</tr>
-				<c:forEach items="${pageData.pageList }" var="board" varStatus="i">	
+				<c:forEach items="${pageData.commentList }" var="comment" varStatus="i">	
 				
 				<tr>
 					<td style="width:100px"><input type="checkbox"></td>
-					<td style="width:100px">${board.boardNumber}</td>
-					<td>${board.title}</td>
-					<td style="width:300px">${board.makeDate}</td>
+					<td style="width:100px">${comment.commentNum}</td>
+					<td>${comment.boardComment}</td>
+					<td style="width:300px">${comment.commentDate}</td>
 					<td style="width:150px"><input type="button" value="삭제"></td>
 				</tr>	
 				</c:forEach>

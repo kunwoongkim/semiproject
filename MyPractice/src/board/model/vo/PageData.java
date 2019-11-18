@@ -6,12 +6,21 @@ public class PageData {
 
 	private ArrayList<Board> pageList;
 	private String pageNavi;
+	private ArrayList<Comment> commentList;
 	
 	public PageData() {
 		super();
 		
 	}
 	
+	public ArrayList<Comment> getCommentList() {
+		return commentList;
+	}
+
+	public void setCommentList(ArrayList<Comment> commentList) {
+		this.commentList = commentList;
+	}
+
 	public PageData(ArrayList<Board> pageList,String pageNavi) {
 		super();
 		this.pageList = pageList;

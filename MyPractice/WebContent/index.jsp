@@ -294,6 +294,7 @@
       <a href="/logout"><button class="btn">로그아웃</button></a></div>
       
        </c:if>
+       
 	<c:if test="${sessionScope.member != null }">
 			<div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
 		<div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>

@@ -360,7 +360,7 @@
 			</div>
 				<div id = "content1-2-4">
 		
-			<a href="#"><button class="btn" name="mybtn">내가쓴댓글보기</button></a>
+			<a href="/myComment"><button class="btn" name="mybtn">내가쓴댓글보기</button></a>
 			
 			
 			</div>
