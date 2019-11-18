@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import= "member.model.vo.Member,java.util.*,board.model.vo.Board,board.model.vo.PageData"%>
-
-   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    pageEncoding="UTF-8" import= "member.model.vo.Member,java.util.*"%>
+ <% 
+ 	Member member = (Member) request.getAttribute("member");
+ %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
+	<title>RED LINE</title>
+	<script src="../../jquery-2.0.0.js"></script>
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -275,10 +276,9 @@
 	
 	table{
 		border : 1px solid #EAEAEA;
-		text-align : center;
 	}
 	th{
-	
+		width: 90px;
 		text-align: center;
 		background-color : #EAEAEA;
 	}
@@ -286,18 +286,11 @@
 		height:50px;
 		width: 500px;
 	}
+	 a:link { color: red; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
 	
-	#updatebtn{
-		float: right;
-		margin-right: 120px;
-	}
 	
 	</style>
-	
-	
-	<script>
-	
-	</script>
 	
 </head>
 
@@ -306,7 +299,7 @@
 	
 	<div id="container" >
 	<div id= "header">
-	<div id="header1"><center><h1 id ="title">RED LINE</h1></center></div>
+	<div id="header1"><center><a href="/index.jsp"><h1 id ="title">RED LINE</h1></a></center></div>
 	<div id="header2" >
 		<nav class="navbar navbar-expand-sm" id="nav" >
 	<div class="navbar navbar-default navbar-right" id="navdiv">
@@ -330,14 +323,7 @@
 			</li>
 			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈의집찾기</a></li>
 			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈증기증</a></li>
-						<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지</a>
-			<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">회원정보수정</a>
-			<a class="dropdown-item" href="#">내가쓴 글보기</a>	
-			<a class="dropdown-item" href="#">내가쓴 댓글보기</a>	
-					
-				</div>
-			</li>
+		
 		
 		</ul>
 		
@@ -357,68 +343,34 @@
 		
 		<div id = "content1">
 		
-		<div id = "content1-1"><center><br><h1>마이페이지</h1></center></div>
+		<div id = "content1-1"><center><br><h1>관리자페이지</h1></center></div>
 		<div id= "content1-2">
-		<div id = "content1-2-1">
+			<div id = "content1-2-1">
 				
-			<a href="/updateReady"><button class="btn" name="mybtn">회원정보수정</button></a>
+			<a href="/memberAll"><button class="btn" name="mybtn">회원관리</button></a>
 			</div>
 			<div id = "content1-2-2">
 				
-			<a href="/views/member/Repwd.jsp"><button class="btn" name="mybtn">비밀번호수정</button></a>
+			<a href="#"><button class="btn" name="mybtn">신고관리</button></a>
 			</div>
 			<div id = "content1-2-3">
 		
-			<a href="/myboard"><button class="btn btn-danger" name="mybtn">내가쓴글보기</button></a>
-			
-			
-			</div>
-				<div id = "content1-2-4">
-		
-			<a href="/myComment"><button class="btn" name="mybtn">내가쓴댓글보기</button></a>
-			
+			<a href="/bloodDonation"><button class="btn" name="mybtn">헌혈증 관리</button></a>
 			
 			</div>
-			</div>
+			
 		</div>
 		<div id = "content2">
 		<div id = "content2-1">&nbsp;
 			<br>
-			<h2>&nbsp;&nbsp;&nbsp;&nbsp;내가쓴글보기</h2>
+			<h2>&nbsp;&nbsp;&nbsp;&nbsp;회원정보</h2>
 			<hr>
 			</div>
 		<div id ="content2-2">
 			<div id="content2-2-1"></div>
 			<div id="content2-2-2">
-			<center>
-				<table border="1">
-				<tr>
-					
-					<th>번호</th>
-					<th style = "width:500px">제목</th>
-					<th>작성날짜</th>
-					<th>삭제</th>
-					
-					
-					</tr>
-				<c:forEach items="${pageData.pageList }" var="board" varStatus="i">	
-				
-				<tr>
-					
-					<td style="width:100px">${board.boardNumber}</td>
-					<td>${board.title}</td>
-					<td style="width:300px">${board.makeDate}</td>
-					<td style="width:150px"><input type="button" value="삭제"></td>
-				</tr>	
-				</c:forEach>
-				
-				<tr>
-				
-				<td colspan=5>${pageData.pageNavi }</td>
-				</tr>
-				</table>
-				
-				</center>
+			
+			
 			</div>
 			<div id="content2-2-3"></div>
 			<div></div>
@@ -430,8 +382,13 @@
 		</div>
 	
 	</div>
+	
+	
+
+	
+	
+	
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html>
+</body></html>

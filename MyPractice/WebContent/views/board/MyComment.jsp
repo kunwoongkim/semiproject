@@ -7,7 +7,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -369,13 +369,15 @@
 			</div>
 			<div id = "content1-2-3">
 		
-			<a href="/myboard"><button class="btn btn-danger" name="mybtn">내가쓴글보기</button></a>
+			<a href="/myboard"><button class="btn" name="mybtn">내가쓴글보기</button></a>
 			
 			
 			</div>
-			<div id = "content1-2-4">
+				<div id = "content1-2-4">
+		
+			<a href="/myComment"><button class="btn btn-danger" name="mybtn">내가쓴댓글보기</button></a>
 			
-		<a href="/myComment"><button class="btn" name="mybtn">내가쓴댓글보기</button></a>
+			
 			</div>
 			
 			</div>
@@ -383,7 +385,7 @@
 		<div id = "content2">
 		<div id = "content2-1">&nbsp;
 			<br>
-			<h2>&nbsp;&nbsp;&nbsp;&nbsp;회원정보수정</h2>
+			<h2>&nbsp;&nbsp;&nbsp;&nbsp;내가쓴댓글보기</h2>
 			<hr>
 			</div>
 		<div id ="content2-2">
@@ -392,7 +394,7 @@
 			<center>
 				<table border="1">
 				<tr>
-					<th></th>
+					
 					<th>번호</th>
 					<th style = "width:500px">제목</th>
 					<th>작성날짜</th>
@@ -403,7 +405,7 @@
 				<c:forEach items="${pageData.commentList }" var="comment" varStatus="i">	
 				
 				<tr>
-					<td style="width:100px"><input type="checkbox"></td>
+					
 					<td style="width:100px">${comment.commentNum}</td>
 					<td>${comment.boardComment}</td>
 					<td style="width:300px">${comment.commentDate}</td>
@@ -429,6 +431,8 @@
 		</div>
 	
 	</div>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

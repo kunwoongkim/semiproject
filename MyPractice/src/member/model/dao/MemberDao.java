@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import common.JDBCTemplate;
 import member.model.vo.Member;
@@ -293,5 +294,252 @@ public class MemberDao {
 
 		return member;
 	}
+	
+	public ArrayList<Member> memberSearchList(Connection conn, String search, int recordCountPerPage, int currentPage) {
+	      ArrayList<Member> memList = new ArrayList<Member>();
+	      PreparedStatement pstmt = null;
+	      ResultSet rset = null;
+
+	      String query = "select * FROM (Select MEMBER.*, ROW_NUMBER() OVER(ORDER BY USER_ID DESC) AS NUM FROM MEMBER WHERE USER_NAME LIKE ?) WHERE NUM BETWEEN ? and ?";
+
+	      int start = currentPage * recordCountPerPage - (recordCountPerPage - 1);
+	      int end = currentPage * recordCountPerPage;
+	      try {
+	         pstmt = conn.prepareStatement(query);
+	         pstmt.setString(1, "%" + search + "%");
+	         pstmt.setInt(2, start);
+	         pstmt.setInt(3, end);
+	         rset = pstmt.executeQuery();
+
+	         while (rset.next()) {
+	            Member member = new Member();
+	            member.setUserId(rset.getString("USER_ID"));
+	            member.setUsernum1(rset.getInt("USER_NUMBER1"));
+	            member.setUserName(rset.getString("USER_NAME"));
+	            member.setUserNickName(rset.getString("USER_NICKNAME"));
+	            member.setAddr(rset.getString("ADDR"));
+	            member.setPhone(rset.getString("PHONE"));
+	            member.setEmail(rset.getString("EMAIL"));
+	            member.setBloodType(rset.getString("BLOOD_TYPE"));
+	            member.setGender(rset.getString("GENDER"));
+	            
+	            memList.add(member);
+
+	         }
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      } finally {
+	         JDBCTemplate.close(rset);
+	         JDBCTemplate.close(pstmt);
+	      }
+
+	      return memList;
+	   }
+	   
+	   
+	   public String getSearchPageNavi(Connection conn, int currentPage, int recordCountPerPage, int naviCountPerPage,String search) {
+
+	      int recordTotalCount = getSearchTotalCount(conn, search);
+	      int pageTotalCount = 0;
+
+	   
+	      if (recordTotalCount % recordCountPerPage > 0) {
+	         pageTotalCount = recordTotalCount / recordCountPerPage + 1;
+	      } else {
+	         pageTotalCount = recordTotalCount / recordCountPerPage;
+	      }
+	   
+	      if (currentPage < 1) {
+	         currentPage = 1;
+	      } else if (currentPage > pageTotalCount) {
+	         currentPage = pageTotalCount;
+	      }
+	      
+	      int startNavi = ((currentPage - 1) / naviCountPerPage) * naviCountPerPage + 1;
+	      int endNavi = startNavi + naviCountPerPage - 1;
+	      
+	      if (endNavi > pageTotalCount) {
+	         endNavi = pageTotalCount;
+	      }
+	      
+	      boolean needPrev = true;
+	      boolean needNext = true;
+
+	      if (startNavi == 1) {
+	         needPrev = false;
+	      }
+	      if (endNavi == pageTotalCount) {
+	         needNext = false;
+	      }
+
+	      
+	      StringBuilder sb = new StringBuilder();
+
+	      if (needPrev) {
+	         sb.append("<a href='/memberSearch?search=" + search + "&currentPage=" + (startNavi - 1) + "'>< </a>");
+
+	      }
+	      for (int i = startNavi; i <= endNavi; i++) {
+	         if (i == currentPage) {
+	            sb.append("<a href='memberSearch?search=" + search + "&currentPage=" + i + "'><b>" + i + "</b></a>");
+	         }else {
+	            sb.append("<a href='memberSearch?search=" + search + "&currentPage=" + i + "'>" + i + "</a>");
+	         }
+	      }
+	      if(needNext) {
+	         sb.append("<a href='/memberSearch?search="+search+"&currentPage="+(endNavi+1)+"'> ></a>");
+	      }
+	      return sb.toString();
+	   }
+
+	   
+	   
+	   public int getSearchTotalCount(Connection conn, String search) {
+	      PreparedStatement pstmt = null;
+	      ResultSet rset = null;
+
+	      String query = "SELECT COUNT(*) AS TOTALCOUNT FROM MEMBER WHERE USER_NAME LIKE ?"; 
+	      int recordTotalCount = 0;
+	      try {
+	         pstmt = conn.prepareStatement(query);
+	         pstmt.setString(1, "%" + search + "%");
+	         rset = pstmt.executeQuery();
+	         rset.next();
+	         recordTotalCount = rset.getInt("TOTALCOUNT");
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      } finally {
+	         JDBCTemplate.close(rset);
+	         JDBCTemplate.close(pstmt);
+	      }
+	      return recordTotalCount;
+
+	   }
+	   
+	   
+	   
+	   
+	   
+
+	   public ArrayList<Member> selectListM(Connection conn, int currentPage, int recordCountPerPage) {
+
+	      ArrayList<Member> memList = new ArrayList<Member>();
+	      PreparedStatement pstmt = null;
+	      ResultSet rset = null;
+
+	      int start = currentPage * recordCountPerPage - (recordCountPerPage - 1);
+	      int end = currentPage * recordCountPerPage;
+
+	      String query = "SELECT * FROM (Select ROW_NUMBER() OVER(ORDER BY USER_ID DESC) AS NUM, MEMBER.* FROM MEMBER) where NUM between ? and ?";
+	      try {
+	         pstmt = conn.prepareStatement(query);
+	         pstmt.setInt(1, start);
+	         pstmt.setInt(2, end);
+	         rset = pstmt.executeQuery();
+	         memList = new ArrayList<Member>();
+
+	         while (rset.next()) {
+	            Member mOne = new Member();
+	            mOne.setUserId(rset.getString("USER_ID"));
+	            mOne.setUserPw(rset.getString("USER_PW"));
+	            mOne.setUsernum1(rset.getInt("USER_NUMBER1"));
+	            mOne.setUserName(rset.getString("USER_NAME"));
+	            mOne.setUserNickName(rset.getString("USER_NICKNAME"));
+	            mOne.setAddr(rset.getString("ADDR"));
+	            mOne.setPhone(rset.getString("PHONE"));
+	            mOne.setEmail(rset.getString("EMAIL"));
+	            mOne.setBloodType(rset.getString("BLOOD_TYPE"));
+	            mOne.setGender(rset.getString("GENDER"));
+	            mOne.setQuestion(rset.getString("QUESTION"));
+	            mOne.setAnswer(rset.getString("ANSWER"));
+
+	            memList.add(mOne);
+	         }
+
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      } finally {
+	         JDBCTemplate.close(rset);
+	         JDBCTemplate.close(pstmt);
+	      }
+	      return memList;
+	   }
+
+	   public String getPageNaviM(Connection conn, int currentPage, int recordCountPerPage, int naviCountPerPage) {
+	      int recordTotalCount = totalCountM(conn);
+	      int PageTotalCount = 0;// 전체 페이지 개수
+
+	      if (recordTotalCount % recordCountPerPage > 0) {
+	         PageTotalCount = recordTotalCount / recordCountPerPage + 1;
+	      } else {
+	         PageTotalCount = recordTotalCount / recordCountPerPage;
+	      }
+	      if (currentPage < 1) {
+	         currentPage = 1;
+	      } else if (currentPage > PageTotalCount) {
+	         currentPage = PageTotalCount;
+	      }
+	      int startNavi = ((currentPage - 1) / naviCountPerPage) * naviCountPerPage + 1;
+	      int endNavi = startNavi + naviCountPerPage - 1;
+
+	      if (endNavi > PageTotalCount) {
+	         endNavi = PageTotalCount;
+	      }
+	      boolean needPrev = true;
+	      boolean needNext = true;
+
+	      if (startNavi == 1) {
+	         needPrev = false;
+	      }
+	      if (endNavi == PageTotalCount) {
+	         needNext = false;
+	      }
+
+	      StringBuilder sb = new StringBuilder();
+	      if (needPrev) {
+	         sb.append("<a href='/memberAll?currentPage=" + (startNavi - 1) + "'>< </a>");
+	      }
+	      for (int i = startNavi; i <= endNavi; i++) {
+	         if (i == currentPage) {
+	            sb.append("<a href='/memberAll?currentPage=" + i + "'><b>" + i + "</b></a>");
+
+	         } else {
+	            sb.append("<a href='/memberAll?currentPage=" + i + "'>" + i + "</a>");
+	         }
+	      }
+	      if (needNext) {
+	         sb.append("<a href='/memberAll?currentPage=" + (endNavi + 1) + "'> ></a>");
+	      }
+	      return sb.toString();
+	   }
+	   
+	   
+	   public int totalCountM(Connection conn) {
+	      ResultSet rset = null;
+	      PreparedStatement pstmt = null;
+	      int recordTotalCount =0;
+	      
+	      String query = "SELECT COUNT(*) AS TOTALCOUNT FROM MEMBER";
+	      
+	      try {
+	         pstmt = conn.prepareStatement(query);
+	         rset = pstmt.executeQuery();
+	         rset.next();
+	         recordTotalCount = rset.getInt("TOTALCOUNT");
+	         
+	         
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }finally {
+	         JDBCTemplate.close(rset);
+	         JDBCTemplate.close(pstmt);
+	      }
+	      return recordTotalCount;
+	   }
 
 }
+
