@@ -22,8 +22,9 @@
 	
 	#container{
 		
-		height: 1000px;
-		width: 1600px;
+			
+		height: 1300px;
+		width: 2400px;
 		
 		
 		

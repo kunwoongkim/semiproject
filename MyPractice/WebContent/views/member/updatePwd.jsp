@@ -23,8 +23,9 @@
 	
 	#container{
 		
-		height: 1000px;
-		width: 1600px;
+			
+		height: 1300px;
+		width: 2400px;
 		
 		
 		
@@ -329,20 +330,57 @@
 		</nav>
 		</div>
 	<div id="header3">
-				<div id= "header3-1"><img src="../../images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext">관리자님 환영합니다</span><br>
+			<c:if test="${sessionScope.member.userId == 'admin'}">
+         <div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
+      <div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
+      <a href="/memberAll" class="btn" >관리자페이지</a>
+    <a href="/logout" onclick="signOut();" class="btn">로그아웃</a>	</div>
+      
+       </c:if>
+       
+	<c:if test="${sessionScope.member != null }">
+			<div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
+		<div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
+		<a href="/myPage"><button class="btn">마이페이지</button></a>
+		<a href="/logout" onclick="clearAllCookies(domain, path)" class="btn">로그아웃</a>	</div>
+		</c:if> 
 		
-		<center><a href="/logout"><button class="btn">로그아웃</button></a></center>
+		
+			
+	<c:if test="${sessionScope.member == null }">
+		<center><a href="/views/member/loginPage.jsp"><button class="btn btn-success" id="searchbtn">로그인</button></a>
+		<a href="/views/member/EnrollPage.jsp"><button class="btn btn-success" id="searchbtn">회원가입</button></a></center>
+		</c:if> 	
 		
 		</div>	
-		</div>
+		
 	</div>
 	<div id="content">
 		
 		<div id = "content1">
 		
-		<div id = "content1-1"><center><br><h1>마이페이지</h1></center></div>
+		<div id = "content1-1"><c:if test="${sessionScope.member != null }"><center><br><h1>마이페이지</h1></center></c:if></div>
 		<div id= "content1-2">
+		<div id = "content1-2-1">
+				
+			<a href="/updateReady"><button class="btn" name="mybtn">회원정보수정</button></a>
+			</div>
+			<div id = "content1-2-2">
+				
+			<a href="/views/member/Repwd.jsp"><button class="btn btn-danger" name="mybtn">비밀번호수정</button></a>
+			</div>
+			<div id = "content1-2-3">
+		
+			<a href="/myboard"><button class="btn" name="mybtn">내가쓴글보기</button></a>
+			
+			
+			</div>
+				<div id = "content1-2-4">
+		
+			<a href="/myComment"><button class="btn" name="mybtn">내가쓴댓글보기</button></a>
+			
+			
+			</div>
 			</div>
 		</div>
 		<div id = "content2">
@@ -370,7 +408,12 @@
     </div>
   </div>    
   </center>
-     
+   	<c:if test="${sessionScope.member != null}">
+     <input type="hidden" name="userId" value="${member.userId }">
+    </c:if>	
+    <c:if test="${sessionScope.member == null}">
+     <input type="hidden" name="userId" value="${param.userId }">
+     </c:if>	
    <center>
          
          변경할 비밀번호 확인:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      

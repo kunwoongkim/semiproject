@@ -258,4 +258,50 @@ public class BoardDao {
 		
 		
 	}
+	
+	
+	public int deleteMyBoard(Connection conn , int boardNo) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = "delete from Board where BOARD_NUMBER=?";
+		
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setInt(1, boardNo);
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			JDBCTemplate.close(pstmt);
+		
+		}
+		
+		return result;
+	}
+	
+	
+public int deleteMyComment(Connection conn , int CommentNo) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = "delete from Board_Comment where COMMENT_NUM=?";
+		
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setInt(1, CommentNo);
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			JDBCTemplate.close(pstmt);
+		
+		}
+		
+		return result;
+	}
 }

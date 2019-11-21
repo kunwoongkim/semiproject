@@ -11,6 +11,8 @@ public class Board {
 	private Date makeDate;
 	private String title;
 	private String boardPublic;
+	private String boardType;
+	private int clickCount;
 	public String getBoardPublic() {
 		return boardPublic;
 	}
@@ -19,8 +21,7 @@ public class Board {
 		this.boardPublic = boardPublic;
 	}
 
-	private String boardType;
-	private int clickCount;
+	
 	
 	public Board() {
 		

@@ -5,7 +5,7 @@ public class Member {
 	private String userId ;
 	private String userPw;
 	private int usernum1;
-	private int usernum2;
+
 	private String  userName;
 	private String userNickName;
 	private String addr;
@@ -13,10 +13,15 @@ public class Member {
 	private String email;
 	private String bloodType;
 	private String gender;
-	private String question;
-	private String answer;
+	private String loginType;
 	public String getUserId() {
 		return userId;
+	}
+	public String getLoginType() {
+		return loginType;
+	}
+	public void setLoginType(String loginType) {
+		this.loginType = loginType;
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
@@ -33,12 +38,7 @@ public class Member {
 	public void setUsernum1(int usernum1) {
 		this.usernum1 = usernum1;
 	}
-	public int getUsernum2() {
-		return usernum2;
-	}
-	public void setUsernum2(int usernum2) {
-		this.usernum2 = usernum2;
-	}
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -80,18 +80,6 @@ public class Member {
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-	public String getQuestion() {
-		return question;
-	}
-	public void setQuestion(String question) {
-		this.question = question;
-	}
-	public String getAnswer() {
-		return answer;
-	}
-	public void setAnswer(String answer) {
-		this.answer = answer;
 	}
 	
 	

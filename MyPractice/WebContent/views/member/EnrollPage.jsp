@@ -40,8 +40,9 @@ div {
 }
 
 #container {
-	height: 1000px;
-	width: 1600px;
+		
+		height: 1300px;
+		width: 2400px;
 }
 
 #header {
@@ -461,7 +462,9 @@ td {
 
 									<tr>
 										<td>이메일 :</td>
-										<td><input type="text" name="email" id="email"></td>
+										<td><input type="text" name="email" id="email">&nbsp; <input type="button"
+											value="중복검사" onclick="emailDuplicate()">
+										</td>
 									</tr>
 
 									<tr>
@@ -480,25 +483,7 @@ td {
 									</tr>
 
 
-									<tr>
-										<td name="td">비밀번호 <br>힌트 :
-										</td>
-										<td><select name="question" id="question">
-												<option name="q_elementry" id="q_elementry">당신의
-													초등학교 이름은?</option>
-												<option name="q_precious" id="q_precious">당신의 보물
-													1호는?</option>
-												<option name="q_love" id="q_love">당신의 첫사랑 이름은?</option>
-												<option name="q_nickname" id="q_nickname">유년시절 별명은?</option>
-												<option name="q_date" id="q_date">가장 기억이 남는 날짜는?</option>
-										</select></td>
-									</tr>
-
-									<tr>
-										<td name="td">비밀번호 <br>힌트 답안 :
-										</td>
-										<td><input type="text" name="answer" id="answer"></td>
-									</tr>
+									
 
 
 									<tr>
@@ -555,8 +540,7 @@ td {
 		var addr =false;
 		var phone = false;
 		var email = false;
-		var question = false;
-		var answer = false;
+		
 		function fn_checkIdDuplicate() {
 			var userId = $("#userId").val().trim();
 
@@ -734,33 +718,45 @@ td {
 				phone = true;
 			}
 
-		})
+		});
 
-		$("#email").focusout(function() {
+	function emailDuplicate() {
 			if ($("#email").val() == "") {
+				alert("이메일을 입력해주세요");
 				flag = false;
 				email = false;
 			} else if (!(/^[a-z0-9]{4,12}@/.test($("#email").val()))) //이메일 검사
 			{
-				alert("이메일을 재확인해주세요");
+				alert("이메일을 형식을 재확인해주세요");
 				flag = false;
 				email = false;
-			} else {
-				flag = true;
-				email = true;
-			}
-		})
+			}else{
+				
+				$.ajax({
+					url : "/emailDuplicate",
+					type : "POST",
+					data : "email=" + $("#email").val().trim(),
+					success : function(data) {
+						if (data == "true") {
+							alert("사용가능한 이메일 입니다");
+							flag = true;
+							email = true;
+						} else {
+							
+							alert("중복된 이메일이 있습니다");
+							flag = false;
+							email = false;
+						}
 
-		$("#answer").focusout(function() {
-			if ($("#answer").val() == "") {
-				alert("비밀번호 힌트 답안을 작성해주세요.");
-				flag = false;
-				answer = false;
-			} else {
-				flag = true;
-				answer = true;
-			}
-		})
+					}
+				})
+				
+			} 
+			
+		
+		};
+
+	
 
 		function send() {
 
@@ -788,10 +784,7 @@ td {
 			} else if ($("#email").val() == "" || email == false) {
 				alert("이메일을 확인하세요");
 				return false;
-			} else if ($("#answer").val() == "" || answer == false) {
-				alert("비밀번호정답을 확인하세요");
-				return false;
-			} else if (flag == false) {
+			}  else if (flag == false) {
 				alert("위 정보들을 확인하세요");
 				return false;
 				

@@ -39,6 +39,7 @@ public class memberUpdateServlet extends HttpServlet {
 			String email = request.getParameter("email");
 			Member member = new Member();
 			HttpSession session = request.getSession(false);
+			Member membersession = (Member) session.getAttribute("member");
 			String userid = ((Member) session.getAttribute("member")).getUserId();
 			member.setUserId(userid);
 			member.setUserName(name);
@@ -47,13 +48,17 @@ public class memberUpdateServlet extends HttpServlet {
 			member.setAddr(addr);
 			member.setPhone(phone);
 			member.setEmail(email);
-			
+			member.setUserPw(membersession.getUserPw());
+			member.setGender(membersession.getGender());
+			member.setBloodType(membersession.getBloodType());
+			member.setLoginType(membersession.getLoginType());
 			int result = new MemberService().updateMember(member);
 			
 			
 			if(result>0) {
-	
+				session.setAttribute("member", member);
 				response.sendRedirect("/views/member/updateSuccess.html");
+				
 			}else {
 				
 				response.sendRedirect("/views/member/updateError.html");

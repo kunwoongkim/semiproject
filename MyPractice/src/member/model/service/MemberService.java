@@ -26,6 +26,14 @@ public Member selectId(String userId) {
 		JDBCTemplate.close(conn);
 		return member;
 	}
+
+public Member selectEmail(String email) {
+	
+	Connection conn = JDBCTemplate.getConnection();
+	Member member = new MemberDao().selectEmail(conn,email);
+	JDBCTemplate.close(conn);
+	return member;
+}
 	
 	public int updateMember(Member member) {
 		Connection conn = JDBCTemplate.getConnection();
@@ -65,14 +73,7 @@ public Member selectId(String userId) {
 		return result;
 	}
 	
-	public Member questionPwd(String question,String answer,String memberId) {
-		Connection conn = JDBCTemplate.getConnection();
-		
-		Member member= new MemberDao().questionPwd(conn,question,answer,memberId);
-		
-		JDBCTemplate.close(conn);
-		return member;
-	}
+	
 	
 	
 	public int insertMember(Member member) { //회원가입
@@ -121,4 +122,28 @@ public PageData memberSearchList(int currentPage, String search){
 		JDBCTemplate.close(conn);
 		return pd;
 	}
+
+public Member findId(String userName, String email) {
+	Connection conn = JDBCTemplate.getConnection();
+	Member member = new MemberDao().findId(conn, userName, email);
+
+	JDBCTemplate.close(conn);
+	return member;
+}
+
+public Member findPw(String userId) {
+	Connection conn = JDBCTemplate.getConnection();
+	Member member = new MemberDao().findPw(conn, userId);
+
+	JDBCTemplate.close(conn);
+	return member;
+}
+
+public Member findUpdatePw(String userId,String pass) {
+	Connection conn = JDBCTemplate.getConnection();
+	Member member = new MemberDao().selectMember(conn, userId, pass);
+
+	JDBCTemplate.close(conn);
+	return member;
+}
 }

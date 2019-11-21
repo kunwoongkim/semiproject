@@ -5,14 +5,18 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+   		
 	<title>Insert title here</title>
+	 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script src="../../js/jquery-2.0.0.js"></script>
-	
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+	 <meta name = "google-signin-client_id"content = "181826323862-29136l7je3lvb232vlm92q7a785hsq5n.apps.googleusercontent.com">
+	
 <style>
 body{
 		margin-left : 100px;
@@ -24,9 +28,9 @@ body{
 	}
 	#container{
 		
-		height: 1000px;
-		width: 1600px;
 		
+		height: 1000px;
+		width: 2100px;
 		
 		
 	}
@@ -126,7 +130,10 @@ body{
 			<center><input type="submit" class="btn btn-danger" value="로그인" id = "loginbtn"></center>
 				</form><br>
 				<center><a href=/views/member/EnrollPage.jsp><button class="btn btn-danger" value="회원가입" id = "loginbtn">회원가입</button></a></center>
-				<center><button class="btn">아이디 찾기</button><button class="btn">비밀번호 찾기</button></center>
+				<center> <a id="kakao-login-btn"></a>
+  				<div  class="g-signin2" data-onsuccess="onSignIn" style="width:220px;height:45px;"></div>
+	
+				<center><a href="/views/member/findId.jsp" class="btn">아이디 찾기</a><a href="/views/member/findPw.jsp" class="btn">비밀번호 찾기</a></center>
 				</div>
 				
 				
@@ -141,13 +148,87 @@ body{
 			</div>
 		
 		
+
+
+
+
+
+
+
+
+<script type='text/javascript'>
+
+
+function onSignIn(googleUser) {
+	  var profile = googleUser.getBasicProfile();
+	 
+	  var id = profile.getId();
+	  var name = profile.getName();
+      var email = profile.getEmail();
+      var auth2 = gapi.auth2.getAuthInstance();
+      alert(JSON.stringify(profile));
+      auth2.disconnect();
+     window.location.href="/googleLogin?id="+id+"&email="+email+"&name="+name; 
+	  
+	  // This is null if the 'email' scope is not present.
+	}
+
+
+/* function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+    auth2.disconnect();
+  } */
+
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('0826bd103c5aa70c650709d1fc259e46');
+    // 카카오 로그인 버튼을 생성합니다.
+    Kakao.Auth.createLoginButton({
+      container: '#kakao-login-btn',
+      success: function(authObj) {
+    	   Kakao.Auth.loginForm({
+               success: function(res) {
+            	   Kakao.API.request({
+          	          url: '/v2/user/me',
+          	          success: function(res) {
+          	        	var id = res.id;
+                        var email = res.kakao_account.email;
+                        var gender = res.kakao_account.gender; 
+                        window.location.href="/kakaoTalkLogin?id="+id+"&email="+email+"&gender="+gender;
+          	          },
+          	          fail: function(error) {
+          	            alert(JSON.stringify(error));
+          	          }
+            	   })
+               }
+                 /* alert(JSON.stringify(res));
+                 var id = res.id;
+                 var email = res.kakao_account.email;
+                 var gender = res.kakao_account.gender; */
+                 //window.location.href="/kakaoTalkLogin?id="+id+"&email="+email+"&gender="+gender;
+               ,
+               fail: function(err) {
+                 alert(JSON.stringify(err));
+               }
+            })
+               
+        
+      },
+      fail: function(err) {
+        alert(JSON.stringify(err));
+      }
+    });
+    
+    
 	
-		
-	
+
+  
+</script>
 	
 
 	
-
 	
 	
 	

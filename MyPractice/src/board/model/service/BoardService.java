@@ -38,5 +38,46 @@ public class BoardService {
 		return pd;
 		
 	}
+	
+	public int deleteMyBoard(int boardNo) {
+		
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = new BoardDao().deleteMyBoard(conn,boardNo);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+			
+		}else {
+			
+			JDBCTemplate.rollback(conn);
+		}
+		
+		
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
+	
+public int deleteMyComment(int commentNo) {
+		
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = new BoardDao().deleteMyComment(conn,commentNo);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+			
+		}else {
+			
+			JDBCTemplate.rollback(conn);
+		}
+		
+		
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
+
 
 }

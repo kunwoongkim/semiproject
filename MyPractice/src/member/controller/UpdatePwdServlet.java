@@ -33,7 +33,7 @@ public class UpdatePwdServlet extends HttpServlet {
 		 request.setCharacterEncoding("UTF-8");
 		 
 		 HttpSession session = request.getSession(false);
-		 String userId = ((Member)session.getAttribute("member")).getUserId();
+		 String userId = request.getParameter("userId");
 		 String Pwd = request.getParameter("password");
 		 int result = new MemberService().RePwd(userId,Pwd);
 		 

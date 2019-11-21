@@ -50,6 +50,42 @@ public class MemberDao {
 		return member;
 	}
 	
+	public Member selectEmail(Connection conn, String email) {
+		Member member = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "Select * From member where email=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, email);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next())
+			{
+				member = new Member();
+				member.setUserId(rset.getString("USER_ID"));
+				member.setUserPw(rset.getString("USER_PW"));
+				member.setUsernum1(rset.getInt("USER_NUMBER1"));
+				member.setUserName(rset.getString("USER_NAME"));
+				member.setUserNickName(rset.getString("USER_NICKNAME"));
+				member.setAddr(rset.getString("ADDR"));
+				member.setPhone(rset.getString("PHONE"));
+				member.setEmail(rset.getString("EMAIL"));
+				member.setBloodType(rset.getString("BLOOD_TYPE"));
+				member.setGender(rset.getString("GENDER"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			JDBCTemplate.close(pstmt);
+			JDBCTemplate.close(rset);
+		}
+		
+		return member;
+	}
 	
 	
 	
@@ -78,8 +114,7 @@ public class MemberDao {
 				member.setEmail(rset.getString("EMAIL"));
 				member.setBloodType(rset.getString("BLOOD_TYPE"));
 				member.setGender(rset.getString("GENDER"));
-				member.setQuestion(rset.getString("QUESTION"));
-				member.setAnswer(rset.getString("ANSWER"));
+				member.setLoginType(rset.getString("LOGINTYPE"));
 			}
 			
 		} catch (SQLException e) {
@@ -187,52 +222,12 @@ public class MemberDao {
 		return result;
 	}
 	
-	public Member questionPwd(Connection conn,String question, String answer, String memberId) {
-		
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String query = "Select * From MEMBER WHERE MEMBER_ID=? AND QUESTION=? AND ANSWER=?";
-		Member member = null;
-		try {
-			pstmt=conn.prepareStatement(query);
-			pstmt.setString(1, memberId);
-			pstmt.setString(2, question);
-			pstmt.setString(3, answer);
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				member = new Member();
-				member.setUserId(rset.getString("USER_ID"));
-				member.setUserPw(rset.getString("USER_PW"));
-				member.setUsernum1(rset.getInt("USER_NUMBER1"));
-				member.setUserName(rset.getString("USER_NAME"));
-				member.setUserNickName(rset.getString("USER_NICKNAME"));
-				member.setAddr(rset.getString("ADDR"));
-				member.setPhone(rset.getString("PHONE"));
-				member.setEmail(rset.getString("EMAIL"));
-				member.setBloodType(rset.getString("BLOOD_TYPE"));
-				member.setGender(rset.getString("GENDER"));
-				
-			}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			
-			JDBCTemplate.close(pstmt);
-			JDBCTemplate.close(rset);
-		}
-		return member;
-		
-		
-		
-	}
+	
 	public int insertMember(Connection conn, Member member) { //회원가입
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query = "INSERT INTO MEMBER VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-
+		String query = "INSERT INTO MEMBER VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+		System.out.println(member.getGender());
 		try {
 			pstmt = conn.prepareStatement(query);
 			// 회원가입은 입력받은 값을 컬럼에 넣어주는 거니까 선언해둔 member에서 입력받은 값을 가져와서 쓴다
@@ -246,9 +241,8 @@ public class MemberDao {
 			pstmt.setString(8, member.getEmail());
 			pstmt.setString(9, member.getBloodType());
 			pstmt.setString(10, member.getGender());
-			pstmt.setString(11, member.getQuestion());
-			pstmt.setString(12, member.getAnswer());
-
+			pstmt.setString(11, member.getLoginType());
+		
 			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -322,7 +316,7 @@ public class MemberDao {
 	            member.setEmail(rset.getString("EMAIL"));
 	            member.setBloodType(rset.getString("BLOOD_TYPE"));
 	            member.setGender(rset.getString("GENDER"));
-	            
+	            member.setLoginType(rset.getString("LOGINTYPE"));
 	            memList.add(member);
 
 	         }
@@ -452,8 +446,7 @@ public class MemberDao {
 	            mOne.setEmail(rset.getString("EMAIL"));
 	            mOne.setBloodType(rset.getString("BLOOD_TYPE"));
 	            mOne.setGender(rset.getString("GENDER"));
-	            mOne.setQuestion(rset.getString("QUESTION"));
-	            mOne.setAnswer(rset.getString("ANSWER"));
+	         
 
 	            memList.add(mOne);
 	         }
@@ -540,6 +533,79 @@ public class MemberDao {
 	      }
 	      return recordTotalCount;
 	   }
+	   public Member findId(Connection conn, String userName, String email) {
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			Member member = null;
+			String query = "SELECT * FROM MEMBER WHERE USER_NAME = ? AND EMAIL = ?";
 
+			try {
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, userName);
+				pstmt.setString(2, email);
+				rset = pstmt.executeQuery();
+
+				if (rset.next()) {
+					member = new Member();
+					member.setUserId(rset.getString("USER_ID"));
+					member.setUserPw(rset.getString("USER_PW"));
+					member.setUsernum1(rset.getInt("USER_NUMBER1"));
+					member.setUserName(rset.getString("USER_NAME"));
+					member.setUserNickName(rset.getString("USER_NICKNAME"));
+					member.setAddr(rset.getString("ADDR"));
+					member.setPhone(rset.getString("PHONE"));
+					member.setEmail(rset.getString("EMAIL"));
+					member.setBloodType(rset.getString("BLOOD_TYPE"));
+					member.setGender(rset.getString("GENDER"));
+					member.setLoginType(rset.getString("LOGINTYPE"));
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				JDBCTemplate.close(rset);
+				JDBCTemplate.close(pstmt);
+			}
+			return member;
+		}
+
+	   public Member findPw(Connection conn, String userId) {
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			Member member = null;
+			String query = "SELECT * FROM MEMBER WHERE USER_ID = ?";
+
+			try {
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, userId);
+				
+				
+				rset = pstmt.executeQuery();
+
+				if (rset.next()) {
+					member = new Member();
+					member.setUserId(rset.getString("USER_ID"));
+					member.setUserPw(rset.getString("USER_PW"));
+					member.setUsernum1(rset.getInt("USER_NUMBER1"));
+					member.setUserName(rset.getString("USER_NAME"));
+					member.setUserNickName(rset.getString("USER_NICKNAME"));
+					member.setAddr(rset.getString("ADDR"));
+					member.setPhone(rset.getString("PHONE"));
+					member.setEmail(rset.getString("EMAIL"));
+					member.setBloodType(rset.getString("BLOOD_TYPE"));
+					member.setGender(rset.getString("GENDER"));
+
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				JDBCTemplate.close(pstmt);
+				JDBCTemplate.close(rset);
+			}
+			return member;
+		}
+	 
 }
 

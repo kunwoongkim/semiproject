@@ -33,7 +33,7 @@ public class EnrollServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("utf-8");
 		
-		String question = request.getParameter("question");
+		String loginType = "member";
 		String Addr = request.getParameter("addr1")+request.getParameter("addr2")+request.getParameter("addr3");
 		Member member = new Member();
 		member.setUserId(request.getParameter("userId"));
@@ -46,13 +46,12 @@ public class EnrollServlet extends HttpServlet {
 		member.setEmail(request.getParameter("email"));
 		member.setBloodType(request.getParameter("BloodType"));
 		member.setGender(request.getParameter("Gender"));
-		member.setQuestion(question);
-		member.setAnswer(request.getParameter("answer"));
+		member.setLoginType(loginType);
 		
 		int result = new MemberService().insertMember(member);
 		
 		if(result > 0) {
-			response.sendRedirect("/index.jsp");
+			response.sendRedirect("/views/member/EnrollSuccess.html");
 		}else {
 			response.sendRedirect("/views/member/ErrorPage.html");
 		}

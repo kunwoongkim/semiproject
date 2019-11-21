@@ -7,6 +7,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	
 	<title>Insert title here</title>
 	<script src="../../js/jquery-2.0.0.js"></script>
 	
@@ -23,8 +24,9 @@
 	
 	#container{
 		
-		height: 1000px;
-		width: 1600px;
+		
+		height: 1300px;
+		width: 2400px;
 		
 		
 		
@@ -285,6 +287,14 @@
 	
 		width:400px;	
 	}
+	#emaildiv{
+	
+		width:400px;	
+	}
+	#emailanswerdiv{
+	
+		width:400px;	
+	}
 		 a:link { color: red; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
 	
@@ -329,20 +339,56 @@
 		</nav>
 		</div>
 	<div id="header3">
-				<div id= "header3-1"><img src="../../images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext">관리자님 환영합니다</span><br>
+	
+	<c:if test="${sessionScope.member.userId == 'admin'}">
+         <div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
+      <div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
+      <a href="/memberAll" class="btn" >관리자페이지</a>
+    <a href="/logout" onclick="signOut();" class="btn">로그아웃</a>	</div>
+      
+       </c:if>
+       
+	<c:if test="${sessionScope.member != null }">
+			<div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
+		<div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
+		<a href="/myPage"><button class="btn">마이페이지</button></a>
+		<a href="/logout" onclick="clearAllCookies(domain, path)" class="btn">로그아웃</a>	</div>
+		</c:if> 
 		
-		<center><a href="/logout"><button class="btn">로그아웃</button></a></center>
 		
+			
+	<c:if test="${sessionScope.member == null }">
+		<center><a href="/views/member/loginPage.jsp"><button class="btn btn-light" id="searchbtn" style="width:100px; color:#515151"><b>LOGIN</b></button></a>
+		<a href="/views/member/EnrollPage.jsp"><button class="btn btn-light" id="searchbtn" style="width:100px; color:#515151"><b>JOIN</b></button></a></center>
+		</c:if> 	
 		</div>	
 		</div>
-	</div>
 	<div id="content">
 		
 		<div id = "content1">
 		
 		<div id = "content1-1"><center><br><h1>마이페이지</h1></center></div>
 		<div id= "content1-2">
+		<div id = "content1-2-1">
+				
+			<a href="/updateReady"><button class="btn" name="mybtn">회원정보수정</button></a>
+			</div>
+			<div id = "content1-2-2">
+				
+			<a href="/views/member/Repwd.jsp"><button class="btn btn-danger" name="mybtn">비밀번호수정</button></a>
+			</div>
+			<div id = "content1-2-3">
+		
+			<a href="/myboard"><button class="btn" name="mybtn">내가쓴글보기</button></a>
+			
+			
+			</div>
+				<div id = "content1-2-4">
+		
+			<a href="/myComment"><button class="btn" name="mybtn">내가쓴댓글보기</button></a>
+			
+			
+			</div>
 			</div>
 		</div>
 		<div id = "content2">
@@ -361,36 +407,25 @@
 			<div class="input-group mb-3" id="pwd">
     <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" id="pass" >
     <div class="input-group-append" >
-      <input type="button" value="확인" id="gobtn">
+     <input type="button" value="인증번호받기" id="emailbtn">
     </div>
   </div> 	
   </center>
-  <form action="/answer?memberId=${member.userId }" method="post">
-  <center>
-	
-			
-			비밀번호찾기 질문 : 
-			<select id = "question" name="question">
-			<option>당신의 초등학교 이름은?</option>
-			<option>당신의 보물 1호는?</option>
-			<option>당신의 첫사랑 이름은?</option>
-			<option>유년시절 별명은?</option>
-			<option>가장 기억이 남는 날짜는?</option>
-			</select><br>
-	 </center>
-	 <center>
-  			정답 입력:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
-			<div class="input-group mb-3" id="pwd">
-    <input type="text" class="form-control" placeholder="비밀번호찾기 정답을 입력해주세요" name="answer" id="answer">
+  
+  	<center>
+  
+    
+			<div class="input-group mb-3" id="emailanswerdiv">
+    <input type="hidden" class="form-control" placeholder="인증번호입력" id="emailanswer" >
     <div class="input-group-append" >
-      <input type="button" value="확인" id="questionbtn">
+      <input type="hidden" value="확인" id="pwbtn">
+    </div>
+  </div> 	
  </center>
  </form>
  
  
-   <form action="/RePwd" method="post" id="updatepassword">	
  
-			</form>
 			
 			</div>
 		
@@ -406,50 +441,55 @@
 	</div>
 	
 	<script>
+	
 	$(document).ready(function(){
 		
-		var flag = false;
-		var flagqw = false;
-		$("#gobtn").click(function(){
-			
-			if($("#pass").val() == "${member.userPw}")
-			{
-		   		alert("비밀번호가 일치합니다.");
-		   		flag = true;
-		   		
-			}else{
-				alert("비밀번호가 틀렸습니다.");
+		
+		
+		 $("#emailbtn").click(function(){
+			 
+			 var pass = $("#pass").val().trim();
+			 var userId = '${sessionScope.member.userId }';
+			 
+		
+			 $.ajax({
+					url : "/answer",
+					type : "POST",
+					data : {pass : pass, userId : userId},
+					success : function(data) {
+						if (data == "false") {
+							alert("비밀번호와 이메일을 확인하세요");
+						} else {
+							
+							alert("이메일이 전송되었습니다.");
+							$("#emailanswer").attr("type","text");
+							$("#pwbtn").attr("type","button");
+							key = data;
+						}
 
-			}
+					}, fail : function(){
+						alert("아이디와 이메일을 확인하세요");
+					}
+			 
+		 
+		 })
 			
-			if(flag==true && flagqw == true){
-				window.location.href="/views/member/updatePwd.jsp";
-			}	
+		 });
+		 
+		 $("#pwbtn").click(function(){
+			 
+			 if($("#emailanswer").val()== key){
+				 
+				 window.location.href="/views/member/updatePwd.jsp";
+			 }else{
+				 
+				 alert("인증번호를 확인해주세요.");
+			 }
+			 
+		 });
 		
-		})
 		
 		
-			$("#questionbtn").click(function(){
-			
-			if($("#question").val() == "${member.question}" && $("#answer").val()== "${member.answer}" )
-			{
-		   		
-				alert("비밀번호 질문과 답이 일치합니다");
-				flagqw = true;
-				
-			}else{
-				alert("비밀번호 질문과 답을 확인하세요");
-
-			}
-			
-			if(flag == false){
-				alert("현재비밀번호를 입력해주세요");
-			}
-			
-			
-			if(flag==true && flagqw == true){
-				window.location.href="/views/member/updatePwd.jsp";
-			}	
 			
 		});
 		
@@ -458,7 +498,7 @@
 				
 		
 		
-		})	
+
 	
 	
 	
@@ -471,7 +511,7 @@
 	
 	
 	
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body></html>

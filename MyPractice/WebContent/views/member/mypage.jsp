@@ -7,8 +7,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<script src="../../jquery-2.0.0.js"></script>
 	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -21,9 +23,9 @@
 	
 	#container{
 		
-		height: 1000px;
-		width: 1600px;
 		
+		height: 1300px;
+		width: 2400px;
 		
 		
 	}
@@ -285,6 +287,13 @@
 		height:50px;
 		width: 500px;
 	}
+	#title{
+		
+		font-size : 60px;
+		margin-right : 20px;
+		color : #515151;
+		
+	}
 	 a:link { color: red; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
 	
@@ -298,13 +307,13 @@
 	
 	<div id="container" >
 	<div id= "header">
-	<div id="header1"><center><a href="/index.jsp"><h1 id ="title">RED LINE</h1></a></center></div>
+	<div id="header1"><center><a id ="title" href="/index.jsp">RED LINE</a></center></div>
 	<div id="header2" >
 		<nav class="navbar navbar-expand-sm" id="nav" >
 	<div class="navbar navbar-default navbar-right" id="navdiv">
-		<ul class="nav navbar-nav navbar-right"  align=right >
+		<ul class="nav navbar-nav navbar-right"  style="width : 1200px ">
 			
-			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:black">커뮤니티</a>
+			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:#515151; width:220px; font-size : 19px">커뮤니티</a>
 			<div class="dropdown-menu">
 			<a class="dropdown-item" href="#">A형 게시판</a>
 			<a class="dropdown-item" href="#">B형 게시판</a>	
@@ -312,16 +321,16 @@
 			<a class="dropdown-item" href="#">AB형 게시판</a>		
 				</div>
 			</li>
-			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;희귀혈액지식</a>
-			<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">혈액의 기본지식</a>
-			<a class="dropdown-item" href="#">희귀혈액형의 종류</a>	
-			<a class="dropdown-item" href="#">헌혈의 오해와 진실</a>	
-			<a class="dropdown-item" href="#">혈액관리 시스템</a>		
-				</div>
+			<li ><a href="/views/blood_info/blood_info.jsp" class="nav-link" id= "navbardrop" style="color:#515151; width:220px;font-size : 19px">희귀혈액지식</a>
 			</li>
-			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈의집찾기</a></li>
-			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈증기증</a></li>
+			<li><a href="/bloodHouse" class="nav-link" style="color:#515151; width:220px;font-size : 19px">헌혈의집찾기</a></li>
+			<li><a href="#" class="nav-link" style="color:#515151; width:220px;font-size : 19px">헌혈증기증</a></li>
+			<c:if test="${sessionScope.member != null }">
+			<li class="nav-item dropdown"><a href="/myPage"  class="nav-link" style="color:#515151; width:220px;font-size : 19px">마이페이지</a>
+		
+					
+			</li>
+			</c:if> 	
 		
 		
 		</ul>
@@ -330,14 +339,26 @@
 		</nav>
 		</div>
 	<div id="header3">
-				<div id= "header3-1"><img src="../../images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext">${member.userName }님 환영합니다</span><br>
+	
+	<c:if test="${sessionScope.member.userId == 'admin'}">
+         <div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
+      <div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
+      <a href="/memberAll" class="btn" >관리자페이지</a>
+    <a href="/logout" onclick="signOut();" class="btn">로그아웃</a>	</div>
+      
+       </c:if>
+       
+	<c:if test="${sessionScope.member != null }">
+			<div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
+		<div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
+		<a href="/myPage"><button class="btn">마이페이지</button></a>
+		<a href="/logout" onclick="clearAllCookies(domain, path)" class="btn">로그아웃</a>	</div>
+		</c:if> 
 		
-		<center><a href="/logout"><button class="btn">로그아웃</button></a></center>
 		
+	
 		</div>	
 		</div>
-	</div>
 	<div id="content">
 		
 		<div id = "content1">
@@ -350,7 +371,7 @@
 			</div>
 			<div id = "content1-2-2">
 				
-			<a href="/views/member/Repwd.jsp"><button class="btn" name="mybtn">비밀번호수정</button></a>
+			<button class="btn" name="mybtn" id="rePwd">비밀번호수정</button>
 			</div>
 			<div id = "content1-2-3">
 		
@@ -427,12 +448,27 @@
 	
 	</div>
 	
+	<script>
+		$("#rePwd").click(function(){
+			
+				if(${sessionScope.member.loginType == "social"}){
+					alert("소셜로그인은 지원하지 않는 서비스입니다.");
+				}else{
+					
+					window.location.href="/views/member/Repwd.jsp";
+					
+				}		
+		
+		
+		})
+		
+		
 	
+	
+	</script>
 
 	
 	
 	
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
 </body></html>
