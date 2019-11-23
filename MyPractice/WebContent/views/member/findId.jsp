@@ -309,11 +309,11 @@
 	<div id= "header">
 	<div id="header1"><center><a href="/index.jsp"><h1 id ="title">RED LINE</h1></a></center></div>
 	<div id="header2" >
-		<nav class="navbar navbar-expand-sm" id="nav" >
+	<nav class="navbar navbar-expand-sm" id="nav" >
 	<div class="navbar navbar-default navbar-right" id="navdiv">
-		<ul class="nav navbar-nav navbar-right"  align=right >
+		<ul class="nav navbar-nav navbar-right"  style="width : 1200px ">
 			
-			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:black">커뮤니티</a>
+			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:#515151; width:220px; font-size : 19px">커뮤니티</a>
 			<div class="dropdown-menu">
 			<a class="dropdown-item" href="#">A형 게시판</a>
 			<a class="dropdown-item" href="#">B형 게시판</a>	
@@ -321,17 +321,17 @@
 			<a class="dropdown-item" href="#">AB형 게시판</a>		
 				</div>
 			</li>
-			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;희귀혈액지식</a>
-			<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">혈액의 기본지식</a>
-			<a class="dropdown-item" href="#">희귀혈액형의 종류</a>	
-			<a class="dropdown-item" href="#">헌혈의 오해와 진실</a>	
-			<a class="dropdown-item" href="#">혈액관리 시스템</a>		
-				</div>
+			<li ><a href="/views/blood_info/blood_info.jsp" class="nav-link" id= "navbardrop" style="color:#515151; width:220px;font-size : 19px">희귀혈액지식</a>
 			</li>
-			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈의집찾기</a></li>
-			<li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈증기증</a></li>
-				
+			<li><a href="/bloodHouse" class="nav-link" style="color:#515151; width:220px;font-size : 19px">헌혈의집찾기</a></li>
+			<li><a href="#" class="nav-link" style="color:#515151; width:220px;font-size : 19px">헌혈증기증</a></li>
+			<c:if test="${sessionScope.member != null }">
+			<li class="nav-item dropdown"><a href="/myPage"  class="nav-link" style="color:#515151; width:220px;font-size : 19px">마이페이지</a>
+		
+					
+			</li>
+			</c:if> 	
+		
 		
 		</ul>
 		

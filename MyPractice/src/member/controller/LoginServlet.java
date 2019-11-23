@@ -36,16 +36,17 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
+		String url = request.getParameter("url");
 		Member member = new MemberService().selectMember(userId,userPwd);
-		
-		
+	
+			
 		if(member != null) {
 			HttpSession session = request.getSession(false);
 			session.setAttribute("member", member);
-			response.sendRedirect("index.jsp");
+			response.getWriter().write(url);
 			
 		}else {
-			response.sendRedirect("/views/member/Error.html");
+			response.getWriter().write("false");
 		}
 		
 		

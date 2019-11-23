@@ -47,13 +47,11 @@ public class googleLoginservlet extends HttpServlet {
 				
 				HttpSession session = request.getSession(false);
 				session.setAttribute("member", member);
-				response.sendRedirect("index.jsp");
+				response.getWriter().write("success");
 				
 			}else {
 				
-				RequestDispatcher view = request.getRequestDispatcher("views/member/googleEnroll.jsp");
-				request.setAttribute("google", google);
-				view.forward(request, response);
+				response.getWriter().write("fail");
 			}
 	}
 

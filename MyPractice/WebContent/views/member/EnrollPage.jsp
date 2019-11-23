@@ -84,7 +84,7 @@ div {
 	float: left;
 	height: 100%;
 	width: 20%;
-	background-color: #fba9a1;
+	
 }
 
 input[id^=search] {
@@ -302,6 +302,34 @@ td {
 	width: 70%;
 	height: 100%;
 }
+	#searchbtn{
+		margin-top: 25px;
+		height: 40px;
+	}
+	
+		#title{
+		
+		font-size : 60px;
+		margin-right : 20px;
+		color : #515151;
+		
+	}
+	
+	#loginbtn{
+		width: 400px;
+		height: 60px;
+		margin-bottom: 3px;
+	}
+	
+	
+	#userId{
+		width: 400px;
+		height: 40px;
+	}
+	#userPwd{
+		width: 400px;
+		height: 40px;
+	}
 </style>
 </head>
 
@@ -310,57 +338,8 @@ td {
 
 	<div id="container">
 		<div id="header">
-			<div id="header1" style="background-color: #fba9a1">
-				<center>
-					<h1 id="title">RED LINE</h1>
-				</center>
+		<jsp:include page="/views/header/Header.jsp"></jsp:include>
 			</div>
-			<div id="header2">
-				<nav class="navbar navbar-expand-sm" id="nav"
-					style="background-color: #fba9a1">
-					<div class="navbar navbar-default navbar-right" id="navdiv">
-						<ul class="nav navbar-nav navbar-right" align=right>
-
-							<li class="nav-item dropdown"><a href="#"
-								class="nav-link dropdown-toggle" id="navbardrop"
-								data-toggle="dropdown" style="color: dimgrey">커뮤니티</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#" style="color: dimgrey">A형
-										게시판</a> <a class="dropdown-item" href="#" style="color: dimgrey">B형
-										게시판</a> <a class="dropdown-item" href="#" style="color: dimgrey">O형
-										게시판</a> <a class="dropdown-item" href="#" style="color: dimgrey">AB형
-										게시판</a>
-								</div></li>
-							<li class="nav-item dropdown"><a href="#"
-								class="nav-link dropdown-toggle" id="navbardrop"
-								data-toggle="dropdown" style="color: dimgrey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;희귀혈액지식</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#" style="color: dimgrey">혈액의
-										기본지식</a> <a class="dropdown-item" href="#" style="color: dimgrey">희귀혈액형의
-										종류</a> <a class="dropdown-item" href="#" style="color: dimgrey">헌혈의
-										오해와 진실</a> <a class="dropdown-item" href="#"
-										style="color: dimgrey">혈액관리 시스템</a>
-								</div></li>
-							<li><a href="#" class="nav-link" style="color: dimgrey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈의집찾기</a></li>
-							<li><a href="#" class="nav-link" style="color: dimgrey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈증기증</a></li>
-							<li class="nav-item dropdown"><a href="#"
-								class="nav-link dropdown-toggle" id="navbardrop"
-								data-toggle="dropdown" style="color: dimgrey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#" style="color: dimgrey">회원정보수정</a>
-									<a class="dropdown-item" href="#" style="color: dimgrey">내가쓴
-										글보기</a> <a class="dropdown-item" href="#" style="color: dimgrey">내가쓴
-										댓글보기</a>
-
-								</div></li>
-
-						</ul>
-
-					</div>
-				</nav>
-			</div>
-			<div id="header3"></div>
-		</div>
 
 		<div id="content">
 
@@ -408,7 +387,7 @@ td {
 								<table id="table">
 									<tr>
 										<td name="td">아이디 :</td>
-										<td><input type="text" name="userId" id="userId">
+										<td><input type="text" name="userId" id="memberId">
 											&nbsp; <input type="button" value="중복검사"
 											onclick="fn_checkIdDuplicate()"></td>
 									</tr>
@@ -542,7 +521,7 @@ td {
 		var email = false;
 		
 		function fn_checkIdDuplicate() {
-			var userId = $("#userId").val().trim();
+			var userId = $("#memberId").val().trim();
 
 			if (!userId || userId.length < 4) {
 				alert("아이디는 4글자 이상 가능합니다.");
@@ -554,7 +533,7 @@ td {
 			$.ajax({
 				url : "/checkDuplicate",
 				type : "POST",
-				data : "userId=" + $("#userId").val().trim(),
+				data : "userId=" + $("#memberId").val().trim(),
 				success : function(data) {
 					if (data == "true") {
 						alert("사용가능한 아이디 입니다");
@@ -760,7 +739,7 @@ td {
 
 		function send() {
 
-			if ($("#userId").val() == "" || id == false) {
+			if ($("#memberId").val() == "" || id == false) {
 				alert("아이디를 확인하세요");
 				return false;
 			} else if ($("#userPw").val() == "" || pw == false) {

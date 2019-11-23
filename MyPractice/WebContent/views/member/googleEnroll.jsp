@@ -406,10 +406,10 @@ td {
 						<form action="/socialEnroll" method="post" name="enrollFrm">
 							<center>
 								<table id="table">
-									<input type="hidden" value="${google.userId }" name = "userId"> 
-							<input type="hidden" value="${google.userId }" name = "userPw">
-							<input type="hidden" value="${google.email }" name = "email">
-							<input type="hidden" value="${google.userName }" name = "name">
+									<input type="hidden" value="${param.id }" name = "userId"> 
+							<input type="hidden" value="${param.id }" name = "userPw">
+							<input type="hidden" value="${param.email }" name = "email">
+							<input type="hidden" value="${param.name }" name = "name">
 									<tr>
 										<td name="td">생년월일 :</td>
 										<td><input type="text" name="usernum1" id="usernum1"></td>

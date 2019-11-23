@@ -36,24 +36,19 @@ public class kakaoTalkLoginservlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			String id = request.getParameter("id");
 			String email = request.getParameter("email");
-			String gender = request.getParameter("gender");
+		
 			
 			Member member = new MemberService().selectMember(id, id);
-			Member kakao = new Member();
-			kakao.setUserId(id);
-			kakao.setEmail(email);
-			kakao.setGender(gender);
+			
+		
 			if(member != null) {
 				
 				HttpSession session = request.getSession(false);
 				session.setAttribute("member", member);
-				response.sendRedirect("index.jsp");
+				response.getWriter().write("success");
 				
-			}else {
-				
-				RequestDispatcher view = request.getRequestDispatcher("views/member/kakaoEnroll.jsp");
-				request.setAttribute("kakao", kakao);
-				view.forward(request, response);
+			}else{
+				response.getWriter().write("fail");
 			}
 	}
 

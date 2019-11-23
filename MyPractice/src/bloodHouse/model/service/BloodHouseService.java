@@ -14,7 +14,7 @@ public class BloodHouseService {
 	
 	public PageData bhList(int currentPage) {
 		Connection conn = JDBCTemplate.getConnection();
-		int recordCountPerPage=10;
+		int recordCountPerPage=5;
 		int naviCountPerPage = 5;
 		PageData pd = new PageData();
 		
@@ -27,7 +27,7 @@ public class BloodHouseService {
 	
 	public PageData bhSearchList(int currentPage, String search){
 		Connection conn = JDBCTemplate.getConnection();
-		int recordCountPerPage =10;
+		int recordCountPerPage =5;
 		int naviCountPerPage=5; 
 		PageData pd = new PageData();
 		pd.setPageList(new BloodHouseDao().bhSearchList(conn, search, recordCountPerPage, currentPage));

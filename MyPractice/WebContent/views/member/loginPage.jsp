@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="member.model.vo.Member, java.util.*"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,11 +84,11 @@ body{
 		width: 20%;
 		height: 100%;
 	}
-	#usr{
+	#userId{
 		width: 300px;
 		height: 30px;
 	}
-	#pwd{
+	#userPwd{
 		width: 300px;
 		height: 30px;
 	}
@@ -98,7 +99,10 @@ body{
 	 a:link { color: black; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
 
-
+	#kakao-login-btn{
+		width: 300px;
+		height: 40px;
+	}
 
 	
 	</style>
@@ -116,19 +120,19 @@ body{
 		<div id = "content1"></div>
 		
 		<div id = "content2">
-			<form action="/login" method="post">
+			
 			<div class="form-group">
  
 				<br><center>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="text" class="form-control" id="usr" name="userId"></center>
+				<input type="text" class="form-control" id="userId" name="userId"></center>
 				</div>
 				<div class="form-group">
   <center>Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  		<input type="password" class="form-control" id="pwd" name="userPwd"></center>
+  		<input type="password" class="form-control" id="userPwd" name="userPwd"></center>
   
 </div>
-			<center><input type="submit" class="btn btn-danger" value="로그인" id = "loginbtn"></center>
-				</form><br>
+			<center><input type="button" class="btn btn-danger" value="로그인" id = "loginbtn"></center>
+				<br>
 				<center><a href=/views/member/EnrollPage.jsp><button class="btn btn-danger" value="회원가입" id = "loginbtn">회원가입</button></a></center>
 				<center> <a id="kakao-login-btn"></a>
   				<div  class="g-signin2" data-onsuccess="onSignIn" style="width:220px;height:45px;"></div>
@@ -158,6 +162,33 @@ body{
 
 <script type='text/javascript'>
 
+	
+		
+	$("#loginbtn").click(function(){
+		var url = "${param.url }";
+		var userId = $("#userId").val().trim();
+		var userPwd = $("#userPwd").val().trim();
+		$.ajax({
+			
+			url:"/login",
+			type:"post",
+			data:{url : url,userId : userId, userPwd : userPwd},
+			success:function(data){
+					if(data == "false"){
+						
+						alert("로그인 실패 : 아이디와 비밀번호를 확인하세요");
+					}else{
+						alert(data);
+						window.location.href=data;	
+					}
+					
+				}
+				
+		})
+		
+		
+	});
+
 
 function onSignIn(googleUser) {
 	  var profile = googleUser.getBasicProfile();
@@ -168,7 +199,7 @@ function onSignIn(googleUser) {
       var auth2 = gapi.auth2.getAuthInstance();
       alert(JSON.stringify(profile));
       auth2.disconnect();
-     window.location.href="/googleLogin?id="+id+"&email="+email+"&name="+name; 
+     window.location.href="/googleLogin?id="+id+"&email="+email+"&name="+name+"&url="+"${param.url }"; 
 	  
 	  // This is null if the 'email' scope is not present.
 	}
@@ -195,8 +226,8 @@ function onSignIn(googleUser) {
           	          success: function(res) {
           	        	var id = res.id;
                         var email = res.kakao_account.email;
-                        var gender = res.kakao_account.gender; 
-                        window.location.href="/kakaoTalkLogin?id="+id+"&email="+email+"&gender="+gender;
+                        var gender = res.kakao_account.gender;
+                        window.location.href="/kakaoTalkLogin?id="+id+"&email="+email+"&gender="+gender+"&url="+"${param.url }";
           	          },
           	          fail: function(error) {
           	            alert(JSON.stringify(error));
@@ -232,7 +263,7 @@ function onSignIn(googleUser) {
 	
 	
 	
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body></html>

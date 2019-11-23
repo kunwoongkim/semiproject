@@ -286,9 +286,15 @@
 	
 		width:400px;	
 	}
-		 a:link { color: red; text-decoration: none;}
+		 a:link { color: black; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
-	
+	#title{
+		
+		font-size : 60px;
+		margin-right : 20px;
+		color : #515151;
+		
+	}
 	</style>
 	
 </head>
@@ -298,7 +304,7 @@
 	
 	<div id="container" >
 	<div id= "header">
-	<div id="header1"><center><a href="/index.jsp"><h1 id ="title">RED LINE</h1></a></center></div>
+	<div id="header1"><center><a href="/index.jsp" id ="title">RED LINE</a></center></div>
 	<div id="header2" >
 		<nav class="navbar navbar-expand-sm" id="nav" >
 	<div class="navbar navbar-default navbar-right" id="navdiv">

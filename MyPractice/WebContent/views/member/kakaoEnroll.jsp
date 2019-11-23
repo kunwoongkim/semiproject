@@ -406,9 +406,9 @@ td {
 						<form action="/socialEnroll" method="post" name="enrollFrm">
 							<center>
 								<table id="table">
-									<input type="hidden" value="${kakao.userId }" name = "userId"> 
-							<input type="hidden" value="${kakao.userId }" name = "userPw">
-							<input type="hidden" value="${kakao.email }" name = "email">
+									<input type="hidden" value="${param.id }" name = "userId"> 
+							<input type="hidden" value="${param.id }" name = "userPw">
+							<input type="hidden" value="${param.email }" name = "email">
 									<tr>
 										<td name="td">생년월일 :</td>
 										<td><input type="text" name="usernum1" id="usernum1"></td>

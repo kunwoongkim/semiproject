@@ -20,7 +20,7 @@ public class BloodHouseDao {
 		int start = currentPage* recordCountPerPage - (recordCountPerPage - 1);
 		int end = currentPage * recordCountPerPage;
 		
-		String query = "SELECT * FROM(SELECT ROW_NUMBER() OVER(ORDER BY HOUSE_NAME DESC) AS NUM, BLOOD_HOUSE.* FROM BLOOD_HOUSE)WHERE NUM BETWEEN ? AND ?";
+		String query = "SELECT * FROM(SELECT ROW_NUMBER() OVER(ORDER BY HOUSE_ADDR DESC) AS NUM, BLOOD_HOUSE.* FROM BLOOD_HOUSE)WHERE NUM BETWEEN ? AND ?";
 		 try {
 			pstmt=conn.prepareStatement(query);
 			pstmt.setInt(1, start);
@@ -86,9 +86,9 @@ public class BloodHouseDao {
 		}
 		for(int i = startNavi; i <= endNavi; i++) {
 			if(i == currentPage) {
-				sb.append("<a href='/bloodHouse?currentPage="+i+"'><b>"+i+"</b></a>");
+				sb.append("<a id='page' value='"+i+"' href='/bloodHouse?currentPage="+i+"'>&nbsp<b>"+i+"</b>&nbsp</a>");
 			}else {
-				sb.append("<a href='/bloodHouse?currentPage="+i+"'>"+i+"</a>");
+				sb.append("<a href='/bloodHouse?currentPage="+i+"'>&nbsp"+i+"&nbsp</a>");
 			}
 		}if(needNext) {
 			sb.append("<a href='/bloodHouse?currentPage="+(endNavi+1)+"'> ></a>");
@@ -127,7 +127,7 @@ public class BloodHouseDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 
-		String query = "select * FROM (Select BLOOD_HOUSE.*, ROW_NUMBER() OVER(ORDER BY HOUSE_NAME DESC) AS NUM FROM BLOOD_HOUSE WHERE HOUSE_ADDR LIKE ?) WHERE NUM BETWEEN ? and ?";
+		String query = "select * FROM (Select BLOOD_HOUSE.*, ROW_NUMBER() OVER(ORDER BY HOUSE_ADDR DESC) AS NUM FROM BLOOD_HOUSE WHERE HOUSE_ADDR LIKE ?) WHERE NUM BETWEEN ? and ?";
 
 		int start = currentPage * recordCountPerPage - (recordCountPerPage - 1);
 		int end = currentPage * recordCountPerPage;
@@ -202,7 +202,7 @@ public class BloodHouseDao {
 		}
 		for (int i = startNavi; i <= endNavi; i++) {
 			if (i == currentPage) {
-				sb.append("<a href='/bloodHouseSearch?search=" + search + "&currentPage=" + i + "'><b>" + i + "</b></a>");
+				sb.append("<a id='page' value='"+i+"' href='/bloodHouseSearch?search=" + search + "&currentPage=" + i + "'><b>" + i + "</b></a>");
 			}else {
 				sb.append("<a href='/bloodHouseSearch?search=" + search + "&currentPage=" + i + "'>" + i + "</a>");
 			}
