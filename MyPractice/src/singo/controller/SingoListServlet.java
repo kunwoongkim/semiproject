@@ -45,7 +45,7 @@ public class SingoListServlet extends HttpServlet {
 		
 		PageData pd = new SingoService().singoList(currentPage);
 		
-		HttpSession session = request.getSession();
+		
 		
 		
 		
@@ -54,8 +54,6 @@ public class SingoListServlet extends HttpServlet {
 			request.setAttribute("pageData", pd);
 			
 			views.forward(request, response);
-		}else {
-			response.sendRedirect("/views/member/Error.html");
 		}
 		
 		

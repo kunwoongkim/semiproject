@@ -26,7 +26,7 @@
 		
 		
 		height: 1300px;
-		width: 2000px;
+		width: 2400px;
 		
 		
 		
@@ -307,61 +307,7 @@
 	
 	<div id="container" >
 	<div id= "header">
-	<div id="header1"><center><a href="/index.jsp"><h1 id ="title">RED LINE</h1></a></center></div>
-	<div id="header2" >
-	<nav class="navbar navbar-expand-sm" id="nav" >
-	<div class="navbar navbar-default navbar-right" id="navdiv">
-		<ul class="nav navbar-nav navbar-right"  style="width : 1200px ">
-			
-			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:#515151; width:220px; font-size : 19px">커뮤니티</a>
-			<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">A형 게시판</a>
-			<a class="dropdown-item" href="#">B형 게시판</a>	
-			<a class="dropdown-item" href="#">O형 게시판</a>	
-			<a class="dropdown-item" href="#">AB형 게시판</a>		
-				</div>
-			</li>
-			<li ><a href="/views/blood_info/blood_info.jsp" class="nav-link" id= "navbardrop" style="color:#515151; width:220px;font-size : 19px">희귀혈액지식</a>
-			</li>
-			<li><a href="/bloodHouse" class="nav-link" style="color:#515151; width:220px;font-size : 19px">헌혈의집찾기</a></li>
-			<li><a href="#" class="nav-link" style="color:#515151; width:220px;font-size : 19px">헌혈증기증</a></li>
-			<c:if test="${sessionScope.member != null }">
-			<li class="nav-item dropdown"><a href="/myPage"  class="nav-link" style="color:#515151; width:220px;font-size : 19px">마이페이지</a>
-		
-					
-			</li>
-			</c:if> 	
-		
-		
-		</ul>
-		
-		</div>
-		</nav>
-		</div>
-	<div id="header3">
-	
-	<c:if test="${sessionScope.member.userId == 'admin'}">
-         <div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
-      <div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
-      <a href="/memberAll" class="btn" >관리자페이지</a>
-    <a href="/logout" onclick="signOut();" class="btn">로그아웃</a>	</div>
-      
-       </c:if>
-       
-	<c:if test="${sessionScope.member != null }">
-			<div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
-		<a href="/myPage"><button class="btn">마이페이지</button></a>
-		<a href="/logout" onclick="clearAllCookies(domain, path)" class="btn">로그아웃</a>	</div>
-		</c:if> 
-		
-		
-			
-	<c:if test="${sessionScope.member == null }">
-		<center><a href="/views/member/loginPage.jsp"><button class="btn btn-light" id="searchbtn" style="width:100px; color:#515151"><b>LOGIN</b></button></a>
-		<a href="/views/member/EnrollPage.jsp"><button class="btn btn-light" id="searchbtn" style="width:100px; color:#515151"><b>JOIN</b></button></a></center>
-		</c:if> 	
-		</div>	
+	<jsp:include page="/views/header/Header2.jsp"></jsp:include>
 		</div>
 	<div id="content">
 		

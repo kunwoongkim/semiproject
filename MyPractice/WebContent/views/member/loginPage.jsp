@@ -197,7 +197,7 @@ function onSignIn(googleUser) {
 	  var name = profile.getName();
       var email = profile.getEmail();
       var auth2 = gapi.auth2.getAuthInstance();
-      alert(JSON.stringify(profile));
+ 
       auth2.disconnect();
      window.location.href="/googleLogin?id="+id+"&email="+email+"&name="+name+"&url="+"${param.url }"; 
 	  

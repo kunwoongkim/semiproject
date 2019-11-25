@@ -47,15 +47,15 @@ public class MyBoardServlet extends HttpServlet {
 			String userId =((Member) session.getAttribute("member")).getUserId();
 			PageData pd = new BoardService().BoardAll(userId,currentPage);
 			
-			if(pd!=null) {
+			
+				
+	if(pd!=null) {
 				
 				RequestDispatcher view = request.getRequestDispatcher("/views/board/MyBoard.jsp");
 				request.setAttribute("pageData", pd);
 				view.forward(request, response);
 				
 			}
-				
-		
 			
 	}
 

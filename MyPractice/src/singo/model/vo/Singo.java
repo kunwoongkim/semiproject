@@ -9,8 +9,44 @@ public class Singo {
 	private String reportContent;
 	private Date date;
 	private String reportType;
-	
+	private String fileName;
+	private String filePath;
+	private int reportNo;
+	private String title;
+	private String reportSuccess;
 	public Singo() {}
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
+	public int getReportNo() {
+		return reportNo;
+	}
+
+	public void setReportNo(int reportNo) {
+		this.reportNo = reportNo;
+	}
 
 	public String getReporterId() {
 		return reporterId;
@@ -50,6 +86,14 @@ public class Singo {
 
 	public void setReportType(String reportType) {
 		this.reportType = reportType;
+	}
+
+	public String getReportSuccess() {
+		return reportSuccess;
+	}
+
+	public void setReportSuccess(String reportSuccess) {
+		this.reportSuccess = reportSuccess;
 	}
 	
 	

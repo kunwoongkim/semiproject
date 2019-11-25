@@ -7,32 +7,23 @@
 <meta charset="UTF-8">
 <title>회원가입 페이지</title>
 <script src="../../js/jquery-2.0.0.js"></script>
- <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
-<script
-	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<!-- <script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	crossorigin="anonymous"></script> -->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-	crossorigin="anonymous"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-	crossorigin="anonymous"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	 <meta name = "google-signin-client_id" content = "181826323862-29136l7je3lvb232vlm92q7a785hsq5n.apps.googleusercontent.com">
+
+
+<!-- Bootstrap core CSS -->
+  <link href="/META-INF/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/one-page-wonder.min.css" rel="stylesheet">
 <style> 
 div {
 	/* 	border: 1px solid black; */
@@ -45,11 +36,6 @@ div {
 		width: 2400px;
 }
 
-#header {
-	float: left;
-	height: 5%;
-	width: 100%;
-}
 
 #content {
 	float: left;
@@ -338,7 +324,7 @@ td {
 
 	<div id="container">
 		<div id="header">
-		<jsp:include page="/views/header/Header.jsp"></jsp:include>
+		<jsp:include page="/views/header/Header2.jsp"></jsp:include>
 			</div>
 
 		<div id="content">
@@ -352,13 +338,10 @@ td {
 					</center>
 				</div>
 				<div id="content1-2">
-					<div id="content1-2-1">
-
-						<a href="#"><button class="btn" name="mybtn">로그인</button></a>
-					</div>
+				
 					<div id="content1-2-2">
-						<a href="#"><button class="btn" name="mybtn"
-								style="color: red">회원가입</button></a>
+						<a href="#"><button class="btn btn-danger" name="mybtn"
+								>회원가입</button></a>
 					</div>
 
 				</div>
@@ -508,7 +491,7 @@ td {
 		<input type="hidden" name="userNickName">
 	</form>
 
-
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 		var flag = false;
 		var id = false;
@@ -523,8 +506,8 @@ td {
 		function fn_checkIdDuplicate() {
 			var userId = $("#memberId").val().trim();
 
-			if (!userId || userId.length < 4) {
-				alert("아이디는 4글자 이상 가능합니다.");
+			if (!userId || userId.length < 4 || userId.length > 12) {
+				alert("아이디는 4글자 이상 12글자 이하만 가능합니다.");
 				id = false;
 				flag = false;
 				return;
@@ -828,6 +811,12 @@ td {
 	</script>
 
 
+ <script src="/META-INF/vendor/jquery/jquery.min.js"></script>
+  <script src="/META-INF/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+		 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
 </body>

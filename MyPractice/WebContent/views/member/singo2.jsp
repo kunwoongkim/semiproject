@@ -17,16 +17,16 @@
 
     <style>
         div {
-        	
+           
             box-sizing: border-box;
             
         }
 
         #container {
 
-          	
-		height: 1300px;
-		width: 2400px;
+             
+      height: 1300px;
+      width: 2400px;
 
 
 
@@ -316,7 +316,7 @@
 
         td {
             height: 50px;
-            width: 500px;
+            width: 200px;
         }
 
         #updatebtn {
@@ -338,56 +338,7 @@
 
     <div id="container">
         <div id="header">
-            <div id="header1">
-                <center>
-                    <h1 id="title">RED LINE</h1>
-                </center>
-            </div>
-            <div id="header2">
-                <nav class="navbar navbar-expand-sm" id="nav">
-                    <div class="navbar navbar-default navbar-right" id="navdiv">
-                        <ul class="nav navbar-nav navbar-right" align=right>
-
-                            <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" style="color:black">커뮤니티</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">A형 게시판</a>
-                                    <a class="dropdown-item" href="#">B형 게시판</a>
-                                    <a class="dropdown-item" href="#">O형 게시판</a>
-                                    <a class="dropdown-item" href="#">AB형 게시판</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;희귀혈액지식</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">혈액의 기본지식</a>
-                                    <a class="dropdown-item" href="#">희귀혈액형의 종류</a>
-                                    <a class="dropdown-item" href="#">헌혈의 오해와 진실</a>
-                                    <a class="dropdown-item" href="#">혈액관리 시스템</a>
-                                </div>
-                            </li>
-                            <li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈의집찾기</a></li>
-                            <li><a href="#" class="nav-link" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈증기증</a></li>
-                            <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">회원정보수정</a>
-                                    <a class="dropdown-item" href="#">내가쓴 글보기</a>
-                                    <a class="dropdown-item" href="#">내가쓴 댓글보기</a>
-
-                                </div>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                </nav>
-            </div>
-            <div id="header3">
-                <div id="header3-1"><img src="../../images/login_icon.png" id="loginimg"></div>
-                <div id="header3-2"><span id="logintext">관리자님 환영합니다</span><br>
-
-                    <center><a href="/logout"><button class="btn">로그아웃</button></a></center>
-
-                </div>
-            </div>
+           <jsp:include page="/views/header/Header2.jsp"></jsp:include>
         </div>
         <div id="content">
 
@@ -438,14 +389,16 @@
                                         </form>
                                     </td>
                                 </tr>
-                       	         <tr>
-                           	        
+                                   <tr>
+                                      
                                     <th>신고자 ID</th>
                                     <th>신고대상자 ID</th>
-                                    <th>신고 사유</th>
+                                    <th>신고 제목</th>
                                     <th>신고 날짜</th>
                                     <th>신고 종류</th>
                                     <th>회원 탈퇴</th>
+                                    <th>처리상태</th>
+                                    <th>처리</th>
                                     
                                 </tr>
 
@@ -458,8 +411,8 @@
                                         <td>
                                             <c:out value="${sl.reportedId }" />
                                         </td>
-                                        <td>
-                                            <c:out value="${sl.reportContent }" />
+                                          <td><a href="/singoShow?reportNo=${sl.reportNo}">
+                                          <c:out value="${sl.title }" /></a>
                                         </td>
                                         <td>
                                             <c:out value="${sl.date}" />
@@ -468,7 +421,10 @@
                                             <c:out value="${sl.reportType}" />
                                         </td>
                                          <td><a href="/memberDelete?reportedId=${sl.reportedId }" id="memberDel" onclick="return delQuestion()">신고 대상자 탈퇴</a></td> 
-                                       
+                                       	<td>
+                                            <c:out value="${sl.reportSuccess}" />
+                                        </td>
+                                        <td><button type = "button" name="success" >처리<input type="hidden" value = "${sl.reportNo}" name = "num"></button></td> 
                                          
                                     </tr>
                                 </c:forEach>
@@ -497,17 +453,68 @@
     </div>
     
     <script>
-	function delQuestion() {
-		var result = window.confirm("정말로 회원을 탈퇴시키겠습니까?");
-		
-		if(result) {
-			return true;
-		}else{
-			return false;
-		}
-		
-	}
-	</script>
+   function delQuestion() {
+      var result = window.confirm("정말로 회원을 탈퇴시키겠습니까?");
+      
+      if(result) {
+         return true;
+      }else{
+         return false;
+      }
+      
+   }
+   
+   
+   
+   
+ 
+   
+   
+    $("button[name=success]").click(function(){
+	   
+	   var result = window.confirm("처리완료하시겠습니까 ?");
+   
+	   if(result) {
+		   
+		   		var num = $(this).children("input").val();
+		   		var btn = $(this);
+		   		console.log(num);
+	        	$.ajax({
+	        		
+	        		url : "/updateReport",
+	        		type : "post",
+	        		data : {num : num},
+	        		success : function(data){
+	        			
+	        			if(data == "false"){
+	        				alert("처리를 실패했습니다");
+	        			}else{
+	        				
+	        				alert("처리를 완료했습니다");
+	        				btn.attr("display","none");
+	        				window.location.reload();
+	        			}
+	        			
+	        			
+	        		}
+	        	
+	        	
+	        	
+	        	})
+	        	
+		   
+		   
+	      }else{
+	         return false;
+	      }
+   			
+   
+   
+   }) 
+   
+   
+   
+   </script>
     
     
     </body>

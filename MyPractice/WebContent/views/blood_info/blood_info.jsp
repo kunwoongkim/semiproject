@@ -17,6 +17,11 @@
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	 <meta name = "google-signin-client_id" content = "181826323862-29136l7je3lvb232vlm92q7a785hsq5n.apps.googleusercontent.com">
 <style>
+
+		@import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Jua&display=swap');
+
+
         div {
             box-sizing: border-box;
     /*      border: 1px solid black; */
@@ -31,11 +36,13 @@
 
         }
 		
-        #header {
-            height: 7%;
-            width: 100%;
-
-        }
+      	#header{
+		height: 7%;
+		width: 100%;
+		background : black;
+		
+		
+	}
 
         #content {
             height: 80%;
@@ -50,31 +57,32 @@
 
         }
 
-        #header1 {
-            float: left;
-            height: 100%;
-            width: 25%;
-            color: black;
-
-        }
-
+        #header1{
+	
+		 float: left;
+		height: 100%;
+		width: 15%;
+		
+		
+	}
+	#header2{
+		 float: left;
+		height: 100%;
+		width: 70%;
+		
+	} 
+	#header3{
+		float: left;
+		height: 100%;
+		width: 15%;
+	
+		
+	}
         #title {
             margin-top: 7px;
         }
 
-        #header2 {
-            float: left;
-            height: 100%;
-            width: 55%;
-        }
-
-        #header3 {
-            float: left;
-            height: 100%;
-            width: 20%;
-
-
-        }
+     
 
         input[id^=search] {
             margin-top: 20px;
@@ -781,7 +789,7 @@
 		
 		font-size : 60px;
 		margin-right : 20px;
-		color : #515151;
+		color : white;
 		
 	}
 
@@ -820,7 +828,7 @@
         }
 
         a:link {
-            color: red;
+            color: black;
             text-decoration: none;
         }
 
@@ -833,14 +841,6 @@
 		#searchbtn{
 		margin-top: 25px;
 		height: 40px;
-	}
-	
-		#title{
-		
-		font-size : 60px;
-		margin-right : 20px;
-		color : #515151;
-		
 	}
 	
 	#loginbtn{
@@ -856,8 +856,47 @@
 	}
 	#userPwd{
 		width: 400px;
+	}
+	
+	
+	#header{
+		height: 9%;
+		width: 100%;
+		background : black;
+		
+		
+	}
+	
+	#searchbtn{
+		margin-top: 3px;
 		height: 40px;
 	}
+	
+		#title{
+		
+		font-size : 60px;
+		margin-right : 20px;
+		color : white;
+		font-family: 'Kaushan Script', cursive;
+		
+	}
+	
+	#loginbtn{
+		width: 400px;
+		height: 50px;
+		margin-bottom: 3px;
+	}
+	
+	
+	#userId{
+		width: 400px;
+		height: 40px;
+	}
+	#userPwd{
+		width: 400px;
+		height: 40px;
+	}
+		
 
     </style>
 </head>
@@ -867,18 +906,14 @@
 
     <div id="container">
         <div id="header">
-            <div id="header1">
-                <center><a href="/index.jsp" id="title">RED LINE</a></center>
-            </div>
-            <div id="header2">
-                
-                
-                
-                <nav class="navbar navbar-expand-sm" id="nav" >
+          
+	<div id="header1"><center><a id ="title" href="/index.jsp">RED LINE</a></center></div>
+	<div id="header2" >
+		<nav class="navbar navbar-expand-sm" id="nav" style="font-family: 'Jua', sans-serif;">
 	<div class="navbar navbar-default navbar-right" id="navdiv">
-		<ul class="nav navbar-nav navbar-right"  style="width : 1200px ">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ul class="nav navbar-nav" >
 			
-			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:#515151; width:220px; font-size : 19px">커뮤니티</a>
+			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:white; width:220px; font-size : 25px">COMMUNITY</a>
 			<div class="dropdown-menu">
 			<a class="dropdown-item" href="#">A형 게시판</a>
 			<a class="dropdown-item" href="#">B형 게시판</a>	
@@ -886,7 +921,8 @@
 			<a class="dropdown-item" href="#">AB형 게시판</a>		
 				</div>
 			</li>
-			 <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" style="color:#515151; width:220px; font-size : 19px">희귀혈액지식</a>
+			<li><a href="#" class="nav-link" style="color:white; width:180px;font-size : 25px">공지사항</a></li>
+			 <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" style="color:white; width:220px;font-size : 25px">희귀혈액지식</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#"><button class="btn" onclick="showDiv(this.value)" value="info1">헌혈의 필요성</button></a>
                                     <a class="dropdown-item" href="#"><button class="btn" onclick="showDiv(this.value)" value="info2">혈액이란</button></a>
@@ -896,11 +932,10 @@
                                     <a class="dropdown-item" href="#"><button class="btn" onclick="showDiv(this.value)" value="info6">수혈 상식</button></a>
                                 </div>
                             </li>
-			
-			<li><a href="/bloodHouse" class="nav-link" style="color:#515151; width:220px;font-size : 19px">헌혈의집찾기</a></li>
-			<li><a href="#" class="nav-link" style="color:#515151; width:220px;font-size : 19px">헌혈증기증</a></li>
-			<c:if test="${sessionScope.member != null }">
-			<li class="nav-item dropdown"><a href="/myPage"  class="nav-link" style="color:#515151; width:220px;font-size : 19px">마이페이지</a>
+			<li><a href="/bloodHouse" class="nav-link" style="color:white; width:220px;font-size : 25px">헌혈의집찾기</a></li>
+			<li><a href="#" class="nav-link" style="color:white; width:220px;font-size : 25px">헌혈증기증</a></li>
+			<c:if test="${sessionScope.member != null && sessionScope.member.userId != 'admin'}">
+			<li class="nav-item dropdown"><a href="/myPage"  class="nav-link" style="color:white; width:220px;font-size : 25px">마이페이지</a>
 		
 					
 			</li>
@@ -911,31 +946,45 @@
 		
 		</div>
 		</nav>
-            </div>
-            <div id="header3">
-               	<c:if test="${sessionScope.member.userId == 'admin'}">
+		</div>
+	<div id="header3">
+	
+	<c:if test="${sessionScope.member.userId == 'admin'}">
          <div id= "header3-1"><img src="/images/login_icon.png" id="loginimg"></div>
-      <div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
-      <a href="/memberAll" class="btn" >관리자페이지</a>
-    <a href="/logout" onclick="signOut();" class="btn">로그아웃</a>	</div>
+      <div id= "header3-2"><span id="logintext" style="color:white;">${sessionScope.member.userNickName }님 환영합니다</span><br>
+      <a href="/memberAll" class="btn" style="color:white;">관리자페이지</a>
+    <a href="/logout" onclick="signOut();" class="btn" style="color:white;">로그아웃</a>	</div>
       
        </c:if>
        
-	<c:if test="${sessionScope.member != null }">
-			<div id= "header3-1"><img src="/images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
-		<a href="/myPage"><button class="btn">마이페이지</button></a>
-		<a href="/logout" onclick="clearAllCookies(domain, path)" class="btn">로그아웃</a>	</div>
+	<c:if test="${sessionScope.member != null && sessionScope.member.userId != 'admin'}">
+			<div id= "header3-1"><img src="/images/login_icon.png" id="loginimg" style="color:white;"></div>
+		<div id= "header3-2"><span id="logintext" style="color:white;">${sessionScope.member.userNickName }님 환영합니다</span><br>
+		<a href="/myPage"><button class="btn" style="color:white;">마이페이지</button></a>
+		<a href="/logout" class="btn" style="color:white;">로그아웃</a>	</div>
 		</c:if> 
 		
 		
 			
 	<c:if test="${sessionScope.member == null }">
-		<div class="container">
+		
+		
+	
  
-    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal" id="searchbtn" style="width:100px; color:#515151"><b>LOGIN</b></button>
-	 <a href="/views/member/EnrollPage.jsp" class="btn btn-light" id="searchbtn" style="width:100px; color:#515151"><b>JOIN</b></a>
-  <!-- Modal -->
+
+ 
+    <button type="button" class="btn" data-toggle="modal" data-target="#myModal" id="searchbtn" style="width:100px; color:white"><b>LOGIN</b></button>
+	 <a href="/views/member/EnrollPage.jsp" class="btn" id="searchbtn" style="width:100px; color:white"><b>JOIN</b></a>
+ 
+
+ 
+		</c:if> 	
+		</div>
+		
+
+		
+	
+		 <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -973,9 +1022,6 @@
       </div>
     </div>
   </div>
-</div>
-		</c:if> 	
-		</div>	
                 </div>
             
       

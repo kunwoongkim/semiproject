@@ -146,4 +146,21 @@ public Member findUpdatePw(String userId,String pass) {
 	JDBCTemplate.close(conn);
 	return member;
 }
+
+
+public int deleteMember(String userId) {
+	
+	Connection conn = JDBCTemplate.getConnection();
+	int result = new MemberDao().deleteMember(conn,userId);
+	if(result>0) {
+		JDBCTemplate.commit(conn);
+	}else {
+		JDBCTemplate.rollback(conn);
+	}
+	
+	JDBCTemplate.close(conn);
+	return result;
+	
+	
+}
 }

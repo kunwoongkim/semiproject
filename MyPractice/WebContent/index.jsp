@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="member.model.vo.Member, java.util.*"%>
  
@@ -8,6 +10,9 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 	<title>메인페이지</title>
 	<script src="../../js/jquery-2.0.0.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -17,48 +22,51 @@
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	 <meta name = "google-signin-client_id" content = "181826323862-29136l7je3lvb232vlm92q7a785hsq5n.apps.googleusercontent.com">
 
+
+<!-- Bootstrap core CSS -->
+  <link href="/META-INF/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/one-page-wonder.min.css" rel="stylesheet">
+  
+  
 <style>
 	body{
 		/* margin-left : 300px; */
 	
+		
 	}
 	div{
-		/* border : 1px solid black; */
+		/*  border : 1px solid black;   */
 		box-sizing: border-box;
 	}
 	#container{
 		
-		height: 1900px;
-		width: 2400px;
-		
+		height: 2300px;
+		width: 100%;
 		
 		
 	}
 
-	#header{
-		height: 5%;
-		width: 100%;
-		
-	}
+	
 	
 	#content{
-		height: 80%;
+		height: 90%;
 		width: 100%;
 		
 	}
 	#footer{
 		height: 5%;
 		width: 100%;
+		margin-top : 1200px;
 	
 		
 	}
-	#header1{
-		 float: left;
-		height: 100%;
-		width: 25%;
-		color: black;
-		
-	}
+	
 	#title{
 		
 		font-size : 60px;
@@ -66,18 +74,8 @@
 		color : #515151;
 		
 	}
-	#header2{
-		 float: left;
-		height: 100%;
-		width: 55%;
-	}
-	#header3{
-		 float: left;
-		height: 100%;
-		width: 20%;
-		margin-right: 
-		
-	}
+
+
 	input[id^=search]{
 		margin-top: 25px;
 		width : 50px;
@@ -85,7 +83,7 @@
 	
 	#content1{
 		 float: left;
-		height: 70%;
+		height: 60%;
 		width: 100%;
 		
 	}
@@ -244,36 +242,38 @@
 	}
 	 a:link { color: black; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
-	
+ 
+	#img-a,#img-b,#img-c{
+		width: 500px;
+		height:500px;
+		border-radius: 250px;
+}
+
+
+.container-1{
+	float: left;
+	hight:300px;
+
+
+}
+#loginbtn{
+		width: 200px;
+		height: 100px;
+		margin-bottom: 3px;
+	}
+
 	</style>
 	
 	
-		<script>
-	
-		function clearAllCookies(domain, path) {
-			  var doc = document,
-			      domain = domain || doc.domain,
-			      path = path || '/',
-			      cookies = doc.cookie.split(';'),
-			      now = +(new Date);
-			  for (var i = cookies.length - 1; i >= 0; i--) {
-			    doc.cookie = cookies[i].split('=')[0] + '=; expires=' + now + '; domain=' + domain + '; path=' + path;
-			  }
-			}
-	
-	
-	</script>
 	
 </head>
 
 <body>
 
 	
-	<div id="container">
-	<div id= "header">
-	<jsp:include page="/views/header/Header.jsp"></jsp:include>
+	<div id="container" >
 	
-		</div>
+		<jsp:include page="/views/header/Header.jsp"></jsp:include>
 	
 	<div id="content">
 		<div id="content1">
@@ -292,14 +292,14 @@
     <div class="carousel-item active">
    
 		
-       <img src="images/3.jpg" name ="carimg" width=2400px; height=1065px;>
+       <img src="/images/3.jpg" name ="carimg" width=100%; height=1230px;>
     </div>
    
      <div class="carousel-item">
-      <img src="images/4.jpg" name ="carimg" width=2400px; height=1065px;>
+      <img src="/images/4.jpg" name ="carimg" width=100%; height=1230px;>
     </div>
       <div class="carousel-item">
-      <img src="images/1.jpg" name ="carimg" width=2400px; height=1065px;>
+      <img src="/images/1.jpg" name ="carimg" width=100%; height=1230px;>
     </div>
      
   </div>
@@ -313,35 +313,94 @@
   </a>
 </div>
 			</div>
+<div id="content2">	
+<center>
+		 <section>
 		
-		
-		<div id="content2">
-		<div id="content2-1"><img src="img/헌혈증이미지.png" id="img1"></div>
-		<div id="content2-2">
-		
-			
-			</div>
-			<div class="container" id="content2-3">
-		
-			
-			</div>	
-			</div>
-			
-			
-			</div>
-		
-	<div id= "footer">
-		<br><br><br>
-		
-		<center><h6 style="color: darkgray">Copyright KH Corp.All rights reserved</h6></center>
-		</div>
+    <div class="container-1">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img id="img-a" class="img-fluid" src="/images/4.jpg">
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Community</h2>
+            <p>단 한명의 Rh(-)혈액 보유자라도 곤란을 겪는 일이 없도록 소통하는 Community입니다. 우리는 언제 수혈을 받을 상황에 처할지 모릅니다. 건강할 때 헌혈하는 것은 자신과 사랑하는 가족을 위하여, 더 나아가 모두를 위한 사랑의 실천입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+
+  <section>
+    <div class="container-1">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="p-5">
+            <img id="img-b" class="img-fluid" src="/images/3.jpg">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-5">
+            <h2 class="display-4">Blood donation</h2>
+            <p>헌혈은 수혈이 필요한 환자의 생명을 구하는 유일한 수단입니다. 혈액은 아직 인공적으로 만들 수 있거나, 대체할 물질이 존재하지 않습니다.우리는 언제 수혈을 받을 상황에 처할지 모릅니다. 건강할 때 헌혈하는 것은 자신과 사랑하는 가족을 위하여, 더 나아가 모두를 위한 사랑의 실천입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-1">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img id="img-c" class="img-fluid" src="/images/5.jpg">
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Let there be rock!</h2>
+            <p>혈액의 성분 중 한 가지 이상이 부족하여 건강과 생명을 위협받는 다른 사람을 위해, 건강한 사람이 자유의사에 따라 아무 대가 없이 자신의 혈액을 기증하는 사랑의 실천이자, 생명을 나누는 고귀한 행동입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+</center>
+  </div>
+  </div>	
+ <div id="footer"  class="py-5 bg-black">
+  
+  
+ 
+    <div class="container">
+      <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2019</p>
+    </div>
+    
+  </div> 
+   
+ <!-- Bootstrap core JavaScript -->
+ 
 	
 	</div>
 
 	
 	
+	
+	
+	
+	 <script src="/META-INF/vendor/jquery/jquery.min.js"></script>
+  <script src="/META-INF/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
 		 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
 
 </body></html>

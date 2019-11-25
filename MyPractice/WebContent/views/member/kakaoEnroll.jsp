@@ -309,58 +309,8 @@ td {
 
 
 	<div id="container">
-		<div id="header">
-			<div id="header1" style="background-color: #fba9a1">
-				<center>
-					<h1 id="title">RED LINE</h1>
-				</center>
-			</div>
-			<div id="header2">
-				<nav class="navbar navbar-expand-sm" id="nav"
-					style="background-color: #fba9a1">
-					<div class="navbar navbar-default navbar-right" id="navdiv">
-						<ul class="nav navbar-nav navbar-right" align=right>
-
-							<li class="nav-item dropdown"><a href="#"
-								class="nav-link dropdown-toggle" id="navbardrop"
-								data-toggle="dropdown" style="color: dimgrey">커뮤니티</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#" style="color: dimgrey">A형
-										게시판</a> <a class="dropdown-item" href="#" style="color: dimgrey">B형
-										게시판</a> <a class="dropdown-item" href="#" style="color: dimgrey">O형
-										게시판</a> <a class="dropdown-item" href="#" style="color: dimgrey">AB형
-										게시판</a>
-								</div></li>
-							<li class="nav-item dropdown"><a href="#"
-								class="nav-link dropdown-toggle" id="navbardrop"
-								data-toggle="dropdown" style="color: dimgrey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;희귀혈액지식</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#" style="color: dimgrey">혈액의
-										기본지식</a> <a class="dropdown-item" href="#" style="color: dimgrey">희귀혈액형의
-										종류</a> <a class="dropdown-item" href="#" style="color: dimgrey">헌혈의
-										오해와 진실</a> <a class="dropdown-item" href="#"
-										style="color: dimgrey">혈액관리 시스템</a>
-								</div></li>
-							<li><a href="#" class="nav-link" style="color: dimgrey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈의집찾기</a></li>
-							<li><a href="#" class="nav-link" style="color: dimgrey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈증기증</a></li>
-							<li class="nav-item dropdown"><a href="#"
-								class="nav-link dropdown-toggle" id="navbardrop"
-								data-toggle="dropdown" style="color: dimgrey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#" style="color: dimgrey">회원정보수정</a>
-									<a class="dropdown-item" href="#" style="color: dimgrey">내가쓴
-										글보기</a> <a class="dropdown-item" href="#" style="color: dimgrey">내가쓴
-										댓글보기</a>
-
-								</div></li>
-
-						</ul>
-
-					</div>
-				</nav>
-			</div>
-			<div id="header3"></div>
-		</div>
+		
+	
 
 		<div id="content">
 
@@ -373,13 +323,12 @@ td {
 					</center>
 				</div>
 				<div id="content1-2">
-					<div id="content1-2-1">
-
-						<a href="#"><button class="btn" name="mybtn">로그인</button></a>
-					</div>
+					
 					<div id="content1-2-2">
-						<a href="#"><button class="btn" name="mybtn"
-								style="color: red">회원가입</button></a>
+						<a href="/views/member/EnrollPage.jsp"><button class="btn" name="mybtn"
+								>회원가입</button></a>
+						<a href="/index.jsp"><button class="btn" name="mybtn"
+								>홈으로</button></a>
 					</div>
 
 				</div>
@@ -390,10 +339,10 @@ td {
 					<h6 style="color: gray">
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
 							src="/HtmlProject/WebContent/html/img/214-2142856_team-member-icon-silhouette-of-a-person.png"
-							width="30px ">회원서비스 > 회원가입
+							width="30px ">회원서비스 > 소셜로그인 추가정보입력
 					</h6>
 
-					<h1 style="font-weight: bold; color: dimgrey">&nbsp;&nbsp;&nbsp;회원가입</h1>
+					<h1 style="font-weight: bold; color: dimgrey">&nbsp;&nbsp;&nbsp;추가정보입력</h1>
 					<hr>
 				</div>
 
@@ -506,7 +455,7 @@ td {
 		<input type="hidden" name="userNickName">
 	</form>
 
-
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 		var flag = false;
 		var id = false;

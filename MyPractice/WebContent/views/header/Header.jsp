@@ -16,13 +16,33 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	 <meta name = "google-signin-client_id" content = "181826323862-29136l7je3lvb232vlm92q7a785hsq5n.apps.googleusercontent.com">
+	 
+	 	
 	<style type="text/css">
+	
+	
+	@import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Jua&display=swap');
+	
 	 a:link { color: black; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
 	
+ 	/* div{
+		 border : 1px solid ;  
+	
+	}  */
+	
+	#header{
+		height: 5%;
+		width: 100%;
+		background : black;
+		
+		
+	}
+
 	
 	#searchbtn{
-		margin-top: 25px;
+		margin-top: 3px;
 		height: 40px;
 	}
 	
@@ -30,13 +50,14 @@
 		
 		font-size : 60px;
 		margin-right : 20px;
-		color : #515151;
+		color : white;
+		font-family: 'Kaushan Script', cursive;
 		
 	}
 	
 	#loginbtn{
 		width: 400px;
-		height: 60px;
+		height: 50px;
 		margin-bottom: 3px;
 	}
 	
@@ -49,20 +70,45 @@
 		width: 400px;
 		height: 40px;
 	}
+	#header1{
+	
+		 float: left;
+		height: 100%;
+		width: 18%;
+		color: black;
+		
+	}
+	#header2{
+		 float: left;
+		height: 100%;
+		width: 70%;
+		
+	} 
+	#header3{
+		float: left;
+		height: 100%;
+		width: 12%;
+	
+		
+	}
+
 	</style>
 	
 </head>
 
 <body>
-
+	<nav class="navbar fixed-top" style="background:black;">
+	<div id= "header">
+	
+	
+	
 	<div id="header1"><center><a id ="title" href="/index.jsp">RED LINE</a></center></div>
 	<div id="header2" >
-		<nav class="navbar navbar-expand-sm" id="nav" >
+		<nav class="navbar navbar-expand-sm" id="nav" style="font-family: 'Jua', sans-serif;">
 	<div class="navbar navbar-default navbar-right" id="navdiv">
-		<ul class="nav navbar-nav navbar-right"  style="width : 1200px ">
-		     <li ><a href="#" class="nav-link" id= "navbardrop" style="color:#515151; width:190px;font-size : 19px">공지사항</a>
-			</li>
-			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:#515151; width:190px; font-size : 19px">커뮤니티</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ul class="nav navbar-nav"  >
+		
+			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:white; width:250px; font-size : 25px">COMMUNITY</a>
 			<div class="dropdown-menu">
 			<a class="dropdown-item" href="#">A형 게시판</a>
 			<a class="dropdown-item" href="#">B형 게시판</a>	
@@ -70,13 +116,14 @@
 			<a class="dropdown-item" href="#">AB형 게시판</a>		
 				</div>
 			</li>
-			<li ><a href="/views/blood_info/blood_info.jsp" class="nav-link" id= "navbardrop" style="color:#515151; width:190px;font-size : 19px">희귀혈액지식</a>
+			<li><a href="#" class="nav-link" style="color:white; width:180px;font-size : 25px">공지사항</a></li>
+			<li ><a href="/views/blood_info/blood_info.jsp" class="nav-link" id= "navbardrop" style="color:white; width:220px;font-size : 25px; font-family: 'Jua', sans-serif;">희귀혈액지식</a>
 			</li>
-			<li><a href="/bloodHouse" class="nav-link" style="color:#515151; width:190px;font-size : 19px">헌혈의집찾기</a></li>
-			<li><a href="#" class="nav-link" style="color:#515151; width:190px;font-size : 19px">헌혈증기증</a></li>
-			<c:if test="${sessionScope.member != null }">
-			<li class="nav-item dropdown"><a href="/myPage"  class="nav-link" style="color:#515151; width:190px;font-size : 19px">마이페이지</a>
-		
+			<li><a href="/bloodHouse" class="nav-link" style="color:white; width:220px;font-size : 25px">헌혈의집찾기</a></li>
+			<li><a href="#" class="nav-link" style="color:white; width:220px;font-size : 25px">헌혈증기증</a></li>
+			<c:if test="${sessionScope.member != null && sessionScope.member.userId != 'admin'}">
+			<li class="nav-item dropdown"><a href="/myPage"  class="nav-link" style="color:white; width:220px;font-size : 25px">마이페이지</a>
+				<li class="nav-item dropdown"><a href="/views/report/report.jsp"  class="nav-link" style="color:white; width:220px;font-size : 25px">고객센터</a>
 					
 			</li>
 			</c:if> 	
@@ -91,17 +138,17 @@
 	
 	<c:if test="${sessionScope.member.userId == 'admin'}">
          <div id= "header3-1"><img src="/images/login_icon.png" id="loginimg"></div>
-      <div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
-      <a href="/memberAll" class="btn" >관리자페이지</a>
-    <a href="/logout" onclick="signOut();" class="btn">로그아웃</a>	</div>
+      <div id= "header3-2"><span id="logintext" style="color:white">${sessionScope.member.userNickName }님 환영합니다</span><br>
+      <a href="/memberAll" class="btn" style="color:white">관리자페이지</a>
+    <a href="/logout" onclick="signOut();" class="btn" style="color:white">로그아웃</a>	</div>
       
        </c:if>
        
-	<c:if test="${sessionScope.member != null }">
+	<c:if test="${sessionScope.member != null && sessionScope.member.userId != 'admin'}">
 			<div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext">${sessionScope.member.userNickName }님 환영합니다</span><br>
-		<a href="/myPage"><button class="btn">마이페이지</button></a>
-		<a href="/logout" onclick="clearAllCookies(domain, path)" class="btn">로그아웃</a>	</div>
+		<div id= "header3-2"><span id="logintext" style="color:white">${sessionScope.member.userNickName }님 환영합니다</span><br>
+		<a href="/myPage"><button class="btn" style="color:white">마이페이지</button></a>
+		<a href="/logout" onclick="clearAllCookies(domain, path)" class="btn" style="color:white">로그아웃</a>	</div>
 		</c:if> 
 		
 		
@@ -111,11 +158,20 @@
 		
 	
  
- <div class="container">
+
  
-    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal" id="searchbtn" style="width:100px; color:#515151"><b>LOGIN</b></button>
-	 <a href="/views/member/EnrollPage.jsp" class="btn btn-light" id="searchbtn" style="width:100px; color:#515151"><b>JOIN</b></a>
-  <!-- Modal -->
+    <button type="button" class="btn" data-toggle="modal" data-target="#myModal" id="searchbtn" style="width:100px; color:white"><b>LOGIN</b></button>
+	 <a href="/views/member/EnrollPage.jsp" class="btn" id="searchbtn" style="width:100px; color:white"><b>JOIN</b></a>
+ 
+
+ 
+		</c:if> 	
+		</div>
+		
+	</div>
+		
+	</nav>	
+		 <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -153,24 +209,7 @@
       </div>
     </div>
   </div>
-</div>
- 
-		</c:if> 	
-		</div>
-	
-	
-<script>
-/* 
-$("#searchbtn").click(function(){
 
-	var newURL =  window.location.pathname;
-	console.log(newURL);
-	window.location.href="/views/member/loginPage.jsp?url="+newURL; 
-	
-})
- */
-
-</script>	 
 	
 <script type='text/javascript'>
 
@@ -304,7 +343,7 @@ function onSignIn(googleUser) {
   
 </script>
 		
-	
+
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

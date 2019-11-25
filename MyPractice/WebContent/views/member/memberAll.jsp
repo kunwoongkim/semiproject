@@ -295,66 +295,7 @@ width: 300px
 
 	<div id="container">
 		<div id="header">
-			<div id="header1" style="background-color: #fba9a1">
-				<center>
-					<h1 id="title">RED LINE</h1>
-				</center>
-			</div>
-			<div id="header2">
-				<nav class="navbar navbar-expand-sm" id="nav"
-					style="background-color: #fba9a1">
-					<div class="navbar navbar-default navbar-right" id="navdiv">
-						<ul class="nav navbar-nav navbar-right" align=right>
-
-							<li class="nav-item dropdown"><a href="#"
-								class="nav-link dropdown-toggle" id="navbardrop"
-								data-toggle="dropdown" style="color: dimgrey">커뮤니티</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#" style="color: dimgrey">A형
-										게시판</a> <a class="dropdown-item" href="#" style="color: dimgrey">B형
-										게시판</a> <a class="dropdown-item" href="#" style="color: dimgrey">O형
-										게시판</a> <a class="dropdown-item" href="#" style="color: dimgrey">AB형
-										게시판</a>
-								</div></li>
-							<li class="nav-item dropdown"><a href="#"
-								class="nav-link dropdown-toggle" id="navbardrop"
-								data-toggle="dropdown" style="color: dimgrey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;희귀혈액지식</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#" style="color: dimgrey">혈액의
-										기본지식</a> <a class="dropdown-item" href="#" style="color: dimgrey">희귀혈액형의
-										종류</a> <a class="dropdown-item" href="#" style="color: dimgrey">헌혈의
-										오해와 진실</a> <a class="dropdown-item" href="#"
-										style="color: dimgrey">혈액관리 시스템</a>
-								</div></li>
-							<li><a href="#" class="nav-link" style="color: dimgrey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈의집찾기</a></li>
-							<li><a href="#" class="nav-link" style="color: dimgrey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;헌혈증기증</a></li>
-							<li class="nav-item dropdown"><a href="#"
-								class="nav-link dropdown-toggle" id="navbardrop"
-								data-toggle="dropdown" style="color: dimgrey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#" style="color: dimgrey">회원정보수정</a>
-									<a class="dropdown-item" href="#" style="color: dimgrey">내가쓴
-										글보기</a> <a class="dropdown-item" href="#" style="color: dimgrey">내가쓴
-										댓글보기</a>
-
-								</div></li>
-
-						</ul>
-
-					</div>
-				</nav>
-			</div>
-			<div id="header3">
-				<div id="header3-1" style="background-color: #fba9a1"></div>
-				<div id="header3-2" style="background-color: #fba9a1"><span id="logintext">관리자님 환영합니다</span><br>
-				
-				<center><a href="/logout"><button class="btn">로그아웃</button></a></center>
-				
-				
-
-
-				</div>
-			</div>
+			<jsp:include page="/views/header/Header2.jsp"></jsp:include>
 		</div>
 		<div id="content">
 
@@ -369,8 +310,8 @@ width: 300px
 				<div id="content1-2">
 					<div id="content1-2-1">
 
-						<a href="/memberAll"><button class="btn" name="mybtn"
-								style="color: red">회원관리</button></a>
+						<a href="/memberAll"><button class="btn btn-danger" name="mybtn"
+								>회원관리</button></a>
 					</div>
 					<div id="content1-2-2">
 						<a href="/singoList"><button class="btn" name="mybtn">신고관리</button></a>
@@ -482,14 +423,12 @@ width: 300px
 	</script>
 
 
+ <script src="/META-INF/vendor/jquery/jquery.min.js"></script>
+  <script src="/META-INF/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+		 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
 </body>
 </html>
