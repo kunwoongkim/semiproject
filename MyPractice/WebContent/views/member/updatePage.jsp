@@ -14,58 +14,39 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
 	div{
 		box-sizing: border-box;
+		font-family: 'Nanum Gothic', sans-serif;
 	}
 	
-	#container{
-		
-		
-		height: 1300px;
-		width: 2400px;
-		
-		
-	}
+	#container {
+    height: 1500px;
+      width: 100%;
+}
 
-	#header{
-		height: 7%;
-		width: 100%;
-		
-	}
 	
-	#content{
-		height: 80%;
-		width: 100%;
-		
-	}
-	#footer{
-		height: 5%;
-		width: 100%;
 	
-		
-	}
-	#header1{
-		 float: left;
-		height: 100%;
-		width: 25%;
-		color: black;
-		
-	}
+	#content {
+   float : left;
+   height: 90%;
+   width: 100%;
+}
+#footer {
+     height: 5%;
+
+   width: 100%;
+
+   margin-top: 2000px;
+
+   background: black;
+
+}
+
 	#title{
 		margin-top: 7px;
 	}
-	#header2{
-		 float: left;
-		height: 100%;
-		width: 55%;
-	}
-	#header3{
-		 float: left;
-		height: 100%;
-		width: 20%;
-		
-		
-	}
+	
 	input[id^=search]{
 		margin-top: 20px;
 	}
@@ -73,63 +54,106 @@
 	#content1{
 		 float: left;
 		height: 100%;
-		width: 25%;
+		width: 20%;
 		
 	}
 	#content2{
 		 float: left;
 		height: 100%;
-		width: 75%;
+		width: 80%;
 		
 	}
 	#content1-1{
-		 float: left;
-		height: 15%;
-		width: 100%;
+		float: left;
+
+   height: 10%;
+
+   width: 100%;
+
+   border-right: 0.1em solid #dddfe3;
+
+   padding:0.1em;
 	}
 	#content1-2{
-		 float: left;
-		height: 85%;
-		width: 100%;
+		float: left;
+
+   height: 100%;
+
+   width: 100%;
+
+   border-right: 0.1em solid #dddfe3;
+
+   padding:0.1em;
+		
+	}
 	
-		
-	}
-	
-		#content1-2-1{
-		float: left;
-		height: 10%;
-		width: 100%;
-		
-	}
-		#content1-2-2{
-		float: left;
-		height: 10%;
-		width: 100%;
-		
-	}
-		#content1-2-3{
-		float: left;
-		height: 10%;
-		width: 100%;
-		
-	}
-	#content1-2-4{
-		float: left;
-		height: 10%;
-		width: 100%;
-		
-	}
+	#content1-2-1 {
+   float: left;
+   height: 5%;
+   width: 100%;
+}
+
+#content1-2-2 {
+   float: left;
+   height: 5%;
+   width: 100%;
+}
+
+#content1-2-3 {
+   float: left;
+   height: 5%;
+   width: 100%;
+}
+
+#content1-2-4 {
+   float: left;
+   height: 5%;
+   width: 100%;
+}
 	#content2-1{
-		float: left;
-		width: 100%;
-		height: 15%
+		  float: left;
+
+   width: 100%;
+
+   height: 10%
+
 	}
 	#content2-2{
-			float: left;
-		width: 100%;
-		height: 85%;
+		float: left;
+
+   width: 100%;
+
+   height: 100%;
 		
 	}
+	button[id^=btn] {
+
+   height: 40px;
+
+   width: 80px;
+
+}
+button[name=mybtn] {
+
+   height: 100%;
+
+   width: 100%;
+
+   font-size: 25px;
+
+   font-weight:bold;
+
+   
+
+   
+
+   
+
+	
+} 
+button[name=mybtn]:hover{                                   
+    box-shadow:200px 0 0 150px rgba(200,26,0,1) inset; 
+    }  
 	#content2-2-1{
 		 float: left;
 		height:100%;
@@ -269,7 +293,7 @@
 	button[name=mybtn]{
 		height: 100%;
 		width: 100%;
-		font-size: 20px;
+	
 	}
 	
 	table{
@@ -287,7 +311,7 @@
 	
 	#updatebtn{
 		float: right;
-		margin-right: 340px;
+		margin-right : 220px;
 	}
 	 a:link { color: black; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
@@ -298,7 +322,10 @@
 		color : #515151;
 		
 	}
+	#updatebtn{
+		
 	
+	}
 	</style>
 	
 	
@@ -358,21 +385,21 @@
 		<div id= "content1-2">
 			<div id = "content1-2-1">
 				
-			<a href="/updateReady"><button class="btn btn-danger" name="mybtn">회원정보수정</button></a>
+			<a href="/updateReady"><button class="btn " name="mybtn" style="color:white;background:#c81a00">회원 정보 수정</button></a>
 			</div>
 			<div id = "content1-2-2">
 				
-			<button class="btn" name="mybtn" id="rePwd">비밀번호수정</button>
+			<button class="btn" name="mybtn" id="rePwd">비밀번호 변경</button>
 			</div>
 					<div id = "content1-2-3">
 		
-		<button class="btn" name="mybtn" id="myboard">내가쓴글보기</button>
+		<button class="btn" name="mybtn" id="myboard">내가 쓴 글보기</button>
 			
 			
 			</div>
 				<div id = "content1-2-4">
 		
-			<button class="btn" name="mybtn" id="mycomment">내가쓴댓글보기</button>
+			<button class="btn" name="mybtn" id="mycomment">내가 쓴 댓글보기</button>
 			
 			
 			</div>
@@ -386,10 +413,15 @@
 			</div>
 		</div>
 		<div id = "content2">
-		<div id = "content2-1">&nbsp;
-			<br>
-			<h2>&nbsp;&nbsp;&nbsp;&nbsp;회원정보수정</h2>
-			<hr>
+		<div id = "content2-1"> &nbsp; <br>
+               <h6 style="color: gray">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="img_icon1"
+                     src="/images/login_icon.png"
+                     width="30px ">마이페이지>회원정보수정
+               </h6>
+
+               <h1 style="font-weight: bold; color: dimgrey">&nbsp;&nbsp;&nbsp;회원정보수정</h1>
+               <hr>
 			</div>
 		<div id ="content2-2">
 			<div id="content2-2-1"></div>
@@ -419,8 +451,14 @@
 					<td><input type="text" class="form-control" name="phone" id="phone" value=${member.phone }></td>
 					</tr>
 				<tr>
+				
 					<th name = "th">이메일</th>
-					<td><input type="text" class="form-control" name="email" id="email" value=${member.email }></td>
+					<td><div class="input-group mb-3" id="emailanswerdiv">
+    <input type="text" class="form-control"  id="email" name = "email" value=${member.email }>
+    <div class="input-group-append" >
+      <input type="button" value="중복검사" onclick="emailDuplicate()" class="enrollBtn btn-danger">
+    </div></td>
+					 
 					</tr>
 				<tr>
 					
@@ -445,18 +483,57 @@
 	
 	
 <script>
-		$("#rePwd").click(function(){
+
+function emailDuplicate() {
+    if ($("#email").val() == "") {
+       alert("이메일을 입력해주세요");
+       flag = false;
+       email = false;
+    } else if (!(/^[a-z0-9]{4,12}@/.test($("#email").val()))) //이메일 검사
+    {
+       alert("이메일을 형식을 재확인해주세요");
+       flag = false;
+       email = false;
+    }else{
+       
+       $.ajax({
+          url : "/emailDuplicate",
+          type : "POST",
+          data : "email=" + $("#email").val().trim(),
+          success : function(data) {
+             if (data == "true") {
+                alert("사용가능한 이메일 입니다");
+                flag = true;
+                email = true;
+             } else {
+                
+                alert("중복된 이메일이 있습니다");
+                flag = false;
+                email = false;
+             }
+
+          }
+       })
+       
+    } 
+    
+ 
+ };
+
+
+	$("#rePwd").click(function(){
 			
-				if(${sessionScope.member.loginType == "social"}){
+if(${sessionScope.member.loginType == "social"}){
 					alert("소셜로그인은 지원하지 않는 서비스입니다.");
 				}else{
 					
 					window.location.href="/views/member/Repwd.jsp";
 					
-				}		
+				};		
 		
 		
 		});
+		
 		$("#myboard").click(function(){
 			
 			$.ajax({

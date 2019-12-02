@@ -23,117 +23,108 @@
 
 
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+   
 div {
-/* 	border: 1px solid black; */
+ 	/* border: 1px solid black;  */
 	box-sizing: border-box;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 #container {
 	
-		height: 1300px;
-		width: 2400px;
+	height: 1500px;
+      width: 100%;
 }
 
-#header {
-	height: 7%;
-	width: 100%;
-}
 
 #content {
 	height: 80%;
 	width: 100%;
 }
 
-#footer {
-	height: 5%;
-	width: 100%;
+#footer { /* 모든페이지에 추가  */
+   height: 5%;
+   width: 100%;
+   margin-top: 2000px;
+   background: black;
+   
 }
 
-#header1 {
-	float: left;
-	height: 100%;
-	width: 25%;
-	color: dimgrey;
-}
 
 #title {
 	margin-top: 7px;
 }
 
-#header2 {
-	float: left;
-	height: 100%;
-	width: 55%;
-}
-
-#header3 {
-	float: left;
-	height: 100%;
-	width: 20%;
-}
 
 input[id^=search] {
 	margin-top: 20px;
 }
 
 #content1 {
-	float: left;
-	height: 100%;
-	width: 25%;
+   float: left;
+   height: 100%;
+   width: 20%;
 }
 
 #content2 {
-	float: left;
-	height: 100%;
-	width: 75%;
+   float: left;
+   height: 100%;
+   width: 80%;
 }
 
+
 #content1-1 {
-	float: left;
-	height: 15%;
-	width: 100%;
+   float: left;
+   height: 10%;
+   width: 100%;
+   border-right: 0.1em solid #dddfe3;
+   padding:0.1em;
 }
 
 #content1-2 {
-	float: left;
-	height: 85%;
-	width: 100%;
+   float: left;
+   height: 100%;
+   width: 100%;
+   border-right: 0.1em solid #dddfe3;
+   padding:0.1em;
 }
 
 #content1-2-1 {
 	float: left;
-	height: 10%;
+	   height: 5%;
 	width: 100%;
 }
 
+
 #content1-2-2 {
-	float: left;
-	height: 10%;
-	width: 100%;
+   float: left;
+   height: 5%;
+   width: 100%;
 }
 
 #content1-2-3 {
-	float: left;
-	height: 10%;
-	width: 100%;
+	   float: left;
+   height: 5%;
+   width: 100%;
 }
 
 #content1-2-4 {
-	float: left;
-	height: 10%;
-	width: 100%;
+   float: left;
+   height: 5%;
+   width: 100%;
 }
 
 #content2-1 {
-	float: left;
-	width: 100%;
-	height: 15%
+   float: left;
+   width: 100%;
+   height: 10%
 }
 
 #content2-2 {
-	float: left;
-	width: 100%;
-	height: 85%;
+   float: left;
+   width: 100%;
+   height: 100%;
 }
 
 #content2-2-1 {
@@ -143,10 +134,11 @@ input[id^=search] {
 }
 
 #content2-2-2 {
-	float: left;
-	height: 100%;
-	width: 100%;
+   float: left;
+   height: 100%;
+   width: 70%;
 }
+
 
 #content2-2-3 {
 	float: left;
@@ -267,10 +259,15 @@ i[name=usericon] {
 }
 
 button[name=mybtn] {
-	height: 100%;
-	width: 100%;
-	font-size: 20px;
+   height: 100%;
+   width: 100%;
+   font-size: 25px;
+   font-weight:bold;
+   background:#c81a00;
+   color:white;
+   
 }
+
 
 table {
 	border: 1px solid #EAEAEA;
@@ -282,9 +279,60 @@ td {
 	width: 100px
 }
 th[id=addr]{
-
-width: 300px
+width: 500px
 }
+
+#title {
+   font-size: 60px;
+   margin-right: 20px;
+   color: #515151;
+}
+
+
+
+#img_icon1{
+  width:30px;
+   height:30px;
+}
+
+.enrollBtn{
+
+   border: 0px;
+   background: #c81a00;
+   color:white;
+   /*border:1px solid #999999;*/
+   border-radius: 3px;
+   font-size:17px;
+   width:120px;
+   height:30px;
+   cursor: pointer;
+   text-align:center; 
+   
+
+
+}
+.enrollBtn:hover{
+    box-shadow:-200px 0 0 0 rgba(255,255,255,0.5) inset; 
+    }
+    
+    #btn3{
+    background:#c81a00;
+    }
+    #btn4{
+    background:white;
+    color:dimgrey;
+    }
+    
+          th {
+
+            text-align: center;
+            background-color: #EAEAEA;
+        }
+        
+        #nick{
+        width:200px;
+        }
+    
 </style>
 </head>
 <body>
@@ -310,25 +358,22 @@ width: 300px
 				<div id="content1-2">
 					<div id="content1-2-1">
 
-						<a href="/memberAll"><button class="btn btn-danger" name="mybtn"
+						<a href="/memberAll"><button class="btn" name="mybtn" id="btn3"
 								>회원관리</button></a>
 					</div>
 					<div id="content1-2-2">
-						<a href="/singoList"><button class="btn" name="mybtn">신고관리</button></a>
+						<a href="/singoList"><button class="btn" name="mybtn" id="btn4">신고관리</button></a>
 					</div>
-					<div id="content1-2-3">
-						<a href="/bloodDonation"><button class="btn" name="mybtn">헌혈증 관리</button></a>
-					</div>
-
+			
 				</div>
 			</div>
 			<div id="content2">
 				<div id="content2-1">
 					&nbsp; <br>
 					<h6 style="color: gray">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
-							src="/HtmlProject/WebContent/html/img/214-2142856_team-member-icon-silhouette-of-a-person.png"
-							width="30px ">관리자서비스 > 회원관리
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="img_icon1"
+                     src="/images/login_icon.png"
+                     width="30px ">관리자서비스 > 회원관리
 					</h6>
 
 					<h1 style="font-weight: bold; color: dimgrey">&nbsp;&nbsp;&nbsp;회원관리</h1>
@@ -336,34 +381,31 @@ width: 300px
 				</div>
 
 				<div id="content2-2">
-					
+					<div id="content2-2-1"></div>
 					<div id="content2-2-2">
 					
-
-
-						<br> <br>
-
-
-
-
-
+<br>
 						<center>
-							<form action="/memberSearch" method="GET">
+						<br><br><br>
+                            <table border="1">
+                                <tr>
+                                    <td colspan=16 align=center>
+							<form action="/memberSearch" method="GET" style="color:#696969">
 								회원 검색 : <input type="text" name="search" placeholder="검색할 회원의 이름을 입력해주세요." value="${search }"
 									style="width: 300px;"> &nbsp;
-								<input type="submit" value="검색">
-								<hr>
+								<input type="submit" value="검색" class="enrollBtn">
+								
 
 							</form>
 
 
 
-							<table border="1">
+							
 								<tr>
 									<th>아이디</th>
 									<th>생년월일</th>
 									<th>이름</th>
-									<th>닉네임</th>
+									<th id="nick">닉네임 </th>
 									<th id="addr">주소</th>
 									<th>전화번호</th>
 									<th>이메일</th>

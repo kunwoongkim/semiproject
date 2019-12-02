@@ -16,280 +16,337 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
-        div {
-           
-            box-sizing: border-box;
-            
-        }
-
-        #container {
-
-             
-      height: 1300px;
-      width: 2400px;
-
-
-
-        }
-
-        #header {
-            height: 7%;
-            width: 100%;
-
-        }
-
-        #content {
-            height: 80%;
-            width: 100%;
-
-        }
-
-        #footer {
-            height: 5%;
-            width: 100%;
-
-
-        }
-
-        #header1 {
-            float: left;
-            height: 100%;
-            width: 25%;
-            color: black;
-
-        }
-
-        #title {
-            margin-top: 7px;
-        }
-
-        #header2 {
-            float: left;
-            height: 100%;
-            width: 55%;
-        }
-
-        #header3 {
-            float: left;
-            height: 100%;
-            width: 20%;
-
-
-        }
-
-        input[id^=search] {
-            margin-top: 20px;
-        }
-
-        #content1 {
-            float: left;
-            height: 100%;
-            width: 25%;
-
-        }
-
-        #content2 {
-            float: left;
-            height: 100%;
-            width: 75%;
-
-        }
-
-        #content1-1 {
-            float: left;
-            height: 15%;
-            width: 100%;
-        }
-
-        #content1-2 {
-            float: left;
-            height: 85%;
-            width: 100%;
-
-
-        }
-
-        #content1-2-1 {
-            float: left;
-            height: 10%;
-            width: 100%;
-
-        }
-
-        #content1-2-2 {
-            float: left;
-            height: 10%;
-            width: 100%;
-
-        }
-
-        #content1-2-3 {
-            float: left;
-            height: 10%;
-            width: 100%;
-
-        }
-
-        #content1-2-4 {
-            float: left;
-            height: 10%;
-            width: 100%;
-
-        }
-
-        #content2-1 {
-            float: left;
-            width: 100%;
-            height: 15%
-        }
-
-        #content2-2 {
-            float: left;
-            width: 100%;
-            height: 85%;
-
-        }
-
-        #content2-2-1 {
-            float: left;
-            height: 100%;
-            width: 15%;
-        }
-
-        #content2-2-2 {
-            float: left;
-            height: 100%;
-            width: 100%;
-        }
-
-        #content2-2-3 {
-            float: left;
-            height: 100%;
-            width: 15%;
-        }
-
-
-
-        #login {
-            float: left;
-            height: 40%;
-            width: 100%;
-        }
-
-        #nav {
-            width: 100%;
-            height: 100%;
-            float: right;
-
-        }
-
-
-        #login1 {
-            float: left;
-            height: 25%;
-            width: 100%;
-        }
-
-        #login2 {
-            float: left;
-            height: 50%;
-            width: 100%;
-        }
-
-        #login3 {
-            float: left;
-            height: 25%;
-            width: 100%;
-        }
-
-        input[id*=user] {
-
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-            border-bottom-left-radius: 5px;
-        }
-
-        button[id^=btn] {
-            height: 40px;
-            width: 80px;
-
-        }
-
-        .nav-link {
-            color: white;
-
-        }
-
-
-        input[id^=search] {
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-            border-bottom-left-radius: 5px;
-
-        }
-
-        .card {
-            background-color: #EAEAEA;
-
-        }
-
-        a[name=card] {
-            color: black;
-            font-style: italic;
-        }
-
-        .carousel-inner {
-            width: 100%;
-            height: 100%;
-        }
-
-
-        #searchbtn {
-            margin-top: 17px;
-            height: 35px;
-        }
-
-        .material-icons {
-            margin-right: 2px;
-            margin-top: 2px
-        }
-
-        i[name=usericon] {
-            width: 1
-        }
-
-        #notice {
-            text-align: center;
-        }
-
-
-        #img1 {
-
-            width: 400px;
-
-
-            margin-right: 120px
-        }
-
-        #logintext {
-            font-size: 20px;
-        }
-
-        #header3-1 {
-            float: left;
-            height: 100%;
-            width: 20%;
-
-        }
-
-        #header3-2 {
-            float: left;
-            height: 100%;
-            width: 80%;
-
-        }
+    
+      @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+   
+
+div {
+/*    border: 1px solid black; */
+   box-sizing: border-box;
+   font-family: 'Nanum Gothic', sans-serif;
+}
+
+#container {
+      
+     height: 1500px;
+      width: 100%;
+}
+
+#content {
+   float: left;
+   height: 90%;
+   width: 100%;
+}
+
+#footer { /* 모든페이지에 추가  */
+   height: 5%;
+   width: 100%;
+   margin-top: 2000px;
+   background: black;
+   
+}
+
+
+
+#title {
+   margin-top: 7px;
+}
+
+
+input[id^=search] {
+   margin-top: 20px;
+}
+
+#content1 {
+   float: left;
+   height: 100%;
+   width: 20%;
+}
+
+#content2 {
+   float: left;
+   height: 100%;
+   width: 80%;
+}
+
+#content1-1 {
+   float: left;
+   height: 10%;
+   width: 100%;
+   border-right: 0.1em solid #dddfe3;
+   padding:0.1em;
+}
+#content1-2 {
+   float: left;
+   height: 100%;
+   width: 100%;
+   border-right: 0.1em solid #dddfe3;
+   padding:0.1em;
+}
+#content1-2-1 {
+   float: left;
+   height: 5%;
+   width: 100%;
+}
+
+#content1-2-2 {
+   float: left;
+   height: 5%;
+   width: 100%;
+}
+
+#content1-2-3 {
+   float: left;
+   height: 10%;
+   width: 100%;
+}
+
+#content1-2-4 {
+   float: left;
+   height: 10%;
+   width: 100%;
+}
+
+#content2-1 {
+   float: left;
+   width: 100%;
+   height: 10%
+}
+
+#content2-2 {
+   float: left;
+   width: 100%;
+   height: 100%;
+}
+
+#content2-2-1 {
+   float: left;
+   height: 100%;
+   width: 15%;
+}
+
+#content2-2-2 {
+
+   margin: 0 auto;
+   height: 100%;
+   width: 70%;
+}
+
+#content2-2-3 {
+   float: left;
+   height: 100%;
+   width: 15%;
+}
+
+#login {
+   float: left;
+   height: 40%;
+   width: 100%;
+}
+
+#nav {
+   width: 100%;
+   height: 100%;
+   float: right;
+}
+
+#login1 {
+   float: left;
+   height: 25%;
+   width: 100%;
+}
+
+#login2 {
+   float: left;
+   height: 50%;
+   width: 100%;
+}
+
+#login3 {
+   float: left;
+   height: 25%;
+   width: 100%;
+}
+
+input[type=text] {
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   border-bottom-right-radius: 5px;
+   border-bottom-left-radius: 5px;
+}
+
+input[type=password] {
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   border-bottom-right-radius: 5px;
+   border-bottom-left-radius: 5px;
+}
+
+button[id^=btn] {
+   height: 40px;
+   width: 80px;
+}
+
+
+        
+     .btn1{
+  height: 100%;
+   width: 100%;
+   font-size: 25px;
+   font-weight:bold;
+   background:white;
+   color:dimgrey;
+    }
+    
+    .btn1:hover{
+     box-shadow:200px 0 0 150px rgba(200,26,0,1) inset;
+   } 
+
+.btn2{
+   border: 0px;
+   background: #c81a00;
+   color:white;
+   border-radius: 3px;
+   cursor: pointer;
+   text-align:center; 
+   font-size: 25px;
+      font-weight:bold;
+}
+
+
+  button[name=mybtn] {
+   height: 100%;
+   width: 100%;
+   font-size: 25px;
+   font-weight:bold;
+  
+   
+   border:0;
+   
+}
+
+.nav-link {
+   color: white;
+}
+
+input[id^=search] {
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   border-bottom-right-radius: 5px;
+   border-bottom-left-radius: 5px;
+}
+
+.card {
+   background-color: #EAEAEA;
+}
+
+a[name=card] {
+   color: black;
+   font-style: italic;
+}
+
+.carousel-inner {
+   width: 100%;
+   height: 100%;
+}
+
+
+#searchbtn {
+   margin-top: 17px;
+   height: 35px;
+}
+
+.material-icons {
+   margin-right: 2px;
+   margin-top: 2px
+}
+
+i[name=usericon] {
+   width: 1
+}
+
+#notice {
+   text-align: center;
+}
+
+#img1 {
+   width: 400px;
+   margin-right: 120px
+}
+
+#logintext {
+   font-size: 20px;
+}
+
+#header3-1 {
+   float: left;
+   height: 100%;
+   width: 20%;
+}
+
+#header3-2 {
+   float: left;
+   height: 100%;
+   width: 80%;
+}
+
+#loginimg {
+   float: left;
+   height: 100%;
+   width: 100%;
+}
+
+
+/* ============================================================= */
+#searchbtn {
+   margin-top: 25px;
+   height: 40px;
+}
+
+#title {
+   font-size: 60px;
+   margin-right: 20px;
+   color: #515151;
+}
+
+#loginbtn {
+   width: 400px;
+   height: 60px;
+   margin-bottom: 3px;
+}
+
+#userId {
+   width: 400px;
+   height: 40px;
+}
+
+#userPwd {
+   width: 400px;
+   height: 40px;
+}
+
+
+.enrollBtn:hover{
+    box-shadow:-200px 0 0 0 rgba(255,255,255,0.5) inset; 
+    }
+
+td[name='td']{
+   color:#696969;
+}
+.submitbtn{
+   border: 0px;
+   background: #c81a00;
+   color:white;
+   /*border:1px solid #999999;*/
+   /*border-radius: 5px;*/
+   font-size:17px;
+   width:120px;
+   height:40px;
+}
+img{
+width:30px;
+height:30px;
+}
 
         #loginimg {
             float: left;
@@ -297,32 +354,30 @@
             width: 100%;
         }
 
-        button[name=mybtn] {
-            height: 100%;
-            width: 100%;
-            font-size: 20px;
-        }
-
-        table {
-            border: 1px solid #EAEAEA;
-            text-align: center;
-        }
-
+        
         th {
 
             text-align: center;
             background-color: #EAEAEA;
         }
 
-        td {
-            height: 50px;
-            width: 500px;
-        }
+       
 
         #updatebtn {
             float: right;
             margin-right: 120px;
         }
+           
+           table{
+           border : 1px solid #EAEAEA;
+           text-align : center;
+           }
+        
+           td{
+                 width:300px;      
+                 height : 50px;
+                 
+           }
 
     </style>
 
@@ -346,18 +401,18 @@
 
                 <div id="content1-1">
                     <center><br>
-                        <h1>고객센터</h1>
+                        <h1 style="color: dimgrey; font-weight: bold;">고객센터</h1>
                     </center>
                 </div>
                 <div id="content1-2">
                    <div id="content1-2-1" >
 
-                  <a href="/views/report/report.jsp"><button class="btn" name="mybtn" >신고접수</button></a>
+                  <a href="/views/report/report.jsp"><button class="btn1" name="mybtn" >신고접수</button></a>
                </div>
 
-				 <div id="content1-2-2" >
+             <div id="content1-2-2" >
 
-                  <a href="/reportList"><button class="btn btn-danger" name="mybtn" >신고접수확인</button></a>
+                  <a href="/reportList"><button class="btn2" name="mybtn" >신고접수확인</button></a>
                </div>
 
 
@@ -365,27 +420,30 @@
             </div>
 
             <div id="content2">
-                <div id="content2-1">&nbsp;
-                    <br>
-                    <h2>&nbsp;&nbsp;&nbsp;&nbsp;신고접수 목록</h2>
-                    <hr>
-                </div>
+                <div id="content2-1">  &nbsp; <br>
+               <h6 style="color: gray">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+                     src="/images/login_icon.png"
+                     style="width:30px;
+height:30px;">고객센터 > 신고접수확인
+               </h6>
+
+               <h1 style="font-weight: bold; color: dimgrey">&nbsp;&nbsp;&nbsp;신고접수확인</h1><hr>
+               <br>
                 <div id="content2-2">
-                    
-                    <div id="content2-2-2">
+                    <div id="content2-2-2" >
 
 
-                        <center>
-                            <table border="1">
-                                
+                     
+                            <table border="1"   >
                                    <tr>
                                       
                                     <th>신고자 ID</th>
-                                    <th>신고대상자 ID</th>
+                                    <th>신고대상자 닉네임</th>
                                     <th>신고 제목</th>
                                     <th>신고 날짜</th>
                                     <th>신고 종류</th>
-                                  	<th>접수 상태</th>
+                                     <th>접수 상태</th>
                                     
                                 </tr>
 
@@ -418,8 +476,9 @@
                                     <td colspan=16 align=center>${pageData.getPageNavi() }</td>
                                 </tr>
                             </table>
-
-                        </center>
+                </div>
+   
+                       
 
 
                     </div>
@@ -428,11 +487,14 @@
                 </div>
             </div>
         </div>
-        <div id="footer">
-            <center>
-                <h6 style="color: darkgray">Copyright KH Corp.All rights reserved</h6>
-            </center>
-        </div>
+         <div id="footer" class="py-5 bg-black ">
+
+         <div class="container">
+            <p class="m-0 text-center text-white small">Copyright &copy;
+               Your Website 2019</p>
+         </div>
+
+      </div>
 
     </div>
     

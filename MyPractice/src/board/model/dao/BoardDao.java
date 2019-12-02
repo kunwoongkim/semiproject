@@ -158,7 +158,7 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		int recordTotalCount = 0;
 		ResultSet rset = null;
-		String query = "select count(*) as totalCount from Board_Comment where COMMENT_ID = ?";
+		String query = "select count(*) as totalCount from Board_Comment where COMMENT_NICKNAME = ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, userId);
@@ -196,9 +196,9 @@ public class BoardDao {
 				Board board = new Board();
 				board.setBoardNumber(rset.getInt("BOARD_NUMBER"));
 				board.setUserId(rset.getString("USER_ID"));
-				board.setUserNickname(rset.getString("USER_NICKNAME"));
+				board.setUserNickName(rset.getString("USER_NICKNAME"));
 				board.setBoardContent(rset.getString("BOARD_CONTENT"));
-				board.setMakeDate(rset.getDate("MAKE_DATE"));
+				board.setMakeDate(rset.getTimestamp("MAKE_DATE"));
 				board.setTitle(rset.getString("TITLE"));
 				board.setBoardPublic(rset.getString("BOARD_PUBLIC"));
 				board.setBoardType(rset.getString("BOARD_TYPE"));
@@ -223,7 +223,7 @@ public class BoardDao {
 		ResultSet rset = null;
 		int start = currentPage*recordCountPerPage - (recordCountPerPage-1);
 		int end = currentPage*recordCountPerPage;
-		String query = "Select* from (select Row_number() OVER(ORDER BY COMMENT_NUM DESC) as NUM, BOARD_COMMENT.* FROM BOARD_COMMENT) WHERE COMMENT_ID=? AND NUM BETWEEN ? AND ?";
+		String query = "Select* from (select Row_number() OVER(ORDER BY COMMENT_NO DESC) as NUM, BOARD_COMMENT.* FROM BOARD_COMMENT) WHERE COMMENT_NICKNAME=? AND NUM BETWEEN ? AND ?";
 		
 		try {
 			pstmt=conn.prepareStatement(query);
@@ -235,12 +235,12 @@ public class BoardDao {
 			while(rset.next()){
 				Comment comment = new Comment();
 				
-				comment.setCommentId(rset.getString("COMMENT_ID"));
-				comment.setBoardNumber(rset.getInt("BOARD_NUMBER"));
-				comment.setBoardComment(rset.getString("BOARD_COMMENT"));
+				comment.setCommentNo(rset.getInt("Comment_NO"));
 				comment.setCommentNickName(rset.getString("COMMENT_NICKNAME"));
-				comment.setCommentDate(rset.getDate("COMMENT_DATE"));
-				comment.setCommentNum(rset.getInt("COMMENT_NUM"));
+				comment.setCommentContent(rset.getString("COMMENT_CONTENT"));
+				comment.setCommentLevel(rset.getInt("COMMENT_LEVEL"));
+				comment.setRecommentSubNo(rset.getInt("RE_COMMENT_SUBNO"));
+				comment.setCommentSubNo(rset.getInt("COMMENT_SUBNO"));
 				clist.add(comment);
 			}
 			
@@ -287,7 +287,7 @@ public int deleteMyComment(Connection conn , int CommentNo) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "delete from Board_Comment where COMMENT_NUM=?";
+		String query = "delete from Board_Comment where COMMENT_NO=?";
 		
 		try {
 			pstmt=conn.prepareStatement(query);

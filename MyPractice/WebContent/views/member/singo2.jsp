@@ -6,7 +6,7 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
@@ -16,158 +16,131 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
-        div {
-           
-            box-sizing: border-box;
-            
-        }
+    
+   @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+   
+
+div {
+ /*   border: 1px solid black; */
+   box-sizing: border-box;
+   font-family: 'Nanum Gothic', sans-serif;
+}
 
         #container {
 
-             
-      height: 1300px;
-      width: 2400px;
-
-
-
+        height: 1500px;
+      width: 100%;
         }
 
-        #header {
-            height: 7%;
-            width: 100%;
+ 
 
-        }
+ #content {
+   float: left;
+   height: 90%;
+   width: 100%;
+}
 
-        #content {
-            height: 80%;
-            width: 100%;
-
-        }
-
-        #footer {
-            height: 5%;
-            width: 100%;
-
-
-        }
-
-        #header1 {
-            float: left;
-            height: 100%;
-            width: 25%;
-            color: black;
-
-        }
+#footer { /* 모든페이지에 추가  */
+   height: 5%;
+   width: 100%;
+   margin-top: 2000px;
+   background: black;
+   
+}
+  
 
         #title {
             margin-top: 7px;
         }
 
-        #header2 {
-            float: left;
-            height: 100%;
-            width: 55%;
-        }
-
-        #header3 {
-            float: left;
-            height: 100%;
-            width: 20%;
-
-
-        }
+   
 
         input[id^=search] {
             margin-top: 20px;
         }
 
-        #content1 {
-            float: left;
-            height: 100%;
-            width: 25%;
+  #content1 {
+   float: left;
+   height: 100%;
+   width: 20%;
+}
 
-        }
-
-        #content2 {
-            float: left;
-            height: 100%;
-            width: 75%;
-
-        }
-
-        #content1-1 {
-            float: left;
-            height: 15%;
-            width: 100%;
-        }
-
-        #content1-2 {
-            float: left;
-            height: 85%;
-            width: 100%;
-
-
-        }
-
+#content2 {
+   float: left;
+   height: 100%;
+   width: 80%;
+   }
+#content1-1 {
+   float: left;
+   height: 10%;
+   width: 100%;
+   border-right: 0.1em solid #dddfe3;
+   padding:0.1em;
+}
+#content1-2 {
+   float: left;
+   height: 100%;
+   width: 100%;
+   border-right: 0.1em solid #dddfe3;
+   padding:0.1em;
+}
         #content1-2-1 {
-            float: left;
-            height: 10%;
-            width: 100%;
+   float: left;
+   height: 5%;
+   width: 100%;
 
         }
 
         #content1-2-2 {
-            float: left;
-            height: 10%;
-            width: 100%;
+     float: left;
+   height: 5%;
+   width: 100%;
 
         }
 
         #content1-2-3 {
-            float: left;
-            height: 10%;
-            width: 100%;
+           float: left;
+   height: 5%;
+   width: 100%;
 
         }
 
         #content1-2-4 {
-            float: left;
-            height: 10%;
-            width: 100%;
-
+       float: left;
+   height: 5%;
+   width: 100%;
         }
 
-        #content2-1 {
-            float: left;
-            width: 100%;
-            height: 15%
-        }
+        #content2-1{
+      float: left;
+      width: 100%;
+   height: 10%
+   }
 
-        #content2-2 {
-            float: left;
-            width: 100%;
-            height: 85%;
+#content2-2 {
+   float: left;
+   width: 100%;
+   height: 100%;
+}
 
-        }
+#content2-2-1 {
+   float: left;
+   height: 100%;
+   width: 15%;
+}
 
-        #content2-2-1 {
-            float: left;
-            height: 100%;
-            width: 15%;
-        }
+   #content2-2-2{
+       float: left;
+      height:100%;
+      width:70%;
+   }
 
-        #content2-2-2 {
-            float: left;
-            height: 100%;
-            width: 100%;
-        }
-
-        #content2-2-3 {
-            float: left;
-            height: 100%;
-            width: 15%;
-        }
-
+   #content2-2-3{
+       float: left;
+      height:100%;
+      width:15%;
+   }
+   
 
 
         #login {
@@ -265,13 +238,6 @@
         }
 
 
-        #img1 {
-
-            width: 400px;
-
-
-            margin-right: 120px
-        }
 
         #logintext {
             font-size: 20px;
@@ -291,17 +257,19 @@
 
         }
 
-        #loginimg {
-            float: left;
-            height: 100%;
-            width: 100%;
-        }
+      
 
-        button[name=mybtn] {
-            height: 100%;
-            width: 100%;
-            font-size: 20px;
-        }
+  button[name=mybtn] {
+   height: 100%;
+   width: 100%;
+   font-size: 25px;
+   font-weight:bold;
+   background:white;
+   color:dimgrey;
+   
+}
+
+
 
         table {
             border: 1px solid #EAEAEA;
@@ -323,6 +291,82 @@
             float: right;
             margin-right: 120px;
         }
+
+ 
+}
+  #memberbtn{
+  height: 100%;
+   width: 100%;
+   font-size: 25px;
+   font-weight:bold;
+   background:white;
+   color:dimgrey;
+    }
+
+#singobtn{
+   border: 0px;
+   background: #c81a00;
+   color:white;
+   border-radius: 3px;
+   cursor: pointer;
+   text-align:center; 
+   
+}
+
+#memberbtn:hover{
+     box-shadow:200px 0 0 150px rgba(200,26,0,1) inset;
+   } 
+   .enrollBtn{
+
+   border: 0px;
+   background: #c81a00;
+   color:white;
+   /*border:1px solid #999999;*/
+   border-radius: 3px;
+   font-size:17px;
+   width:120px;
+   height:30px;
+   cursor: pointer;
+   text-align:center; 
+   
+
+
+}
+#btn4{
+       border: 0px;
+   background: #caced2;
+   color:white;
+   border-radius: 3px;
+   font-size:17px;
+   width:120px;
+   height:38px;
+   cursor: pointer;
+}
+#btn5{
+       border: 0px;
+   background: #c81a00;
+   color:white;
+   border-radius: 3px;
+   font-size:17px;
+   width:120px;
+   height:38px;
+   cursor: pointer;
+}
+#singo2btn{
+       border: 0px;
+   background: #caced2;
+   color:white;
+   border-radius: 3px;
+   font-size:12px;
+   width:120px;
+   height:38px;
+   cursor: pointer;
+}
+#memberDel{
+   color:white;
+   font-size:14px;
+   
+}
 
     </style>
 
@@ -346,46 +390,46 @@
 
                 <div id="content1-1">
                     <center><br>
-                        <h1>관리자페이지</h1>
+                        <h1 style="color: dimgrey; font-weight: bold;">관리자 서비스</h1>
                     </center>
                 </div>
                 <div id="content1-2">
                     <div id="content1-2-1">
-                        <a href="/memberAll"><button class="btn" name="mybtn">회원관리</button></a>
+                        <a href="/memberAll"><button class="btn" name="mybtn" id="memberbtn">회원관리</button></a>
                     </div>
                     <div id="content1-2-2">
 
-                        <a href="/singoList"><button class="btn btn-danger" name="mybtn">신고관리</button></a>
+                        <a href="/singoList"><button class="btn" name="mybtn" id="singobtn">신고관리</button></a>
                     </div>
-                    <div id="content1-2-3">
-
-                        <a href="/bloodDonation"><button class="btn" name="mybtn">헌혈증 확인</button></a>
-
-
-                    </div>
+                    
 
 
                 </div>
             </div>
 
             <div id="content2">
-                <div id="content2-1">&nbsp;
-                    <br>
-                    <h2>&nbsp;&nbsp;&nbsp;&nbsp;신고접수 목록</h2>
-                    <hr>
+                <div id="content2-1"> &nbsp; <br>
+               <h6 style="color: gray">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="img_icon1"
+                     src="/images/login_icon.png" style="width:30px; height:30px;">관리자서비스 > 신고관리
+               </h6>
+
+               <h1 style="font-weight: bold; color: dimgrey">&nbsp;&nbsp;&nbsp;신고관리</h1>
+               <hr>
                 </div>
                 <div id="content2-2">
-                    
+                    <div id="content2-2-1"></div>
                     <div id="content2-2-2">
 
 
-                        <center>
+                        <center><br><br><br>
                             <table border="1">
                                 <tr>
                                     <td colspan=16 align=center>
                                         <form action="/singoSearch" method="get">
-                                            <input type="text" name="search" value="${search }">
-                                            <input type="submit" value="아이디로 검색">
+                                        회원 검색 : <input type="text" name="search" placeholder="검색할 회원의 아이디를 입력해주세요." value="${search }"
+                           style="width: 300px;"> &nbsp;
+                        <input type="submit" value="검색" class="enrollBtn">
                                         </form>
                                     </td>
                                 </tr>
@@ -420,11 +464,15 @@
                                         <td>
                                             <c:out value="${sl.reportType}" />
                                         </td>
-                                         <td><a href="/memberDelete?reportedId=${sl.reportedId }" id="memberDel" onclick="return delQuestion()">신고 대상자 탈퇴</a></td> 
-                                       	<td>
+                                         <td><button id="singo2btn"><a href="/memberDelete?reportedId=${sl.reportedId }" id="memberDel" onclick="return delQuestion()">신고 대상자 탈퇴</a></button></td> 
+                                          <td>
                                             <c:out value="${sl.reportSuccess}" />
                                         </td>
-                                        <td><button type = "button" name="success" >처리<input type="hidden" value = "${sl.reportNo}" name = "num"></button></td> 
+                                       <c:if test="${sl.reportSuccess == '접수'}">
+                                        <td><button type = "button" name="success" display="block" id="btn4">처리<input type="hidden" value = "${sl.reportNo}" name = "num"></button></td> 
+                                         </c:if>
+                                         <c:if test="${sl.reportSuccess == '처리완료'}">
+                                        <td><button id="btn5" align=center>완료</button> </c:if></td> 
                                          
                                     </tr>
                                 </c:forEach>
@@ -444,11 +492,14 @@
                 </div>
             </div>
         </div>
-        <div id="footer">
-            <center>
-                <h6 style="color: darkgray">Copyright KH Corp.All rights reserved</h6>
-            </center>
-        </div>
+        <div id="footer" class="py-5 bg-black ">
+
+         <div class="container">
+            <p class="m-0 text-center text-white small">Copyright &copy;
+               Your Website 2019</p>
+         </div>
+
+      </div>
 
     </div>
     
@@ -471,43 +522,43 @@
    
    
     $("button[name=success]").click(function(){
-	   
-	   var result = window.confirm("처리완료하시겠습니까 ?");
+      
+      var result = window.confirm("처리완료하시겠습니까 ?");
    
-	   if(result) {
-		   
-		   		var num = $(this).children("input").val();
-		   		var btn = $(this);
-		   		console.log(num);
-	        	$.ajax({
-	        		
-	        		url : "/updateReport",
-	        		type : "post",
-	        		data : {num : num},
-	        		success : function(data){
-	        			
-	        			if(data == "false"){
-	        				alert("처리를 실패했습니다");
-	        			}else{
-	        				
-	        				alert("처리를 완료했습니다");
-	        				btn.attr("display","none");
-	        				window.location.reload();
-	        			}
-	        			
-	        			
-	        		}
-	        	
-	        	
-	        	
-	        	})
-	        	
-		   
-		   
-	      }else{
-	         return false;
-	      }
-   			
+      if(result) {
+         
+               var num = $(this).children("input").val();
+               var btn = $(this);
+               console.log(num);
+              $.ajax({
+                 
+                 url : "/updateReport",
+                 type : "post",
+                 data : {num : num},
+                 success : function(data){
+                    
+                    if(data == "false"){
+                       alert("처리를 실패했습니다");
+                    }else{
+                       
+                       alert("처리를 완료했습니다");
+                       btn.attr("display","none");
+                       window.location.reload();
+                    }
+                    
+                    
+                 }
+              
+              
+              
+              })
+              
+         
+         
+         }else{
+            return false;
+         }
+            
    
    
    }) 

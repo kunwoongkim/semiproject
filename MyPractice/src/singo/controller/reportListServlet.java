@@ -54,6 +54,10 @@ public class reportListServlet extends HttpServlet {
 			request.setAttribute("pageData", pd);
 			
 			views.forward(request, response);
+		}else {
+			
+			response.sendRedirect("/views/report/reportError.html");
+			
 		}
 		
 	}

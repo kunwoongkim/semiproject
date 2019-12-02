@@ -15,57 +15,46 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
 <style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
 	div{
 		box-sizing: border-box;
+		font-family: 'Nanum Gothic', sans-serif;
 	}
 	
-	#container{
+		#container{
 		
-	height: 1300px;
-		width: 2400px;
-		
-		
+height: 1500px;
+      width: 100%;		
 	}
 
-	#header{
-		height: 7%;
-		width: 100%;
-		
-	}
 	
-	#content{
-		height: 80%;
-		width: 100%;
-		
-	}
-	#footer{
-		height: 5%;
-		width: 100%;
+#content {
+   float: left;
+   height: 90%;
+   width: 100%;
+}
+	#footer { /* 모든페이지에 추가  */
+   height: 5%;
+   width: 100%;
+   margin-top: 2200px;
+   background: black;
+   
+}
+
+button[name=mybtn] {
+   height: 100%;
+   width: 100%;
+   font-size: 25px;
+   font-weight:bold;
+   background:white;
+   color:dimgrey;
+   
+}
 	
-		
-	}
-	#header1{
-		 float: left;
-		height: 100%;
-		width: 25%;
-		color: black;
-		
-	}
 	#title{
 		margin-top: 7px;
 	}
-	#header2{
-		 float: left;
-		height: 100%;
-		width: 55%;
-	}
-	#header3{
-		 float: left;
-		height: 100%;
-		width: 20%;
-		
-		
-	}
+	
 	input[id^=search]{
 		margin-top: 20px;
 	}
@@ -73,61 +62,64 @@
 	#content1{
 		 float: left;
 		height: 100%;
-		width: 25%;
+		width: 20%;
 		
 	}
 	#content2{
 		 float: left;
 		height: 100%;
-		width: 75%;
+		width: 80%;
 		
 	}
 	#content1-1{
 		 float: left;
-		height: 15%;
+		height: 10%;
 		width: 100%;
+		border-right: 0.1em solid #dddfe3;
+   padding:0.1em;
 	}
 	#content1-2{
-		 float: left;
-		height: 85%;
-		width: 100%;
-	
+		  float: left;
+   height: 100%;
+   width: 100%;
+   border-right: 0.1em solid #dddfe3;
+   padding:0.1em;
 		
 	}
 	
 		#content1-2-1{
 		float: left;
-		height: 10%;
+		height: 5%;
 		width: 100%;
 		
 	}
 		#content1-2-2{
 		float: left;
-		height: 10%;
+		height: 5%;
 		width: 100%;
 		
 	}
 		#content1-2-3{
 		float: left;
-		height: 10%;
+		height: 5%;
 		width: 100%;
 		
 	}
 	#content1-2-4{
 		float: left;
-		height: 10%;
+		height: 5%;
 		width: 100%;
 		
 	}
 	#content2-1{
 		float: left;
 		width: 100%;
-		height: 15%
+		height: 10%
 	}
 	#content2-2{
 			float: left;
 		width: 100%;
-		height: 85%;
+		height: 100%;
 		
 	}
 	#content2-2-1{
@@ -216,13 +208,7 @@
       width: 100%;
       height: 100%;
   }
-	#title{
-		
-		font-size : 60px;
-		margin-right : 20px;
-		color : #515151;
-		
-	}
+
 
 	#searchbtn{
 		margin-top: 17px;
@@ -250,9 +236,6 @@
 		margin-right:120px
 	}
 	
-	#logintext{
-		font-size: 20px;
-	}
 	
 	#header3-1{
 		 float: left;
@@ -275,8 +258,11 @@
 	button[name=mybtn]{
 		height: 100%;
 		width: 100%;
-		font-size: 20px;
+		
 	}
+	button[name=mybtn]:hover{                                   
+    box-shadow:200px 0 0 150px rgba(200,26,0,1) inset; 
+    }
 	
 	table{
 		border : 1px solid #EAEAEA;
@@ -299,6 +285,10 @@
 	
 	 a:link { color: black; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
+	  #img_icon1{
+   width:30px;
+   height:30px;
+}	
 	
 	</style>
 	
@@ -324,21 +314,21 @@
 		<div id= "content1-2">
 		<div id = "content1-2-1">
 				
-			<a href="/updateReady"><button class="btn" name="mybtn">회원정보수정</button></a>
+			<a href="/updateReady"><button class="btn" name="mybtn">회원 정보 수정</button></a>
 			</div>
 			<div id = "content1-2-2">
 				
-			<button class="btn" name="mybtn" id="rePwd">비밀번호수정</button>
+			<button class="btn" name="mybtn" id="rePwd">비밀번호 변경</button>
 			</div>
 				<div id = "content1-2-3">
 		
-		<button class="btn btn-danger" name="mybtn" id="myboard">내가쓴글보기</button>
+		<button class="btn" name="mybtn" id="myboard" style="color:white;background:#c81a00">내가 쓴 글보기</button>
 			
 			
 			</div>
 				<div id = "content1-2-4">
 		
-			<button class="btn" name="mybtn" id="mycomment">내가쓴댓글보기</button>
+			<button class="btn" name="mybtn" id="mycomment">내가 쓴 댓글보기</button>
 			
 			
 			</div>
@@ -352,10 +342,15 @@
 			</div>
 		</div>
 		<div id = "content2">
-		<div id = "content2-1">&nbsp;
-			<br>
-			<h2>&nbsp;&nbsp;&nbsp;&nbsp;내가쓴글보기</h2>
-			<hr>
+		<div id = "content2-1"> &nbsp; <br>
+               <h6 style="color: gray">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="img_icon1"
+                     src="/images/login_icon.png"
+                     width="30px ">마이페이지 > 내가 쓴 글보기
+               </h6>
+
+               <h1 style="font-weight: bold; color: dimgrey">&nbsp;&nbsp;&nbsp;내가 쓴 글보기</h1>
+               <hr>
 			</div>
 		<div id ="content2-2">
 			<div id="content2-2-1"></div>
@@ -376,7 +371,7 @@
 				<tr>
 					
 					<td style="width:100px">${board.boardNumber}</td>
-					<td>${board.title}</td>
+					<td><a href="/boardASelect?boardNumber=${board.boardNumber }">${board.title}</a></td>
 					<td style="width:300px">${board.makeDate}</td>
 					<td style="width:150px"><a href="/deleteMyBoard?boardNo=${board.boardNumber }"><input type="button" value="삭제" onclick="return deletebtn()"/></a></td>
 				</tr>	

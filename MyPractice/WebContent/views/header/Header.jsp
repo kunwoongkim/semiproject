@@ -18,86 +18,94 @@
 	 <meta name = "google-signin-client_id" content = "181826323862-29136l7je3lvb232vlm92q7a785hsq5n.apps.googleusercontent.com">
 	 
 	 	
-	<style type="text/css">
 	
-	
-	@import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
-    @import url('https://fonts.googleapis.com/css?family=Jua&display=swap');
-	
-	 a:link { color: black; text-decoration: none;}
+
+ <style type="text/css">
+   
+   
+   @import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+   
+    a:link { color: black; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
-	
- 	/* div{
-		 border : 1px solid ;  
-	
-	}  */
-	
-	#header{
-		height: 5%;
-		width: 100%;
-		background : black;
-		
-		
-	}
+   
+/*    div{
+       border : 1px solid black;  
+   
+   } */
+   
+   #header{
+      height: 5%;
+      width: 100%;
+      background : #515151;
+      
+      
+   }
+   
+   
+      #title{
+      
+      font-size : 45px;
+      margin-right : 20px;
+      color : white;
+      font-family: 'Kaushan Script', cursive;
+      
+   }
+   
+   #loginbtn{
+      width: 400px;
+      height: 50px;
+      margin-bottom: 3px;
+   }
+   
+   
+   #userId{
+      width: 400px;
+      height: 40px;
+   }
+   #userPwd{
+      width: 400px;
+      height: 40px;
+   }
+   #header1{
+   
+      float: left;
+      height: 100%;
+      width: 18%;
+      color: black;
+      
+      
+   }
+   #header2{
+       float: left;
+      height: 100%;
+      width: 70%;
+      
+   } 
+   #header3{
+      float: left;
+      height: 100%;
+      width: 12%;
+   
+      
+   }
+   
+   #searchbtn{
+   margin-top: 10px;
+   height: 40px;
+   font-size :20px;
+   }
 
-	
-	#searchbtn{
-		margin-top: 3px;
-		height: 40px;
-	}
-	
-		#title{
-		
-		font-size : 60px;
-		margin-right : 20px;
-		color : white;
-		font-family: 'Kaushan Script', cursive;
-		
-	}
-	
-	#loginbtn{
-		width: 400px;
-		height: 50px;
-		margin-bottom: 3px;
-	}
-	
-	
-	#userId{
-		width: 400px;
-		height: 40px;
-	}
-	#userPwd{
-		width: 400px;
-		height: 40px;
-	}
-	#header1{
-	
-		 float: left;
-		height: 100%;
-		width: 18%;
-		color: black;
-		
-	}
-	#header2{
-		 float: left;
-		height: 100%;
-		width: 70%;
-		
-	} 
-	#header3{
-		float: left;
-		height: 100%;
-		width: 12%;
-	
-		
-	}
-
+ #kakao-login-btn{
+width:300px;
+height:70px;
+}
 	</style>
 	
 </head>
 
 <body>
-	<nav class="navbar fixed-top" style="background:black;">
+	<nav class="navbar fixed-top" style="background:#515151;">
 	<div id= "header">
 	
 	
@@ -105,27 +113,25 @@
 	<div id="header1"><center><a id ="title" href="/index.jsp">RED LINE</a></center></div>
 	<div id="header2" >
 		<nav class="navbar navbar-expand-sm" id="nav" style="font-family: 'Jua', sans-serif;">
-	<div class="navbar navbar-default navbar-right" id="navdiv">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ul class="nav navbar-nav"  >
+	<div class="navbar navbar-default navbar-right" id="navdiv" >
+		<ul class="nav navbar-nav" style="width:1000px"	>
 		
-			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:white; width:250px; font-size : 25px">COMMUNITY</a>
+			<li class="nav-item dropdown " style="width:14%;"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:white;  font-size : 16px">COMMUNITY</a>
 			<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">A형 게시판</a>
-			<a class="dropdown-item" href="#">B형 게시판</a>	
-			<a class="dropdown-item" href="#">O형 게시판</a>	
-			<a class="dropdown-item" href="#">AB형 게시판</a>		
+			<a class="dropdown-item" href="/boardA?boardType=A">A형 게시판</a>
+			<a class="dropdown-item" href="/boardA?boardType=B">B형 게시판</a>	
+			<a class="dropdown-item" href="/boardA?boardType=AB">AB형 게시판</a>
+			<a class="dropdown-item" href="/boardA?boardType=O">O형 게시판</a>			
 				</div>
 			</li>
-			<li><a href="#" class="nav-link" style="color:white; width:180px;font-size : 25px">공지사항</a></li>
-			<li ><a href="/views/blood_info/blood_info.jsp" class="nav-link" id= "navbardrop" style="color:white; width:220px;font-size : 25px; font-family: 'Jua', sans-serif;">희귀혈액지식</a>
+			<li style="width:11%"><a href="/noticeList.do" class="nav-link" style="color:white;font-size : 16px">공지사항</a></li>
+			<li style="width:14%"><a href="/views/blood_info/blood_info.jsp" class="nav-link" id= "navbardrop" style="color:white; font-size : 16px; font-family: 'Jua', sans-serif;">희귀혈액지식</a>
 			</li>
-			<li><a href="/bloodHouse" class="nav-link" style="color:white; width:220px;font-size : 25px">헌혈의집찾기</a></li>
-			<li><a href="#" class="nav-link" style="color:white; width:220px;font-size : 25px">헌혈증기증</a></li>
+			<li style="width:14%"><a href="/bloodHouse" class="nav-link" style="color:white; font-size : 16px">헌혈의집찾기</a></li>
+			<li style="width:14%"><a href="/views/payment/payment.jsp" class="nav-link" style="color:white; font-size : 16px">후원캠페인</a></li>
 			<c:if test="${sessionScope.member != null && sessionScope.member.userId != 'admin'}">
-			<li class="nav-item dropdown"><a href="/myPage"  class="nav-link" style="color:white; width:220px;font-size : 25px">마이페이지</a>
-				<li class="nav-item dropdown"><a href="/views/report/report.jsp"  class="nav-link" style="color:white; width:220px;font-size : 25px">고객센터</a>
-					
-			</li>
+			<li class="nav-item dropdown" style="width:14%"><a href="/myPage"  class="nav-link" style="color:white;font-size : 16px">마이페이지</a>
+				<li class="nav-item dropdown" style="width:14%"><a href="/views/report/report.jsp"  class="nav-link" style="color:white; font-size : 16px">고객센터</a></li>
 			</c:if> 	
 		
 		
@@ -136,34 +142,29 @@
 		</div>
 	<div id="header3">
 	
+
+	
 	<c:if test="${sessionScope.member.userId == 'admin'}">
          <div id= "header3-1"><img src="/images/login_icon.png" id="loginimg"></div>
-      <div id= "header3-2"><span id="logintext" style="color:white">${sessionScope.member.userNickName }님 환영합니다</span><br>
-      <a href="/memberAll" class="btn" style="color:white">관리자페이지</a>
-    <a href="/logout" onclick="signOut();" class="btn" style="color:white">로그아웃</a>	</div>
+      <div id= "header3-2"><span id="logintext" style="color:white;font-size:14px">${sessionScope.member.userNickName }님 환영합니다</span><br>
+      <a href="/memberAll" class="btn" style="color:white;font-size:10px">관리자페이지</a>
+    <a href="/logout" onclick="signOut();" class="btn" style="color:white;font-size:10px">로그아웃</a>	</div>
       
        </c:if>
        
 	<c:if test="${sessionScope.member != null && sessionScope.member.userId != 'admin'}">
 			<div id= "header3-1"><img src="images/login_icon.png" id="loginimg"></div>
-		<div id= "header3-2"><span id="logintext" style="color:white">${sessionScope.member.userNickName }님 환영합니다</span><br>
-		<a href="/myPage"><button class="btn" style="color:white">마이페이지</button></a>
-		<a href="/logout" onclick="clearAllCookies(domain, path)" class="btn" style="color:white">로그아웃</a>	</div>
+		<div id= "header3-2"><span id="logintext" style="color:white;font-size:14px">${sessionScope.member.userNickName }님 환영합니다</span><br>
+		<a href="/myPage"><button class="btn" style="color:white;font-size:10px">마이페이지</button></a>
+		<a href="/logout" onclick="clearAllCookies(domain, path)" class="btn" style="color:white;font-size:10px">로그아웃</a>	</div>
 		</c:if> 
 		
 		
 			
 	<c:if test="${sessionScope.member == null }">
-		
-		
 	
- 
-
- 
     <button type="button" class="btn" data-toggle="modal" data-target="#myModal" id="searchbtn" style="width:100px; color:white"><b>LOGIN</b></button>
 	 <a href="/views/member/EnrollPage.jsp" class="btn" id="searchbtn" style="width:100px; color:white"><b>JOIN</b></a>
- 
-
  
 		</c:if> 	
 		</div>
@@ -198,7 +199,7 @@
 				
 				<center> <a id="kakao-login-btn"></a>
 				
-  				<div  class="g-signin2" data-onsuccess="onSignIn" style="width:220px;height:45px;"></div></center>
+  				<div  class="g-signin2" data-onsuccess="onSignIn" style="width:300px;height:60px;"></div></center>
 	
 				<center><a href="/views/member/findId.jsp" class="btn">아이디 찾기</a><a href="/views/member/findPw.jsp" class="btn">비밀번호 찾기</a></center>
 				

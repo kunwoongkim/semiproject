@@ -18,66 +18,45 @@
 	 <meta name = "google-signin-client_id" content = "181826323862-29136l7je3lvb232vlm92q7a785hsq5n.apps.googleusercontent.com">
 <style>
 
-		@import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
-    @import url('https://fonts.googleapis.com/css?family=Jua&display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
 
         div {
             box-sizing: border-box;
-    /*      border: 1px solid black; */
+       /*   border: 1px solid black; */
+       font-family: 'Nanum Gothic', sans-serif;
         }
 
-        #container {
-
-          	height: 1300px;
-		width: 2400px;
-
-
-
-        }
+      #container{
+      
+      height: 1500px;
+      width: 100%;
+      
+      
+   }
 		
-      	#header{
-		height: 7%;
-		width: 100%;
-		background : black;
-		
-		
-	}
+     
 
         #content {
-            height: 80%;
+        	float : left;
+            height: 90%;
             width: 100%;
 
         }
 
-        #footer {
-            height: 5%;
-            width: 100%;
+       #footer {
+     height: auto;
+
+   width: 100%;
+
+   margin-top: 2000px;
+
+   background: black;
+
+}
 
 
-        }
-
-        #header1{
-	
-		 float: left;
-		height: 100%;
-		width: 15%;
-		
-		
-	}
-	#header2{
-		 float: left;
-		height: 100%;
-		width: 70%;
-		
-	} 
-	#header3{
-		float: left;
-		height: 100%;
-		width: 15%;
-	
-		
-	}
         #title {
             margin-top: 7px;
         }
@@ -91,65 +70,149 @@
         #content1 {
             float: left;
             height: 100%;
-            width: 25%;
+            width: 20%;
 
         }
+		#content2 {
 
+   			float: left;
+
+  			 height: 100%;
+
+   			width: 80%;
+
+				}
         #content1-1 {
-            float: left;
-            height: 15%;
-            width: 100%;
+           float: left;
+
+   height: 10%;
+
+   width: 100%;
+
+   border-right: 0.1em solid #dddfe3;
+
+   padding:0.1em;
         }
 
         #content1-2 {
-            float: left;
-            height: 85%;
-            width: 100%;
+               float: left;
 
+   height: 100%;
+
+   width: 100%;
+
+   border-right: 0.1em solid #dddfe3;
+
+   padding:0.1em;
 
         }
 
         #content1-2-1 {
             float: left;
-            height: 10%;
+            height: 5%;
             width: 100%;
 
         }
 
         #content1-2-2 {
             float: left;
-            height: 10%;
+            height: 5%;
             width: 100%;
 
         }
 
         #content1-2-3 {
             float: left;
-            height: 10%;
+            height: 5%;
             width: 100%;
 
         }
 
         #content1-2-4 {
             float: left;
-            height: 10%;
+            height: 5%;
             width: 100%;
 
         }
 
         #content1-2-5 {
             float: left;
-            height: 10%;
+            height: 5%;
             width: 100%;
 
         }
 
         #content1-2-6 {
             float: left;
-            height: 10%;
+            height: 5%;
             width: 100%;
 
         }
+        
+        
+        
+        #content2-1 {
+
+   float: left;
+
+   width: 100%;
+
+   height: 10%
+
+}
+
+ 
+
+#content2-2 {
+	margin-left:250px;
+   float: left;
+
+   width: 90%;
+
+   height: 100%;
+
+}
+button[id^=btn] {
+
+   height: 40px;
+
+   width: 80px;
+
+}
+button[name=mybtn] {
+
+   height: 100%;
+
+   width: 100%;
+
+   font-size: 25px;
+
+   font-weight:bold;
+ color:gray;
+   
+
+   
+
+   
+
+}	
+#title {
+
+   font-size: 60px;
+
+   margin-right: 20px;
+
+   color: #515151;
+
+}
+
+#searchbtn {
+
+   margin-top: 25px;
+
+   height: 40px;
+
+}
 
         /* ################### 혈액정보 DIV #########################*/
 
@@ -289,6 +352,7 @@
         }
 
         #info2_img6 {
+        	margin-top : 20px;
             float: left;
             width: 100%;
             height: 210px;
@@ -381,7 +445,17 @@
             float: left;
             padding: 20px;
             width: 100%;
-            height: 60px;
+            height: 90px;
+        }
+        
+        #info3-3{
+        		
+ 			margin-top : 15px;       
+        }
+        
+          #info3-5{
+        		
+ 			margin-top : 15px;       
         }
 
         .info3_total_title {
@@ -398,6 +472,7 @@
         }
 
         #info3_img1 {
+        	margin-top : 5px;
             float: left;
             padding: 20px;
             width: 15%;
@@ -408,6 +483,7 @@
         }
 
         #info3_img2 {
+        margin-top : 15px;
             float: left;
             padding: 20px;
             width: 15%;
@@ -418,6 +494,7 @@
         }
 
         #info3_img3 {
+         margin-top : 15px;
             float: left;
             padding: 20px;
             width: 15%;
@@ -428,6 +505,7 @@
         }
 
         #info3_img4 {
+         margin-top : 15px;
             float: left;
             padding: 20px;
             width: 15%;
@@ -537,6 +615,7 @@
         }
 
         #info4_img3 {
+        	margin-top : 10px;
             float: left;
             padding: 20px;
             width: 100%;
@@ -566,6 +645,7 @@
         #info4-3-2 {
             float: left;
             padding: 20px;
+            margin-top : 140px;
             margin-left: 40px;
             width: 100%;
             height: 350px;
@@ -809,7 +889,7 @@
         button[name=mybtn] {
             height: 100%;
             width: 100%;
-            font-size: 20px;
+            font-size: 25px;
         }
 
         table {
@@ -896,8 +976,121 @@
 		width: 400px;
 		height: 40px;
 	}
-		
+	
+	/* 글씨를 키워욥 */
+	[id^=info] h5{
+	font-size : 26px;
+	}
+	[id^=info] div{
+	font-size : 20px;
+	}
+	[id^=info] pre{
+	font-size : 20px;
+	}
+	
+	/* img div 줄여서 글씨 div가 정돈되게 */
+	#info2_img1{
+		width:200px;
+	}
+	#info2_img2{
+		width:200px;
+	}
+	
+	/* 스크롤 없앰 */
+	pre {
+		white-space: pre-wrap;
+	}
+	
 
+   
+    a:link { color: black; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
+   
+/*    div{
+       border : 1px solid black;  
+   
+   } */
+   
+   #header{
+      height: 5%;
+      width: 100%;
+      background : #c81a00;
+      
+      
+   }
+   
+   
+      #title{
+      
+      font-size : 45px;
+      margin-right : 20px;
+      color : white;
+      font-family: 'Kaushan Script', cursive;
+      
+   }
+   
+   #loginbtn{
+      width: 400px;
+      height: 50px;
+      margin-bottom: 3px;
+   }
+   
+   
+   #userId{
+      width: 400px;
+      height: 40px;
+   }
+   #userPwd{
+      width: 400px;
+      height: 40px;
+   }
+   #header1{
+   
+      float: left;
+      height: 100%;
+      width: 18%;
+      color: black;
+      
+      
+   }
+   #header2{
+       float: left;
+      height: 100%;
+      width: 70%;
+      
+   } 
+   #header3{
+      float: left;
+      height: 100%;
+      width: 12%;
+   
+      
+   }
+   
+   #searchbtn{
+   margin-top: 10px;
+   height: 40px;
+   font-size :20px;
+   }
+
+img{
+   width:300px;
+}
+
+
+     
+     #img_icon1{
+
+	width:30px;
+
+	height:30px;
+
+}
+
+
+	button[name=mybtn]:hover{                                   
+    box-shadow:200px 0 0 150px rgba(200,26,0,1) inset; 
+    }
     </style>
 </head>
 <body>
@@ -906,122 +1099,8 @@
 
     <div id="container">
         <div id="header">
-          
-	<div id="header1"><center><a id ="title" href="/index.jsp">RED LINE</a></center></div>
-	<div id="header2" >
-		<nav class="navbar navbar-expand-sm" id="nav" style="font-family: 'Jua', sans-serif;">
-	<div class="navbar navbar-default navbar-right" id="navdiv">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ul class="nav navbar-nav" >
-			
-			<li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id= "navbardrop" data-toggle="dropdown" style="color:white; width:220px; font-size : 25px">COMMUNITY</a>
-			<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">A형 게시판</a>
-			<a class="dropdown-item" href="#">B형 게시판</a>	
-			<a class="dropdown-item" href="#">O형 게시판</a>	
-			<a class="dropdown-item" href="#">AB형 게시판</a>		
-				</div>
-			</li>
-			<li><a href="#" class="nav-link" style="color:white; width:180px;font-size : 25px">공지사항</a></li>
-			 <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" style="color:white; width:220px;font-size : 25px">희귀혈액지식</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#"><button class="btn" onclick="showDiv(this.value)" value="info1">헌혈의 필요성</button></a>
-                                    <a class="dropdown-item" href="#"><button class="btn" onclick="showDiv(this.value)" value="info2">혈액이란</button></a>
-                                    <a class="dropdown-item" href="#"><button class="btn" onclick="showDiv(this.value)" value="info3">혈액종류</button></a>
-                                    <a class="dropdown-item" href="#"><button class="btn" onclick="showDiv(this.value)" value="info4">혈액형종류</button></a>
-                                    <a class="dropdown-item" href="#"><button class="btn" onclick="showDiv(this.value)" value="info5">헌혈에 대한 오해와 진실</button></a>
-                                    <a class="dropdown-item" href="#"><button class="btn" onclick="showDiv(this.value)" value="info6">수혈 상식</button></a>
-                                </div>
-                            </li>
-			<li><a href="/bloodHouse" class="nav-link" style="color:white; width:220px;font-size : 25px">헌혈의집찾기</a></li>
-			<li><a href="#" class="nav-link" style="color:white; width:220px;font-size : 25px">헌혈증기증</a></li>
-			<c:if test="${sessionScope.member != null && sessionScope.member.userId != 'admin'}">
-			<li class="nav-item dropdown"><a href="/myPage"  class="nav-link" style="color:white; width:220px;font-size : 25px">마이페이지</a>
-		
-					
-			</li>
-			</c:if> 	
-		
-		
-		</ul>
-		
-		</div>
-		</nav>
-		</div>
-	<div id="header3">
-	
-	<c:if test="${sessionScope.member.userId == 'admin'}">
-         <div id= "header3-1"><img src="/images/login_icon.png" id="loginimg"></div>
-      <div id= "header3-2"><span id="logintext" style="color:white;">${sessionScope.member.userNickName }님 환영합니다</span><br>
-      <a href="/memberAll" class="btn" style="color:white;">관리자페이지</a>
-    <a href="/logout" onclick="signOut();" class="btn" style="color:white;">로그아웃</a>	</div>
-      
-       </c:if>
-       
-	<c:if test="${sessionScope.member != null && sessionScope.member.userId != 'admin'}">
-			<div id= "header3-1"><img src="/images/login_icon.png" id="loginimg" style="color:white;"></div>
-		<div id= "header3-2"><span id="logintext" style="color:white;">${sessionScope.member.userNickName }님 환영합니다</span><br>
-		<a href="/myPage"><button class="btn" style="color:white;">마이페이지</button></a>
-		<a href="/logout" class="btn" style="color:white;">로그아웃</a>	</div>
-		</c:if> 
-		
-		
-			
-	<c:if test="${sessionScope.member == null }">
-		
-		
-	
- 
-
- 
-    <button type="button" class="btn" data-toggle="modal" data-target="#myModal" id="searchbtn" style="width:100px; color:white"><b>LOGIN</b></button>
-	 <a href="/views/member/EnrollPage.jsp" class="btn" id="searchbtn" style="width:100px; color:white"><b>JOIN</b></a>
- 
-
- 
-		</c:if> 	
-		</div>
-		
-
-		
-	
-		 <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-            <h1 class="modal-title">LOGIN</h1>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-       
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
- 
-				<pre style="font-size : 22px">               ID</pre>
-				<center><input type="text" class="form-control" id="userId" name="userId"></center>
-				</div>
-				<div class="form-group">
-  				<pre style="font-size : 22px">               PASSWORD</pre>
-  		<center><input type="password" class="form-control" id="userPwd" name="userPwd"></center>
-  
-			</div>
-			<center><input type="button" class="btn btn-danger" value="로그인" id = "loginbtn"><br>
-			
-				<a href=/views/member/EnrollPage.jsp><button class="btn btn-danger" value="회원가입" id = "loginbtn">회원가입</button></a></center>
-				
-				<center> <a id="kakao-login-btn"></a>
-				
-  				<div  class="g-signin2" data-onsuccess="onSignIn" style="width:220px;height:45px;"></div></center>
-	
-				<center><a href="/views/member/findId.jsp" class="btn">아이디 찾기</a><a href="/views/member/findPw.jsp" class="btn">비밀번호 찾기</a></center>
-				
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+        
+    <jsp:include page="/views/header/Header2.jsp"></jsp:include>
                 </div>
             
       
@@ -1029,46 +1108,67 @@
 
             <div id="content1">
 
-                <div id="content1-1">
+                <div id="content1-1" style="font-weight: bold;">
                     <center><br>
-                        <h1>헌혈지식</h1>
+                    <h1 style="color: dimgrey; font-weight: bold;">헌혈지식</h1>
                     </center>
                 </div>
                 <div id="content1-2">
                     <div id="content1-2-1">
 
-                        <a href="#"><button class="btn" name="mybtn" onclick="showDiv(this.value)" value="info1">헌혈의 필요성</button></a>
+                        <button class="btn" name="mybtn" onclick="showDiv(this)" value="info1" style="color:white;background:#c81a00">헌혈의 필요성</button>
                     </div>
                     <div id="content1-2-2">
 
-                        <a href="#"><button class="btn" name="mybtn" onclick="showDiv(this.value)" value="info2">혈액이란?</button></a>
+                        <a href="#"><button class="btn" name="mybtn" onclick="showDiv(this)" value="info2">혈액이란?</button></a>
                     </div>
                     <div id="content1-2-3">
 
-                        <a href="#"><button class="btn" name="mybtn" onclick="showDiv(this.value)" value="info3">혈액 종류</button></a>
+                        <a href="#"><button class="btn" name="mybtn" onclick="showDiv(this)" value="info3">혈액 종류</button></a>
 
 
                     </div>
                     <div id="content1-2-4">
 
-                        <a href="#"><button class="btn" name="mybtn" onclick="showDiv(this.value)" value="info4">혈액형 종류</button></a>
+                        <a href="#"><button class="btn" name="mybtn" onclick="showDiv(this)" value="info4">혈액형 종류</button></a>
                     </div>
 
                     <div id="content1-2-5">
 
-                        <a href="#"><button class="btn" name="mybtn" onclick="showDiv(this.value)" value="info5">헌혈에 대한 오해와 진실</button></a>
+                        <a href="#"><button class="btn" name="mybtn" onclick="showDiv(this)" value="info5">헌혈에 대한 오해와 진실</button></a>
                     </div>
 
                     <div id="content1-2-6">
 
-                        <a href="#"><button class="btn" name="mybtn" onclick="showDiv(this.value)" value="info6">수혈상식</button></a>
+                        <a href="#"><button class="btn" name="mybtn" onclick="showDiv(this)" value="info6">수혈상식</button></a>
                     </div>
 
                 </div>
             </div>
 
             <!--##################### infoDiv ##########################-->
+			<div id="content2">
+			<div id="content2-1">
+			 &nbsp; <br>
 
+               <h6 style="color: gray">
+
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="img_icon1"
+
+                     src="/images/login_icon.png"
+
+                     width="30px ">헌혈지식>
+
+               </h6>
+
+ 
+
+               <h1 style="font-weight: bold; color: dimgrey">&nbsp;&nbsp;&nbsp;희귀혈액지식</h1><hr>
+			
+			
+			
+			</div>
+			<div id="content2-2">
             <div id="info1" class="infoDiv">
                 <h2>헌혈의 필요성</h2><br>
                 <h5>헌혈이란?</h5>
@@ -1176,7 +1276,7 @@
                     <h6>혈장(plasma)</h6>
                 </div>
                 <div id="info2_img7"></div>
-                <div id="info2-6">
+                <div id="info2-6" style="height:200px;">
                     <pre>
 * 혈액의 반 이상 차지
 
@@ -1199,7 +1299,7 @@
 자가면역성 용혈성 빈혈 : 자가항체에 의해 일찍 제거되어 발생, 자가 항체가 감소되도록 치료
                 </pre>
                 </div>
-                <div id="info2-8_title">
+                <div id="info2-8_title" style="height:100px;">
                     <b>혈우병(Hemophilla)</b>
                 </div>
                 <div id="info2_img8"></div>
@@ -1246,27 +1346,22 @@ Rh항체(anti-D) 를 가짐. anti-D를 가진 여성이 Rh(D) 아기를 다시 �
 
             <div id="info3" class="infoDiv">
                 <h2>혈액 종류</h2><br>
-                <div id="info3-1" style="border: 1px solid gray; width: 70%;">
+                <div id="info3-1" style="border: 1px solid gray; width: 95%;">
                     <pre>
 한 명의 헌혈자로부터 패혈된 전혈헌혈은 성분별 분리과정을 거쳐 <span style="color:red">적혈구, 혈장, 혈소판</span>등으로 나누어집니다. 
            </pre>
                 </div><br>
                 <div id="info3-2_title" class="info3_total_title">
-                    <h5>전혈: 대량출형 또는 수술시 사용</h5>
-                    <hr align="left" style="border: solid 1px red; width: 5%;">
+                    <h5>전혈 : 대량출형 또는 수술시 사용</h5>
+                     <hr align="left" style="border: solid 1px red; width: 5%;">
                 </div>
                 <div id="info3_img1"></div>
-                <div id="info3-2" class="info3_total_content">
+                <div id="info3-2" class="info3_total_content"  style="height:400px;">
                     <pre>
-* 심한 출혈이 있는 환자, 즉 총 혈액량의 25% 이상 되는 출혈이 지속되어 쇼크에 빠질 우려가 있는 환자에 게는 전혈을 
-  수혈하는 것이 좋습니다.
-  전혈은 산소운반능력과 혈액량 확장이 동시에 요구될 때에만 사용하는 것이 권장됩니다. 적은 출혈 또는 만성 빈혈 환자에게
-  주입속도가 빠르게 전혈을 수혈하면 혈액량 과부하를 초래하여 폐부종 등을 유발할 수 있으므로 주의해야 합니다.
+* 심한 출혈이 있는 환자, 즉 총 혈액량의 25% 이상 되는 출혈이 지속되어 쇼크에 빠질 우려가 있는 환자에 게는 전혈을 수혈하는 것이 좋습니다. 전혈은 산소운반능력과 혈액량 확장이 동시에 요구될 때에만 사용하는 것이 권장됩니다. 적은 출혈 또는 만성 빈혈 환자에게 주입속도가 빠르게 전혈을 수혈하면 혈액량 과부하를 초래하여 폐부종 등을 유발할 수 있으므로 주의해야 합니다.
 
 * 24시간 이상 저장된 전혈에는 생존 가능한 혈소판과 백혈구가 거의 없으며 Fator V와 VIII의 농도도 저하되어 있습니다. 
-  따라서 혈소판과 백혈구를 
-  공급하기 위해서는 혈소판 또는 백혈구제제를 수혈해야 하며 혈액 응고인자를 보충하기 위해서는 신선동결혈장(fresh frozen plasma)을
-  수혈해야 합니다.
+  따라서 혈소판과 백혈구를 공급하기 위해서는 혈소판 또는 백혈구제제를 수혈해야 하며 혈액 응고인자를 보충하기 위해서는 신선동결혈장(fresh frozen plasma)을 수혈해야 합니다.
            </pre>
                 </div>
 
@@ -1275,14 +1370,11 @@ Rh항체(anti-D) 를 가짐. anti-D를 가진 여성이 Rh(D) 아기를 다시 �
                     <hr align="left" style="border: solid 1px red; width: 5%;">
                 </div>
                 <div id="info3_img2"></div>
-                <div id="info3-3" class="info3_total_content">
+                <div id="info3-3" class="info3_total_content" style= "height:350px;">
                     <pre>
-* 적혈구는 산소운반능력 부족의 증상을 보이는 만성 빈혈 환자 및 수술 또는 외상에 의해 총혈액량의 15%이상의 출혈이 있는 
-  환자의 치료에 이용됩니다.
-  신부전이나 악성종양 등 만성 빈혈 환자들은 혈액량이 정상이므로 전혈을 수혈하면 혈액량 과부하의 위험이 있습니다.
+* 적혈구는 산소운반능력 부족의 증상을 보이는 만성 빈혈 환자 및 수술 또는 외상에 의해 총혈액량의 15%이상의 출혈이 있는 환자의 치료에 이용됩니다. 신부전이나 악성종양 등 만성 빈혈 환자들은 혈액량이 정상이므로 전혈을 수혈하면 혈액량 과부하의 위험이 있습니다.
 
-* 헤모글로빈 수치가 8g/dl이상인 경우에는 적혈구 수혈이 불필요한 경우가 많습니다. 수술이나 외상에 의한 총혈액량의 15%미만의
-  출혈시에는 대부분 적혈구 수혈이 불필요합니다.
+* 헤모글로빈 수치가 8g/dl이상인 경우에는 적혈구 수혈이 불필요한 경우가 많습니다. 수술이나 외상에 의한 총혈액량의 15%미만의 출혈시에는 대부분 적혈구 수혈이 불필요합니다.
            </pre>
                 </div>
 
@@ -1291,12 +1383,11 @@ Rh항체(anti-D) 를 가짐. anti-D를 가진 여성이 Rh(D) 아기를 다시 �
                     <hr align="left" style="border: solid 1px red; width: 5%;">
                 </div>
                 <div id="info3_img3"></div>
-                <div id="info3-4" class="info3_total_content">
+                <div id="info3-4" class="info3_total_content" style=" height:300px;">
                     <pre>
 * 혈소판제제는 혈소판 감소증 또는 혈소판 기능장애가있는 환자에게 지혈기능을 회복시키기 위해 사용됩니다.
 
-* 백혈병 또는 재생불량성 빈혈, 항암제 치료, 악성종양의 골수침범, 원발성 골수형성부전증 등으로 인하여 혈소판수가 
-  20,000/ul이하로 감소된 환자들에게 주로 적응됩니다.
+* 백혈병 또는 재생불량성 빈혈, 항암제 치료, 악성종양의 골수침범, 원발성 골수형성부전증 등으로 인하여 혈소판수가 20,000/ul이하로 감소된 환자들에게 주로 적응됩니다.
            </pre>
                 </div>
 
@@ -1305,15 +1396,13 @@ Rh항체(anti-D) 를 가짐. anti-D를 가진 여성이 Rh(D) 아기를 다시 �
                     <hr align="left" style="border: solid 1px red; width: 5%;">
                 </div>
                 <div id="info3_img4"></div>
-                <div id="info3-5" class="info3_total_content">
+                <div id="info3-5" class="info3_total_content" style=" height:400px;">
                     <pre>
 * 혈소판제제는 혈소판 감소증 또는 혈소판 기능장애가있는 환자에게 지혈기능을 회복시키기 위해 사용됩니다.
 
-* 특히 HLA 동종면역에 의한 혈소판 수혈불응증 예방을 위해 계속적인 혈소판 수혈이 예상되는 백혈병, 재생불량성 빈혈
-  또는 항암제 치료시 사용됩니다.
+* 특히 HLA 동종면역에 의한 혈소판 수혈불응증 예방을 위해 계속적인 혈소판 수혈이 예상되는 백혈병, 재생불량성 빈혈 또는 항암제 치료시 사용됩니다.
 
-* 백혈병 또는 재생불량성 빈혈, 항암제 치료, 악성종양의 골수침범, 원발성 골수형성부전증 등으로 인하여 혈소판수가 
-  20,000/ul이하로 감소된 환자들에게 주로 적응됩니다.
+* 백혈병 또는 재생불량성 빈혈, 항암제 치료, 악성종양의 골수침범, 원발성 골수형성부전증 등으로 인하여 혈소판수가 20,000/ul이하로 감소된 환자들에게 주로 적응됩니다.
            </pre>
                 </div>
 
@@ -1324,8 +1413,7 @@ Rh항체(anti-D) 를 가짐. anti-D를 가진 여성이 Rh(D) 아기를 다시 �
                 <div id="info3_img5"></div>
                 <div id="info3-6" class="info3_total_content">
                     <pre>
-* A형 혈우병, 폰빌레브란트병, 선천성 혹은 후천성 섬유소원 결핍증, 제XIII인자 결핍증, 산과적 합병증 또는 파종성혈관내응고증 등
-  섬유소원의 소모와 관계된 질환들에 사용됩니다.
+* A형 혈우병, 폰빌레브란트병, 선천성 혹은 후천성 섬유소원 결핍증, 제XIII인자 결핍증, 산과적 합병증 또는 파종성혈관내응고증 등 섬유소원의 소모와 관계된 질환들에 사용됩니다.
            </pre>
                 </div>
 
@@ -1336,9 +1424,7 @@ Rh항체(anti-D) 를 가짐. anti-D를 가진 여성이 Rh(D) 아기를 다시 �
                 <div id="info3_img6"></div>
                 <div id="info3-7" class="info3_total_content">
                     <pre>
-* 파종성혈관내응고증, 중증간질환, 쿠마딘계 항응고제 사용 시 출혈, 선천적 응고인자결핍증, 유전성 응고억제제 결핍증, 
-  희석성 응고장애, 혈전성혈소판감소성 자반증, 용혈성요독성증후군, 비타민K결핍증, 출혈량을 예측할 수 없는 출혈로서 응급으로
-  혈액응고 검사를 시행할 수 없는 경우 등에 사용됩니다.
+* 파종성혈관내응고증, 중증간질환, 쿠마딘계 항응고제 사용 시 출혈, 선천적 응고인자결핍증, 유전성 응고억제제 결핍증, 희석성 응고장애, 혈전성혈소판감소성 자반증, 용혈성요독성증후군, 비타민K결핍증, 출혈량을 예측할 수 없는 출혈로서 응급으로  혈액응고 검사를 시행할 수 없는 경우 등에 사용됩니다.
            </pre>
                 </div>
                 <div id="info3-8_title" class="info3_total_title">
@@ -1379,7 +1465,7 @@ Rh항체(anti-D) 를 가짐. anti-D를 가진 여성이 Rh(D) 아기를 다시 �
                     <h5>ABO혈액형</h5>
                     <hr align="left" style="border: solid 1px red; width: 5%;">
                 </div>
-                <div id="info4-2-1">
+                <div id="info4-2-1" style=" height:250px;">
                     <pre>
 ABO 혈액형 항원은 적혈구 뿐만 아니라 혈관내피세포(endothelial cell), 상피세포(epithelial) 등에도 존재하여
 우리 몸의 거의 모든 장기들이 가지고 있음
@@ -1389,7 +1475,7 @@ ABO 혈액형 항원은 적혈구 뿐만 아니라 혈관내피세포(endothelia
                 </pre>
                 </div>
                 <div id="info4_img2"></div>
-                <div id="info4-2-2">
+                <div id="info4-2-2" style=" height:250px;">
                     <pre>
 장내 세균(박테리아 세포벽에도 ABO항원과 같은 당사슬 존재) 또는 음식을 통해 박테리아에 의해 ABO항원들이 우리의 
 면역시스템에 노출되어 anti-A, anti-B 항체를 가짐
@@ -1400,7 +1486,7 @@ ABO혈액형검사 : Anti-A는 A형 적혈구와 Anti-B는 B형 적혈구와 반
                 </div>
                 <div id="info4_img3"></div>
                 <div id="info4_img4"></div>
-                <div id="info4-3-1">
+                <div id="info4-3-1" style=" height:620px;">
                     <h5>Rh 혈액형</h5>
                     <hr align="left" style="border: solid 1px red; width: 5%;">
                     <pre>
@@ -1409,13 +1495,12 @@ ABO혈액형검사 : Anti-A는 A형 적혈구와 Anti-B는 B형 적혈구와 반
 란드슈타이너(Landsteiner)에서 L자를 따고 비너 (Wiener) 에서 W자를 따서 LW혈액형으로 부르고 있음
 Rh혈액형은 당사슬로 구성된 ABO혈액형과는 달리, 단백(protein)으로 구성되어 있고 오로지 적혈구에만 존재,Rh(D)음성환자에게는
 Rh(D)음성혈액을 Rh(D)양성환자에게는 Rh(D)양성혈액을 수혈해야 함
-               
                 </pre>
 
 
                     <h5>백혈구 및 혈소판 혈액형</h5>
                     <hr align="left" style="border: solid 1px red; width: 5%;">
-                    <pre>
+                    <pre style=" height:280px;">
 적혈구 뿐만 아니라 백혈구나 혈소판에도 혈액형이 있으며, 이들도 적혈구의 경우와 마찬가지로 백혈구 또는 혈소판 표면의 여러 구조물들이
 혈액형 항원으로 작용
 
@@ -1424,26 +1509,22 @@ HLA 항원 등 백혈구의 항원이 환자에게 노출되면 이에 대한 �
 HLA항원이 같은 사람의 혈소판을 수혈해야 혈소판 수치가 올라감      
                 </pre>
                 </div>
-                <div id="info4-3-2" style="border: 1px solid gray; width: 90%;">
+                <div id="info4-3-2" style="border: 1px solid gray; width: 90%; height:550px;">
 
                     <h5><span style="color:orange">희귀혈액형(또는 특정항원 음성혈액형)</span></h5>
                     <pre>
-* Rh 음성 혈액형, weak-A 또는 weak-B형, cis-AB형, MkMk형, 바디바바디바(-D/-D)혈액형, 밀텐버거(Miltenberger)혈액형 및 기타
-  특정항원 음성 혈액형 등
+* Rh 음성 혈액형, weak-A 또는 weak-B형, cis-AB형, MkMk형, 바디바바디바(-D/-D)혈액형, 밀텐버거(Miltenberger)혈액형 및 기타 특정항원 음성 혈액형 등
 
 * 사람의 적혈구에는 혈액형을 결정짓는 항원이 있는데 현재 약 500개 이상의 항원이 있는 것으로 알려져 있음
 
-* 이 중 대부분의 혈액형은 어떤 인구집단의 대부분의 사람에게 존재하거나 또는 그 소수의 사람에게만 존재하여 임상적으로 중요하지 않으나 
-  가장 중요한 ABO혈액형과 Rh혈액형, 그 외 MNS, P, Kidd, Duffy 등의 약 20여종만이 임상적으로 중요함.
+* 이 중 대부분의 혈액형은 어떤 인구집단의 대부분의 사람에게 존재하거나 또는 그 소수의 사람에게만 존재하여 임상적으로 중요하지 않으나 가장 중요한 ABO혈액형과 Rh혈액형, 그 외 MNS, P, Kidd, Duffy 등의 약 20여종만이 임상적으로 중요함.
 
-* 대부분의 사람들과는 달리 어떤 항원이 없을 경우를 “희귀혈액형” 또는 “특정항원 음성”이라고 함. 예를 들어 만일 ‘C’혈액형항원이 없는 
-  환자분이 대부분의 사람이 헌혈한 ‘C’혈액형항원이 있는 혈액을 수혈 받을 경우, 환자 몸에는 본인의 혈액 중에 가지고 있지 않은 ‘C’ 
-  혈액형항원에 대한 항체가 형성되어 수혈 시 환자에게 위험을 초래할 수 있는데 이런 경우에는 환자와 동일한 ‘C’ 혈액형항원이 
-  없는 헌혈자의 혈액을 수혈 받아야 함.
+* 대부분의 사람들과는 달리 어떤 항원이 없을 경우를 “희귀혈액형” 또는 “특정항원 음성”이라고 함. 예를 들어 만일 ‘C’혈액형항원이 없는 환자분이 대부분의 사람이 헌혈한 ‘C’혈액형항원이 있는 혈액을 수혈 받을 경우, 환자 몸에는 본인의 혈액 중에 가지고 있지 않은 ‘C’ 혈액형항원에 대한 항체가 형성되어 수혈 시 환자에게 위험을 초래할 수 있는데 이런 경우에는 환자와 동일한 ‘C’ 혈액형항원이 없는 헌혈자의 혈액을 수혈 받아야 함.
                 </pre>
                 </div>
                 <div id="info4-3-3">
                     <pre>
+                      <br>
 <b>Rh 음성 (Rh-)</b>
 
 미국인들에서는 20%정도로 흔하나 우리나라는 1000명중 1~3명 정도로 아주 드묾
@@ -1489,17 +1570,14 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
 혈액형이 생길 확률은 극히 낮음 바디바바디바 혈액형은 수혈 또는 임신 후에 거의 모든 사람의 혈액과 반응할 수 있는 anti-Rh17(anti-Hro)이라는
 특이한 항체를 가짐
 
-2004년 6월 ‘바디바바디바(-D-/-D-)’혈액형을 가진 산모가 유산에 따른 과다 출혈로 입원하여 국내에서 유일하게 동일한 혈액형을 가진 20대 여성으로부터
-헌혈된 혈액으로 수혈했지만 수혈량이 부족해 대한적십자사를 통해 일본의 오사카 혈액원에서 혈액을 공수 받아 수혈
+2004년 6월 ‘바디바바디바(-D-/-D-)’혈액형을 가진 산모가 유산에 따른 과다 출혈로 입원하여 국내에서 유일하게 동일한 혈액형을 가진 20대 여성으로부터 헌혈된 혈액으로 수혈했지만 수혈량이 부족해 대한적십자사를 통해 일본의 오사카 혈액원에서 혈액을 공수 받아 수혈
 
 
 <b>밀텐버거(Miltenberger) 혈액형</b>
 
 태국(9.7%), 대만(7.3%), 홍콩(6.3%) 등 동남아에는 흔하지만 중국과 일본, 미국 등에서는 0.1% 정도로 매우 드물며 국내서는 밀텐버거 항원을 
 검사할 항체도 갖고 있지 못한 실정 
-신생아 용혈성질환(태아의 적혈구를 파괴하는 질환)이나 용혈성 수혈부작용(자신이 갖고 있지 않은 항원을 가진 혈액이 수혈되면 그 혈액을 파괴해 사망에
-이를 수도 있는 수혈부작용) 등의 원인 국내에서는 2002년 6월 마산에서 출생한 아기가 출생 직후 심한 빈혈 등의 증상을 보여 검사한 결과 밀텐버거
-혈액형이 처음으로 확인
+신생아 용혈성질환(태아의 적혈구를 파괴하는 질환)이나 용혈성 수혈부작용(자신이 갖고 있지 않은 항원을 가진 혈액이 수혈되면 그 혈액을 파괴해 사망에 이를 수도 있는 수혈부작용) 등의 원인 국내에서는 2002년 6월 마산에서 출생한 아기가 출생 직후 심한 빈혈 등의 증상을 보여 검사한 결과 밀텐버거 혈액형이 처음으로 확인
                 </pre>
                 </div>
 
@@ -1518,32 +1596,29 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
                         <div id="collapse1" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <pre>
-<span style="color:red; font-weight:bold">A</span> : 헌혈증서는 혈액관리법 제3조(혈액매매행위등의 금지)에 의해 매매가 금지되어 있습니다. 최근 인터넷상에 수혈관련 사연을 등록하여 헌혈증서를 모아서 이를 
-    다시 수혈이 필요한 환자 및 보호자 등에 판매한다는 기사가 소개된 적이 있습니다.
+<span style="color:red; font-weight:bold">A</span> : 헌혈증서는 혈액관리법 제3조(혈액매매행위등의 금지)에 의해 매매가 금지되어 있습니다. 최근 인터넷상에 수혈관련 사연을 등록하여 헌혈증서를 모아서 이를 다시 수혈이 필요한 환자 및 보호자 등에 판매한다는 기사가 소개된 적이 있습니다.
+혈액관리법에서는 “누구든지 금전,재산상의 이익 기타 대가적 급부를 주거나 주기로 하고 타인의 혈액(제14조의 규정에 의한 헌혈증서를 포함한다)을 제공하거나 이를 약속하여서는 아니된다”고 규정하고 있습니다.
+그러므로 헌혈증서를 사고 파는 것은 위법 행위이며 관련법규에 의하여 처벌을 받을 수 있습니다.
 
-    혈액관리법에서는 “누구든지 금전,재산상의 이익 기타 대가적 급부를 주거나 주기로 하고 타인의 혈액(제14조의 규정에 의한 헌혈증서를 포함한다)을
-    제공하거나 이를 약속하여서는 아니된다”고 규정하고 있습니다. 그러므로 헌혈증서를 사고 파는 것은 위법 행위이며 관련법규에 의하여 처벌을 받을 수 있습니다.
-
-    헌혈증서가 필요하신 분께서는 전국 적십자사 혈액원(기관리스트 참조)으로 문의하시면 기증증서를 소정의 절차를 거쳐 받으실 수 있습니다. 자세한 사항은 
-    해당지역 혈액원으로 연락주시기 바랍니다.
+헌혈증서가 필요하신 분께서는 전국 적십자사 혈액원(기관리스트 참조)으로 문의하시면 기증증서를 소정의 절차를 거쳐 받으실 수 있습니다. 자세한 사항은 해당지역 혈액원으로 연락주시기 바랍니다.
 
 <span style="color:orange; font-weight:bold">관련법규</span>
 
 <b>혈액관리법 제3조(혈액매매행위등의 금지)</b>
 
-①누구든지 금전,재산상의 이익 기타 대가적 급부를 받거나 받기로 하고 자신의 혈액(제14조의규정에 의한 헌혈증서를 포함한다)을 제공하거나 이를 
+1. 누구든지 금전,재산상의 이익 기타 대가적 급부를 받거나 받기로 하고 자신의 혈액(제14조의규정에 의한 헌혈증서를 포함한다)을 제공하거나 이를 
   약속하여서는 아니된다.
 
-②누구든지 금전,재산상의 이익 기타 대가적 급부를 주거나 주기로 하고 타인의 혈액(제14조의 규정에 의한 헌혈증서를 포함한다)을 제공하거나 이를 
+2. 누구든지 금전,재산상의 이익 기타 대가적 급부를 주거나 주기로 하고 타인의 혈액(제14조의 규정에 의한 헌혈증서를 포함한다)을 제공하거나 이를 
   약속하여서는 아니된다.
 
-③누구든지 제1항 및 제2항의 규정에 위반되는 행위를 교사,방조 또는 알선하여서는 아니된다.
+3. 누구든지 제1항 및 제2항의 규정에 위반되는 행위를 교사,방조 또는 알선하여서는 아니된다.
 
-④누구든지 제1항 및 제2항의 규정에 위반되는 행위가 있음을 안 때에는 그 행위와 관련되는 혈액을 채혈하거나 수혈하여서는 아니된다.
+4. 누구든지 제1항 및 제2항의 규정에 위반되는 행위가 있음을 안 때에는 그 행위와 관련되는 혈액을 채혈하거나 수혈하여서는 아니된다.
 
 <b>혈액관리법 제 18조(벌칙)</b>
 
-①제3조 규정에 위반한 자는 5년 이하의 징역 또는 2천만원 이하의 벌금에 처한다.
+1. 제3조 규정에 위반한 자는 5년 이하의 징역 또는 2천만원 이하의 벌금에 처한다.
                            </pre>
                             </div>
                             <hr>
@@ -1559,12 +1634,7 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
                         <div id="collapse2" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <pre>
-<span style="color:red; font-weight:bold">A</span> : 우리 몸에 있는 혈액량은 남자의 경우 체중의 8%, 여자는 7% 정도이다. 예를 들어 체중이 60Kg인 남자의 몸 속에는 약 4,800mL의 혈액이 있고,
-    50Kg인 여자는 3,500mL 정도의 혈액을 가지고 있다.
-
-    전체 혈액량의 15%는 비상시를 대비해 여유로 가지고 있는 것으로, 헌혈 후 충분한 휴식을 취하면 건강에 아무런 지장을 주지 않는다.
-
-    신체 내·외부의 변화에 대한 조절능력이 뛰어난 우리 몸은 헌혈 후 1~2일 정도면 일상생활에 지장이 없도록 혈관 내외의 혈액순환이 회복된다.
+<span style="color:red; font-weight:bold">A</span> : 우리 몸에 있는 혈액량은 남자의 경우 체중의 8%, 여자는 7% 정도이다. 예를 들어 체중이 60Kg인 남자의 몸 속에는 약 4,800mL의 혈액이 있고, 50Kg인 여자는 3,500mL 정도의 혈액을 가지고 있다. 전체 혈액량의 15%는 비상시를 대비해 여유로 가지고 있는 것으로, 헌혈 후 충분한 휴식을 취하면 건강에 아무런 지장을 주지 않는다. 신체 내·외부의 변화에 대한 조절능력이 뛰어난 우리 몸은 헌혈 후 1~2일 정도면 일상생활에 지장이 없도록 혈관 내외의 혈액순환이 회복된다.
                             </pre>
                             </div><hr>
                         </div>
@@ -1579,8 +1649,7 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
                         <div id="collapse3" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <pre>
-<span style="color:red; font-weight:bold">A</span> : 헌혈과정은 매우 안전하다. 헌혈에 사용되는 모든 기구(바늘, 혈액백 등)은 무균처리되어 있으며, 
-    한번 사용 후에는 모두 폐기처분 하기 때문에 헌혈로 인해 에이즈등 다른질병에 감염될 위험이 전혀 없다.
+<span style="color:red; font-weight:bold">A</span> : 헌혈과정은 매우 안전하다. 헌혈에 사용되는 모든 기구(바늘, 혈액백 등)은 무균처리되어 있으며, 한번 사용 후에는 모두 폐기처분 하기 때문에 헌혈로 인해 에이즈등 다른질병에 감염될 위험이 전혀 없다.
                                 </pre>
                             </div><hr>
                         </div>
@@ -1596,8 +1665,7 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
                     <div id="collapse4" class="panel-collapse collapse">
                         <div class="panel-body">
                             <pre>
-<span style="color:red; font-weight:bold">A</span> : 헌혈을 하면 헌혈량 만큼이 체외로 빠져나오는 것은 사실이지만 조직에 있던 혈액이 혈관 내로 바로 이동하여 보상하며,
-    이후 며칠 또는 몇 주간 음식 및 수분 섭취 등으로 원래 상태로 보충된다. 따라서 헌혈은 다이어트와는 무관하다.
+<span style="color:red; font-weight:bold">A</span> : 헌혈을 하면 헌혈량 만큼이 체외로 빠져나오는 것은 사실이지만 조직에 있던 혈액이 혈관 내로 바로 이동하여 보상하며, 이후 며칠 또는 몇 주간 음식 및 수분 섭취 등으로 원래 상태로 보충된다. 따라서 헌혈은 다이어트와는 무관하다.
                             </pre>
                         </div><hr>
                     </div>
@@ -1627,10 +1695,8 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
                     <div id="collapse6" class="panel-collapse collapse">
                         <div class="panel-body">
                             <pre>
-<span style="color:red; font-weight:bold">A</span> : 헌혈은 자기 몸에 여유로 가지고 있는 혈액을 나눠주는 것으로 헌혈 전에 충분한 혈액이 있는지를 판단하려고 적혈구 내의 혈색소(헤모글로빈)치를 
-    측정하기 때문에 헌혈로 빈혈에 걸리지는 않는다.
-
-    헌혈자를 보호하기 위하여 연간 헌혈가능 횟수도 전혈헌혈은 5회로 제한하고 있다.
+<span style="color:red; font-weight:bold">A</span> : 헌혈은 자기 몸에 여유로 가지고 있는 혈액을 나눠주는 것으로 헌혈 전에 충분한 혈액이 있는지를 판단하려고 적혈구 내의 혈색소(헤모글로빈)치를 측정하기 때문에 헌혈로 빈혈에 걸리지는 않는다.
+헌혈자를 보호하기 위하여 연간 헌혈가능 횟수도 전혈헌혈은 5회로 제한하고 있다.
                                </pre>
                         </div><hr>
                     </div>
@@ -1645,11 +1711,8 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
                     <div id="collapse7" class="panel-collapse collapse">
                         <div class="panel-body">
                             <pre>
-<span style="color:red; font-weight:bold">A</span> : 일시적으로 헌혈에 참여하지 못한 경우, 다시 헌혈에 참여하실 수 있다. 헌혈 부적격 사유는 매우 다양하지만 우리나라의 헌혈 부적격 사유 중 
-    가장 많은 비율을 차지하고 있는 것은 저비중(최근 5년간 부적격 사유 중 평균 43.7% 차지) 이다.
-
-    혈액속의 혈색소(헤모글로빈)는 항상 일정하지 않기 때문에 헌혈 전 검사를 통해 헌혈가능 여부를 확인하고 있으며, 기타 질병 또는 약복용과 관련된 부적격은 
-    사유별로 기간이 다르므로 헌혈의 집 간호사나 각 혈액원에 문의 하는 것이 좋다.
+<span style="color:red; font-weight:bold">A</span> : 일시적으로 헌혈에 참여하지 못한 경우, 다시 헌혈에 참여하실 수 있다. 헌혈 부적격 사유는 매우 다양하지만 우리나라의 헌혈 부적격 사유 중 가장 많은 비율을 차지하고 있는 것은 저비중(최근 5년간 부적격 사유 중 평균 43.7% 차지) 이다.
+혈액속의 혈색소(헤모글로빈)는 항상 일정하지 않기 때문에 헌혈 전 검사를 통해 헌혈가능 여부를 확인하고 있으며, 기타 질병 또는 약복용과 관련된 부적격은 사유별로 기간이 다르므로 헌혈의 집 간호사나 각 혈액원에 문의 하는 것이 좋다.
                            </pre>
                         </div><hr>
                     </div>
@@ -1665,9 +1728,7 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
                         <div class="panel-body">
                             <pre>
 <span style="color:red; font-weight:bold">A</span> : 헌혈자의 모든 헌혈기록이나 검사결과는 비밀이 보장되며, 본인이 아닌 다른 분들에게는 공개되지 않도록 법적으로 보호된다.
-
-    또한 개인정보보호를 위해 독립된 문진공간에서 문진이 진행되며 문진항목에 대한 답변또한 비밀이 유지된다. 또한 헌혈혈액 검사결과는 헌혈 후 1개월 정도 
-    이내에 개인이 원하는 장소로 검사결과통보서를 발송해 준다.
+또한 개인정보보호를 위해 독립된 문진공간에서 문진이 진행되며 문진항목에 대한 답변또한 비밀이 유지된다. 또한 헌혈혈액 검사결과는 헌혈 후 1개월 정도 이내에 개인이 원하는 장소로 검사결과통보서를 발송해 준다.
                                 </pre>
                         </div><hr>
                     </div>
@@ -1682,10 +1743,7 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
                     <div id="collapse9" class="panel-collapse collapse">
                         <div class="panel-body">
                             <pre>
-<span style="color:red; font-weight:bold">A</span> : 헌혈한 혈액은 혈액형검사, B형간염 항원검사, C형간염 항체검사, ALT검사, 매독항체검사, HIV검사를 실시하나 에이즈 검사를 목적으로 
-    헌혈에 참여하는 것을 막기 위해서 에이즈(HIV) 검사결과는 통보해 주지 않는다.
-
-    각 구청 보건소에서는 개인의 비밀을 보장하면서 에이즈 검사를 실시한다.
+<span style="color:red; font-weight:bold">A</span> : 헌혈한 혈액은 혈액형검사, B형간염 항원검사, C형간염 항체검사, ALT검사, 매독항체검사, HIV검사를 실시하나 에이즈 검사를 목적으로 헌혈에 참여하는 것을 막기 위해서 에이즈(HIV) 검사결과는 통보해 주지 않는다. 각 구청 보건소에서는 개인의 비밀을 보장하면서 에이즈 검사를 실시한다.
                                 </pre>
                         </div><hr>
                     </div>
@@ -1715,15 +1773,10 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
                     <div id="collapse11" class="panel-collapse collapse">
                         <div class="panel-body">
                             <pre>
-<span style="color:red; font-weight:bold">A</span> : 대한적십자사에서는 수혈자의 안전을 위해 HIV, 매독, B형 간염, C형 간염, 간기능 검사등을 실시한다. HIV와 간염 검사는 과거
-    효소면역검사법(EIA)을 이용하였는데 이 검사법은 바이러스에 감염되지 않았는데도 양성반응을 보이는 경우(가짜 양성, 위양성)가 있으며, 감염 후 혈액 내에
-    항원 또는 항체가 일정량 이상에 도달하지 못해 감염 여부를 진단할 수 없는 기간인 window period(잠복기)에는 혈액검사상 음성으로 판정될 수도 있었다. 
-    에이즈나 간염에 감염된 혈액이 수혈되었다고 하는 보도의 대부분은 검사로는 바이러스 감염여부를 알아낼 수 없는 잠복기에 수혈된 경우이다.
+<span style="color:red; font-weight:bold">A</span> : 대한적십자사에서는 수혈자의 안전을 위해 HIV, 매독, B형 간염, C형 간염, 간기능 검사등을 실시한다. HIV와 간염 검사는 과거 효소면역검사법(EIA)을 이용하였는데 이 검사법은 바이러스에 감염되지 않았는데도 양성반응을 보이는 경우(가짜 양성, 위양성)가 있으며, 감염 후 혈액 내에 항원 또는 항체가 일정량 이상에 도달하지 못해 감염 여부를 진단할 수 없는 기간인 window period(잠복기)에는 혈액검사상 음성으로 판정될 수도 있었다. 
+  에이즈나 간염에 감염된 혈액이 수혈되었다고 하는 보도의 대부분은 검사로는 바이러스 감염여부를 알아낼 수 없는 잠복기에 수혈된 경우이다.
 
-    대한적십자사는 이러한 EIA 검사법을 보완하기 위해 혈액 속 바이러스의 핵산을 분리, 증폭하여 그 감염 유무를 확인하는 핵산증폭검사(NAT)를 도입해, 지난 
-    2005년 2월부터 모든 헌혈혈액에 대해 검사를 실시하고 있다. 가장 선진화된 검사방법인 NAT 검사법은 기존의 효소면역측정법에 비하여 잠복기를 단축
-    (HIV-11일, C형 간염 - 23일)하여 조기에 바이러스 감염 여부를 진단할 수 있는 방법이다. 그러나 NAT 검사법 역시 에이즈의 경우에는 11일간, C형 간염의
-    경우에는 23일 정도의 잠복기를 가지고 있기 때문에 수혈로 인한 질병감염을 100% 막을 수는 없다.
+  대한적십자사는 이러한 EIA 검사법을 보완하기 위해 혈액 속 바이러스의 핵산을 분리, 증폭하여 그 감염 유무를 확인하는 핵산증폭검사(NAT)를 도입해, 지난 2005년 2월부터 모든 헌혈혈액에 대해 검사를 실시하고 있다. 가장 선진화된 검사방법인 NAT 검사법은 기존의 효소면역측정법에 비하여 잠복기를 단축 (HIV-11일, C형 간염 - 23일)하여 조기에 바이러스 감염 여부를 진단할 수 있는 방법이다. 그러나 NAT 검사법 역시 에이즈의 경우에는 11일간, C형 간염의 경우에는 23일 정도의 잠복기를 가지고 있기 때문에 수혈로 인한 질병감염을 100% 막을 수는 없다.
                                 </pre>
                         </div><hr>
                     </div>
@@ -1738,13 +1791,9 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
                     <div id="collapse12" class="panel-collapse collapse">
                         <div class="panel-body">
                             <pre>
-<span style="color:red; font-weight:bold">A</span> : 많은 사람들이 아직도 혈액사업에 대해 많은 오해를 가지고 있다. 가장 많은 오해가 바로 혈액을 병원에 공급하고 받는 혈액수가와 
-    연관된 부분일 것이다.
-
-    대한적십자사는 혈액관리에 사용되는 재원을 혈액수가에만 의존하고 있으며, 국민들이 지로 형태로 납부하는 적십자회비와는 전혀 무관하다."
-
-    혈액수가는 혈액원의 인건비, 의료품비, 기념품비, 헌혈의 집 임대비등 운영비와 홍보비 등에 사용되며, 우리나라의 혈액수가는 일본, 미국 등 주요 OECD국가의
-    1/4 수준이다. 
+<span style="color:red; font-weight:bold">A</span> : 많은 사람들이 아직도 혈액사업에 대해 많은 오해를 가지고 있다. 가장 많은 오해가 바로 혈액을 병원에 공급하고 받는 혈액수가와 연관된 부분일 것이다.
+대한적십자사는 혈액관리에 사용되는 재원을 혈액수가에만 의존하고 있으며, 국민들이 지로 형태로 납부하는 적십자회비와는 전혀 무관하다.
+ 혈액수가는 혈액원의 인건비, 의료품비, 기념품비, 헌혈의 집 임대비등 운영비와 홍보비 등에 사용되며, 우리나라의 혈액수가는 일본, 미국 등 주요 OECD국가의 1/4 수준이다. 
                                 </pre>
                         </div><hr>
                     </div>
@@ -1761,7 +1810,8 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
 혈액이 모자라는 환자에게 <span style="color:red">혈액을 주입</span>해 주는 치료 방법
                    </pre>
                 </div><br>
-                <div id="info6-2">
+                <div id="info6-2" style="height:500px;">
+               
                     <h5>수혈이란?</h5>
                     <hr align="left" style="border: solid 1px red; width: 5%;">
                     <pre>
@@ -1778,12 +1828,14 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
                     
                 </pre>
                 </div>
+                 <br><br><br>
                 <div id="info6-3_title">
+                
                     <h5>최초의 수혈과 금지령</h5>
-                    <hr align="left" style="border: solid 1px red; width: 5%;">
+                     <hr align="left" style="border: solid 1px red; width: 5%;">
                 </div>
                 <div id="info6_img1"></div>
-                <div id="info6-3-1">
+                <div id="info6-3-1" style=" height:280px;">
                     <pre>
 * 피를 혈관 내로 주입하는 방법, 즉 수혈이라는 것은 1628년 William Harvey에 의해 혈액 이 우리 몸 속에서 어떻게 순환하는지에
   대해 규명된 이후 시도되었음.
@@ -1794,7 +1846,7 @@ D는 있지만 C, c, E, e가 없는 혈액형이 있는데, 이 경우 C와 E �
                 </div>
 
                 <div id="info6_img2"></div>
-                <div id="info6-3-2">
+                <div id="info6-3-2" style=" height:230px;">
                     <pre>
 * 사람에게 시행한 최초의 수혈은 루이 14세의 주치의인 Jean Denis라는 의사가 1667년 6월에 원인 모를 열병을 앓고 있었던 15세 
   소년을 대상으로 어린 양의 혈액을 수혈한 것이 인류 최초의 수혈이었음. 그러나, 수혈치료를 받던 Denis의 환자가 수혈장치 고장으로
@@ -1856,146 +1908,31 @@ O형으로 이름을 고침) 세가지로 분류
                 </div>
 
             </div>
-
-
+</div>
+</div>
         </div>
+        
+      
+   
 </div>
 
         <!-- infoDiv script -->
         <script>
+       
+			        
             function showDiv(clicked_info) {
+            	
+            	var val = clicked_info.value;
                 $(".infoDiv").css('display', 'none');
-                $("#" + clicked_info + "").css('display', 'block');
+                $("#" + val + "").css('display', 'block');
+                $("button[name=mybtn]").css("background",'white');
+                $("button[name=mybtn]").css("color",'black');
+                $(clicked_info).css("background",'#c81a00');
+				$(clicked_info).css("color",'white');
             }
 
         </script>
 
-<script type='text/javascript'>
-
-	
-		
-	$("#loginbtn").click(function(){
-		var url = "${param.url }";
-		var userId = $("#userId").val().trim();
-		var userPwd = $("#userPwd").val().trim();
-		$.ajax({
-			
-			url:"/login",
-			type:"post",
-			data:{url : url,userId : userId, userPwd : userPwd},
-			success:function(data){
-					if(data == "false"){
-						
-						alert("로그인 실패 : 아이디와 비밀번호를 확인하세요");
-					}else{
-						
-						window.location.reload();
-					}
-					
-				}
-				
-		})
-		
-		
-	});
-
-
-function onSignIn(googleUser) {
-	  var profile = googleUser.getBasicProfile();
-	 
-	  var id = profile.getId();
-	  var name = profile.getName();
-      var email = profile.getEmail();
-      var auth2 = gapi.auth2.getAuthInstance();
-     
-      auth2.disconnect();
-      
-      $.ajax({
-   	   
-  		url:"/googleLogin",
-			type:"post",
-			data:{id : id, email : email, name : name},
-			success:function(data){
-					if(data == "success"){
-						window.location.reload();
-						
-					}else{
-						window.location.href="/views/member/googleEnroll.jsp?id="+id+"&email="+email+"&name="+name;
-					}
-					
-				}
-  	   
-     })
-      
-
-	  
-	  // This is null if the 'email' scope is not present.
-	}
-
-
-/* function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-    auth2.disconnect();
-  } */
-
-    // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('0826bd103c5aa70c650709d1fc259e46');
-    // 카카오 로그인 버튼을 생성합니다.
-    Kakao.Auth.createLoginButton({
-      container: '#kakao-login-btn',
-      success: function(authObj) {
-    	   Kakao.Auth.loginForm({
-               success: function(res) {
-            	   Kakao.API.request({
-          	          url: '/v2/user/me',
-          	          success: function(res) {
-          	        	var id = res.id;
-                        var email = res.kakao_account.email;
-                       $.ajax({
-                    	   
-                    		url:"/kakaoTalkLogin",
-                			type:"post",
-                			data:{id : id, email : email},
-                			success:function(data){
-                					if(data == "success"){
-                						window.location.reload();
-                						
-                					}else{
-                						window.location.href="views/member/kakaoEnroll.jsp?id="+id+"&email="+email;
-                					}
-                					
-                				}
-                    	   
-                       })
-                        
-                     
-          	          },
-          	          fail: function(error) {
-          	            alert(JSON.stringify(error));
-          	          }
-            	   })
-               }
-                 /* alert(JSON.stringify(res));
-                 var id = res.id;
-                 var email = res.kakao_account.email;
-                 var gender = res.kakao_account.gender; */
-                 //window.location.href="/kakaoTalkLogin?id="+id+"&email="+email+"&gender="+gender;
-               ,
-               fail: function(err) {
-                 alert(JSON.stringify(err));
-               }
-            })
-               
-        
-      },
-      fail: function(err) {
-        alert(JSON.stringify(err));
-      }
-    });
-    </script>
     
 
 

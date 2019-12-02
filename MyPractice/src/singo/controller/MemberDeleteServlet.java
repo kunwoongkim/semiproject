@@ -40,10 +40,10 @@ public class MemberDeleteServlet extends HttpServlet {
 		int result = new SingoService().singoDelete(reportedId);
 
 		if (result > 0) {
-			response.sendRedirect("/index.jsp");
+			response.sendRedirect("/singoList");
 
 		} else {
-			response.sendRedirect("/views/member/Error.html");
+			response.sendRedirect("/views/member/ErrorSingo.jsp");
 		}
 	}
 

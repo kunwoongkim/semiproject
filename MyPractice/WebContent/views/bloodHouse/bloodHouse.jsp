@@ -24,6 +24,7 @@
 	 <meta name = "google-signin-client_id" content = "181826323862-29136l7je3lvb232vlm92q7a785hsq5n.apps.googleusercontent.com">
 
 <style>
+   @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
 body{
  position: relative;
 }
@@ -38,43 +39,39 @@ left:2500px;
 
 div {
    box-sizing: border-box;
-   
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 #container {
-   height: 1300px;
-   width: 2400px;
+  	height: 1500px;
+		width: 100%;
 }
 
-#header {
-   height: 7%;
-   width: 100%;
-}
+
 
 #content {
-   height: 80%;
+	float: left;
+   height: 90%;
    width: 100%;
 }
 
 #footer {
    height: 5%;
    width: 100%;
+      margin-top: 2200px;
+   background: black;
 }
 
 #header1 {
-   float: left;
+ float: left;
    height: 100%;
    width: 25%;
-   color: black;
+   color: dimgrey;
 }
 
-#title{
-		
-		font-size : 60px;
-		margin-right : 20px;
-		color : #515151;
-		
-	}
+#title {
+   margin-top: 7px;
+}
 
 #header2 {
    float: left;
@@ -95,63 +92,64 @@ input[id^=search] {
 #content1 {
    float: left;
    height: 100%;
-   width: 25%;
-   
+   width: 20%;
 }
 
 #content2 {
    float: left;
    height: 100%;
-   width: 75%;
+   width: 80%;
 }
-
 #content1-1 {
    float: left;
-   height: 15%;
+   height: 10%;
    width: 100%;
+   border-right: 0.1em solid #dddfe3;
+   padding:0.1em;
 }
 
 #content1-2 {
    float: left;
-   height: 85%;
+   height: 100%;
    width: 100%;
+   border-right: 0.1em solid #dddfe3;
+   padding:0.1em;
 }
 
 #content1-2-1 {
    float: left;
-   height: 10%;
+   height: 5%;
    width: 100%;
-   
 }
 
 #content1-2-2 {
    float: left;
-   height: 10%;
+   height: 5%;
    width: 100%;
 }
 
 #content1-2-3 {
    float: left;
-   height: 10%;
+   height: 5%;
    width: 100%;
 }
 
 #content1-2-4 {
    float: left;
-   height: 10%;
+   height: 5%;
    width: 100%;
 }
 
 #content2-1 {
    float: left;
    width: 100%;
-   height: 15%
+   height: 10%
 }
 
 #content2-2 {
    float: left;
    width: 100%;
-   height: 85%;
+   height: 100%;
 }
 
 #content2-2-1 {
@@ -257,9 +255,7 @@ i[name=usericon] {
    text-align: center;
 }
 
-#logintext {
-   font-size: 20px;
-}
+
 
 #header3-1 {
    float: left;
@@ -280,9 +276,12 @@ i[name=usericon] {
 }
 
 button[name=mybtn] {
-   height: 100%;
+    height: 100%;
    width: 100%;
-   font-size: 20px;
+   font-size: 25px;
+   font-weight:bold;
+   background:#c81a00;
+   color:white;
 }
 
 table {
@@ -292,7 +291,7 @@ table {
 th {
    width: 90px;
    text-align: center;
-   background-color: #E71D36;
+   background-color: #c81a00;
    color:white;
 }
 
@@ -334,18 +333,15 @@ a:visited {
 background-color: #fffef7;
 }
 
-#title-2{
-border:bold;
-font-size:55px;
-color: #515151;
-}
-
 
 	#searchbtn{
 		margin-top: 25px;
 		height: 40px;
 	}
-
+#img_icon1{
+   width:30px;
+   height:30px;
+}
 </style>
 
 </head>
@@ -364,13 +360,13 @@ color: #515151;
             <div id="content1-1">
                <center>
                   <br>
-                  <h1 id="title-2">헌혈의집</h1>
+                  <h1 style="color: dimgrey; font-weight: bold;">헌혈의집 찾기</h1>
                </center>
             </div>
             <div id="content1-2">
                <div id="content1-2-1" >
 
-                  <a href="/bloodHouse"><button class="btn btn-danger" name="mybtn" >헌혈의집
+                  <a href="/bloodHouse"><button class="btn btn-danger" name="mybtn" style="font-size:25px">헌혈의집
                         찾기</button></a>
                </div>
 
@@ -379,9 +375,15 @@ color: #515151;
          </div>
          <div id="content2">
             <div id="content2-1">
-               &nbsp; <br>
-               <h2>&nbsp;&nbsp;&nbsp;&nbsp;헌혈의집 찾기</h2>
-               <hr><hr>
+              &nbsp; <br>
+               <h6 style="color: gray">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="img_icon1"
+                     src="/images/login_icon.png"
+                     width="30px ">헌혈의집 찾기 
+               </h6>
+
+               <h1 style="font-weight: bold; color: dimgrey">&nbsp;&nbsp;&nbsp;헌혈의집 찾기</h1><hr>
+            
             </div>
             <div id="content2-2">
                <div id="content2-2-1"></div>

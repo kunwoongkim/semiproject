@@ -17,7 +17,7 @@ public class SingoDao {
 	public int singoDelete(Connection conn, String reportedId) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query = "DELETE CASCADE FROM MEMBER WHERE USER_ID = ?"; 
+		String query = "DELETE FROM MEMBER WHERE USER_NICKNAME = ?"; 
 		
 		try {
 			pstmt = conn.prepareStatement(query);

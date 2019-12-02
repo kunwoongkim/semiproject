@@ -17,137 +17,121 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
 <style>
-	div{
-		
-		box-sizing: border-box;
-	}
-	
+	      @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+   
+
+div {
+ /*   border: 1px solid black; */
+   box-sizing: border-box;
+   font-family: 'Nanum Gothic', sans-serif;
+}
 	#container{
 		
-		
-		height: 1300px;
-		width: 2400px;
+	  height: 1500px;
+      width: 100%;
 		
 		
 		
 	}
 
-	#header{
-		height: 7%;
-		width: 100%;
-		
-	}
-	
-	#content{
-		height: 80%;
-		width: 100%;
-		
-	}
-	#footer{
-		height: 5%;
-		width: 100%;
-	
-		
-	}
-	#header1{
-		 float: left;
-		height: 100%;
-		width: 25%;
-		color: black;
-		
-	}
+
+#content {
+   float: left;
+   height: 90%;
+   width: 100%;
+}
+#footer { /* 모든페이지에 추가  */
+   height: 5%;
+   width: 100%;
+   margin-top: 2000px;
+   background: black;
+   
+}
+
 	#title{
 		margin-top: 7px;
 	}
-	#header2{
-		 float: left;
-		height: 100%;
-		width: 55%;
-	}
-	#header3{
-		 float: left;
-		height: 100%;
-		width: 20%;
-		
-		
-	}
+
 	input[id^=search]{
 		margin-top: 20px;
 	}
 	
-	#content1{
-		 float: left;
-		height: 100%;
-		width: 25%;
-		
-	}
-	#content2{
-		 float: left;
-		height: 100%;
-		width: 75%;
-		
-	}
-	#content1-1{
-		 float: left;
-		height: 15%;
-		width: 100%;
-	}
-	#content1-2{
-		 float: left;
-		height: 85%;
-		width: 100%;
+#content1 {
+   float: left;
+   height: 100%;
+   width: 20%;
+}
+
+#content2 {
+   float: left;
+   height: 100%;
+   width: 80%;
+}
+
+#content1-1 {
+   float: left;
+   height: 10%;
+   width: 100%;
+   border-right: 0.1em solid #dddfe3;
+   padding:0.1em;
+}
+#content1-2 {
+   float: left;
+   height: 100%;
+   width: 100%;
+   border-right: 0.1em solid #dddfe3;
+   padding:0.1em;
+}
+
 	
-		
-	}
-	
-		#content1-2-1{
-		float: left;
-		height: 10%;
-		width: 100%;
-		
-	}
+#content1-2-1 {
+   float: left;
+   height: 5%;
+   width: 100%;
+}
 		#content1-2-2{
-		float: left;
-		height: 10%;
-		width: 100%;
+   float: left;
+   height: 5%;
+   width: 100%;
 		
 	}
 		#content1-2-3{
-		float: left;
-		height: 10%;
-		width: 100%;
+	   float: left;
+   height: 5%;
+   width: 100%;
 		
 	
 	}
 		#content1-2-4{
-		float: left;
-		height: 10%;
-		width: 100%;
+   float: left;
+   height: 5%;
+   width: 100%;
 		
 	}
 	
 	#content1-2-5{
-		float: left;
-		height: 10%;
-		width: 100%;
+   float: left;
+   height: 5%;
+   width: 100%;
 		
 	}
 	#content2-1{
 		float: left;
 		width: 100%;
-		height: 15%
+   height: 10%
 	}
-	#content2-2{
-			float: left;
-		width: 100%;
-		height: 85%;
-		
-	}
-	#content2-2-1{
-		 float: left;
-		height:100%;
-		width:15%;
-	}
+#content2-2 {
+   float: left;
+   width: 100%;
+   height: 100%;
+}
+
+#content2-2-1 {
+   float: left;
+   height: 100%;
+   width: 15%;
+}
+
 	#content2-2-2{
 		 float: left;
 		height:100%;
@@ -279,11 +263,15 @@
 		width: 100%;
 	}
 	
-	button[name=mybtn]{
-		height: 100%;
-		width: 100%;
-		font-size: 20px;
-	}
+	button[name=mybtn] {
+   height: 100%;
+   width: 100%;
+   font-size: 25px;
+   font-weight:bold;
+   background:#c81a00;
+   color:white;
+   
+}
 	
 	table{
 		border : 1px solid #EAEAEA;
@@ -329,6 +317,44 @@
 	
 		margin-left: 340px;
 	}
+	button[name=mybtn] {
+   height: 100%;
+   width: 100%;
+   font-size: 25px;
+   font-weight:bold;
+   background:white;
+   color:dimgrey;
+   
+}
+	
+	button[name=mybtn]:hover{                                    /*  */
+    box-shadow:200px 0 0 150px rgba(200,26,0,1) inset; 
+    }
+    
+    #removebtn{
+    background:#c81a00;
+   color:white;
+    }
+    
+    #img_icon1{
+   width:30px;
+   height:30px;
+}
+#emailbtn{
+ border: 0px;
+   background: #c81a00;
+   color:white;
+   /*border:1px solid #999999;*/
+   border-radius: 3px;
+   font-size:17px;
+   width:120px;
+   height:38px;
+   cursor: pointer;
+   text-align:center; 
+}
+   #emailbtn:hover{
+   box-shadow:-200px 0 0 0 rgba(255,255,255,0.5) inset;
+   } 
 	</style>
 	
 </head>
@@ -344,41 +370,51 @@
 		
 		<div id = "content1">
 		
-		<div id = "content1-1"><center><br><h1>마이페이지</h1></center></div>
+		<div id = "content1-1">
+		<center>
+		<br>
+		 <h1 style="color: dimgrey; font-weight: bold;">마이페이지</h1>
+		</center></div>
 		<div id= "content1-2">
 		<div id = "content1-2-1">
 				
-			<a href="/updateReady"><button class="btn" name="mybtn">회원정보수정</button></a>
+			<a href="/updateReady"><button class="btn" name="mybtn">회원 정보 수정</button></a>
 			</div>
 			<div id = "content1-2-2">
 				
-			<a href="/views/member/Repwd.jsp"><button class="btn" name="mybtn">비밀번호수정</button></a>
+			<a href="/views/member/Repwd.jsp"><button class="btn" name="mybtn">비밀번호 변경</button></a>
 			</div>
 				<div id = "content1-2-3">
 		
-		<button class="btn" name="mybtn" id="myboard">내가쓴글보기</button>
+		<button class="btn" name="mybtn" id="myboard">내가 쓴 글보기</button>
 			
 			
 			</div>
 				<div id = "content1-2-4">
 		
-			<button class="btn" name="mybtn" id="mycomment">내가쓴댓글보기</button>
+			<button class="btn" name="mybtn" id="mycomment">내가 쓴 댓글보기</button>
 			
 			
 			</div>
 			<div id = "content1-2-5">
 		
-			<a href="/views/member/remove.jsp"><button class="btn btn-danger" name="mybtn" id = "removebtn">회원탈퇴</button></a>
+			<a href="/views/member/remove.jsp"><button class="btn" name="mybtn" id = "removebtn">회원탈퇴</button></a>
 			
 			
 			</div>
 			</div>
 		</div>
 		<div id = "content2">
-		<div id = "content2-1">&nbsp;
-			<br>
-			<h2>&nbsp;&nbsp;&nbsp;&nbsp;비밀번호변경</h2>
-			<hr>
+		<div id = "content2-1">
+		  &nbsp; <br>
+               <h6 style="color: gray">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="img_icon1"
+                     src="/images/login_icon.png"
+                     width="30px ">마이페이지 > 회원탈퇴
+               </h6>
+
+               <h1 style="font-weight: bold; color: dimgrey">&nbsp;&nbsp;&nbsp;회원탈퇴</h1>
+               <hr>
 			</div>
 		<div id ="content2-2">
 			<div id="content2-2-1"></div>
@@ -389,7 +425,7 @@
 			 비밀번호 입력:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
 			<div class="input-group mb-3" id="pwd">
     <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" id="pass" >
-    <div class="input-group-append" >
+    <div class="input-group-append" >&nbsp;&nbsp;&nbsp;
      <input type="button" value="인증번호받기" id="emailbtn">
     </div>
   </div> 	
@@ -418,9 +454,14 @@
 			</div>
 		</div>
 		</div>
-	<div id= "footer">
-		<center><h6 style="color: darkgray">Copyright KH Corp.All rights reserved</h6></center>
-		</div>
+   <div id="footer" class="py-5 bg-black ">
+
+         <div class="container">
+            <p class="m-0 text-center text-white small">Copyright &copy;
+               Your Website 2019</p>
+         </div>
+
+      </div>
 	
 	</div>
 	

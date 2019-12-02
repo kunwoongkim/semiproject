@@ -43,7 +43,7 @@ public class MyCommentServlet extends HttpServlet {
 		}	
 		
 			HttpSession session = request.getSession();
-			String userId =((Member) session.getAttribute("member")).getUserId();
+			String userId =((Member) session.getAttribute("member")).getUserNickName();
 			PageData pd = new BoardService().CommentAll(userId, currentPage);
 			
 			if(pd!=null) {
